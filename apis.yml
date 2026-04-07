@@ -8,8 +8,7 @@ type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
+tags: []
 created: '2025-05-02'
 modified: '2025-05-02'
 url: >-
@@ -24,8 +23,7 @@ apis:
       Podcast experiences without the heavy lifting of indexing, aggregation and data
       management.
     humanURL: ' https://podcastindex-org.github.io/docs-api/#overview--example-code'
-    tags:
-      - API
+    tags: []
     properties:
       - type: Documentation
         url: ' https://podcastindex-org.github.io/docs-api/#overview--example-code'
