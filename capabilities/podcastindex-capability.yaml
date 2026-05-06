@@ -1,0 +1,1647 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PodcastIndex.org API
+  description: 'Download the openapi spec in [json](pi_api.json) or [yaml](pi_api.yaml) format. # Overview The Podcast Index
+    (Podcast Index LLC) is a software developer focused partnership that provides tools and data to anyone who aspires to
+    create new and exciting Podcast experiences without the heavy lifting of indexing, aggregation and data management. #
+    Example Code Users have provided example code for working the API in the following languages: - [AWS Lambda - python](https://github.com/tbowers/python-podcastindex-org-lambda)
+    - [Bash](https://github.com/suorcd/Bash-podcastindex-org-example) - [C#](https'
+  tags:
+  - Podcastindex
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: podcastindex
+    baseUri: https://api.podcastindex.org/api/1.0
+    description: PodcastIndex.org API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: User-Agent
+      value: '{{PODCASTINDEX_TOKEN}}'
+    resources:
+    - name: search
+      path: /search
+      operations:
+      - name: search
+        method: GET
+        description: Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: lookup
+      path: /lookup
+      operations:
+      - name: lookup
+        method: GET
+        description: Lookup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: search-byterm
+      path: /search/byterm
+      operations:
+      - name: search-byterm
+        method: GET
+        description: Search Podcasts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: search-bytitle
+      path: /search/bytitle
+      operations:
+      - name: search-bytitle
+        method: GET
+        description: Search Podcasts by Title
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: search-byperson
+      path: /search/byperson
+      operations:
+      - name: search-byperson
+        method: GET
+        description: Search Episodes by Person
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: search-music-byterm
+      path: /search/music/byterm
+      operations:
+      - name: search-music-byterm
+        method: GET
+        description: Search Music Podcasts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-byfeedid
+      path: /podcasts/byfeedid
+      operations:
+      - name: podcasts-byfeedid
+        method: GET
+        description: By Feed ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-byfeedurl
+      path: /podcasts/byfeedurl
+      operations:
+      - name: podcasts-byfeedurl
+        method: GET
+        description: By Feed URL
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-byitunesid
+      path: /podcasts/byitunesid
+      operations:
+      - name: podcasts-byitunesid
+        method: GET
+        description: By iTunes ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-byguid
+      path: /podcasts/byguid
+      operations:
+      - name: podcasts-byguid
+        method: GET
+        description: By GUID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-bytag
+      path: /podcasts/bytag
+      operations:
+      - name: podcasts-bytag
+        method: GET
+        description: By Tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-bymedium
+      path: /podcasts/bymedium
+      operations:
+      - name: podcasts-bymedium
+        method: GET
+        description: By Medium
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-trending
+      path: /podcasts/trending
+      operations:
+      - name: podcasts-trending
+        method: GET
+        description: Trending
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-dead
+      path: /podcasts/dead
+      operations:
+      - name: podcasts-dead
+        method: GET
+        description: Dead
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-batch-byguid
+      path: /podcasts/batch/byguid
+      operations:
+      - name: podcasts-batch-byguid
+        method: POST
+        description: Batch By Feed GUID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: episodes-byfeedid
+      path: /episodes/byfeedid
+      operations:
+      - name: episodes-byfeedid
+        method: GET
+        description: By Feed ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: episodes-byfeedurl
+      path: /episodes/byfeedurl
+      operations:
+      - name: episodes-byfeedurl
+        method: GET
+        description: By Feed URL
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: episodes-bypodcastguid
+      path: /episodes/bypodcastguid
+      operations:
+      - name: episodes-bypodcastguid
+        method: GET
+        description: By Podcast GUID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: episodes-byitunesid
+      path: /episodes/byitunesid
+      operations:
+      - name: episodes-byitunesid
+        method: GET
+        description: By iTunes ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: episodes-byid
+      path: /episodes/byid
+      operations:
+      - name: episodes-byid
+        method: GET
+        description: By ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: episodes-byguid
+      path: /episodes/byguid
+      operations:
+      - name: episodes-byguid
+        method: GET
+        description: By GUID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: episodes-live
+      path: /episodes/live
+      operations:
+      - name: episodes-live
+        method: GET
+        description: Live
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: episodes-random
+      path: /episodes/random
+      operations:
+      - name: episodes-random
+        method: GET
+        description: Random
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recent-episodes
+      path: /recent/episodes
+      operations:
+      - name: recent-episodes
+        method: GET
+        description: Episodes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recent-feeds
+      path: /recent/feeds
+      operations:
+      - name: recent-feeds
+        method: GET
+        description: Feeds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recent-newfeeds
+      path: /recent/newfeeds
+      operations:
+      - name: recent-newfeeds
+        method: GET
+        description: New Feeds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recent-newvaluefeeds
+      path: /recent/newvaluefeeds
+      operations:
+      - name: recent-newvaluefeeds
+        method: GET
+        description: New Value Feeds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recent-data
+      path: /recent/data
+      operations:
+      - name: recent-data
+        method: GET
+        description: Recent Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recent-soundbites
+      path: /recent/soundbites
+      operations:
+      - name: recent-soundbites
+        method: GET
+        description: Soundbites
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: value-byfeedid
+      path: /value/byfeedid
+      operations:
+      - name: value-byfeedid
+        method: GET
+        description: By Feed ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: value-byfeedurl
+      path: /value/byfeedurl
+      operations:
+      - name: value-byfeedurl
+        method: GET
+        description: By Feed URL
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: value-bypodcastguid
+      path: /value/bypodcastguid
+      operations:
+      - name: value-bypodcastguid
+        method: GET
+        description: By Feed GUID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: value-byepisodeguid
+      path: /value/byepisodeguid
+      operations:
+      - name: value-byepisodeguid
+        method: GET
+        description: By Episode GUID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: value-batch-byepisodeguid
+      path: /value/batch/byepisodeguid
+      operations:
+      - name: value-batch-byepisodeguid
+        method: POST
+        description: Batch By Episode GUID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: stats-current
+      path: /stats/current
+      operations:
+      - name: stats-current
+        method: GET
+        description: Current
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: categories-list
+      path: /categories/list
+      operations:
+      - name: categories-list
+        method: GET
+        description: List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: hub-pubnotify
+      path: /hub/pubnotify
+      operations:
+      - name: hub-pubnotify
+        method: GET
+        description: Pub Notify
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: add-byfeedurl
+      path: /add/byfeedurl
+      operations:
+      - name: add-byfeedurl-get
+        method: GET
+        description: By Feed URL
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: add-byfeedurl-post
+        method: POST
+        description: By Feed URL
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: add-byitunesid
+      path: /add/byitunesid
+      operations:
+      - name: add-byitunesid-get
+        method: GET
+        description: By iTunes ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: add-byitunesid-post
+        method: POST
+        description: By iTunes ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: static-stats-daily-counts-json
+      path: /static/stats/daily_counts.json
+      operations:
+      - name: daily-counts-json
+        method: GET
+        description: Stats Daily Counts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: static-stats-hourly-counts-json
+      path: /static/stats/hourly_counts.json
+      operations:
+      - name: hourly-counts-json
+        method: GET
+        description: Stats Hourly Counts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: static-stats-chart-data-json
+      path: /static/stats/chart-data.json
+      operations:
+      - name: chart-data-json
+        method: GET
+        description: v4v Sats
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: static-stats-v4vmusic-json
+      path: /static/stats/v4vmusic.json
+      operations:
+      - name: v4vmusic-json
+        method: GET
+        description: v4v Music Chart JSON
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: static-stats-v4vmusic-opml
+      path: /static/stats/v4vmusic.opml
+      operations:
+      - name: v4vmusic-opml
+        method: GET
+        description: v4v Music Chart OPML
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: static-stats-v4vmusic-rss
+      path: /static/stats/v4vmusic.rss
+      operations:
+      - name: v4vmusic-rss
+        method: GET
+        description: v4v Music Chart RSS
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: static-tracking-current
+      path: /static/tracking/current
+      operations:
+      - name: current
+        method: GET
+        description: Current
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: static-tracking-feedvalueblocks
+      path: /static/tracking/feedValueBlocks
+      operations:
+      - name: feedvalueblocks-json
+        method: GET
+        description: Feed Value Blocks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: static-tracking-episodevalueblocks
+      path: /static/tracking/episodeValueBlocks
+      operations:
+      - name: episodevalueblocks-json
+        method: GET
+        description: Episode Value Blocks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: static-public-podcastindex-dead-feeds-csv
+      path: /static/public/podcastindex_dead_feeds.csv
+      operations:
+      - name: podcastindex-dead-feeds-csv
+        method: GET
+        description: Dead Feeds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: static-public-podcastindex-feeds-db-tgz
+      path: /static/public/podcastindex_feeds.db.tgz
+      operations:
+      - name: podcastindex-feeds-db-tgz
+        method: GET
+        description: Feeds Database
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: podcastindex-rest
+    description: REST adapter for PodcastIndex.org API.
+    resources:
+    - path: /search
+      name: search
+      operations:
+      - method: GET
+        name: search
+        description: Search
+        call: podcastindex.search
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /lookup
+      name: lookup
+      operations:
+      - method: GET
+        name: lookup
+        description: Lookup
+        call: podcastindex.lookup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /search/byterm
+      name: search-byterm
+      operations:
+      - method: GET
+        name: search-byterm
+        description: Search Podcasts
+        call: podcastindex.search-byterm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /search/bytitle
+      name: search-bytitle
+      operations:
+      - method: GET
+        name: search-bytitle
+        description: Search Podcasts by Title
+        call: podcastindex.search-bytitle
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /search/byperson
+      name: search-byperson
+      operations:
+      - method: GET
+        name: search-byperson
+        description: Search Episodes by Person
+        call: podcastindex.search-byperson
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /search/music/byterm
+      name: search-music-byterm
+      operations:
+      - method: GET
+        name: search-music-byterm
+        description: Search Music Podcasts
+        call: podcastindex.search-music-byterm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /podcasts/byfeedid
+      name: podcasts-byfeedid
+      operations:
+      - method: GET
+        name: podcasts-byfeedid
+        description: By Feed ID
+        call: podcastindex.podcasts-byfeedid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /podcasts/byfeedurl
+      name: podcasts-byfeedurl
+      operations:
+      - method: GET
+        name: podcasts-byfeedurl
+        description: By Feed URL
+        call: podcastindex.podcasts-byfeedurl
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /podcasts/byitunesid
+      name: podcasts-byitunesid
+      operations:
+      - method: GET
+        name: podcasts-byitunesid
+        description: By iTunes ID
+        call: podcastindex.podcasts-byitunesid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /podcasts/byguid
+      name: podcasts-byguid
+      operations:
+      - method: GET
+        name: podcasts-byguid
+        description: By GUID
+        call: podcastindex.podcasts-byguid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /podcasts/bytag
+      name: podcasts-bytag
+      operations:
+      - method: GET
+        name: podcasts-bytag
+        description: By Tag
+        call: podcastindex.podcasts-bytag
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /podcasts/bymedium
+      name: podcasts-bymedium
+      operations:
+      - method: GET
+        name: podcasts-bymedium
+        description: By Medium
+        call: podcastindex.podcasts-bymedium
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /podcasts/trending
+      name: podcasts-trending
+      operations:
+      - method: GET
+        name: podcasts-trending
+        description: Trending
+        call: podcastindex.podcasts-trending
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /podcasts/dead
+      name: podcasts-dead
+      operations:
+      - method: GET
+        name: podcasts-dead
+        description: Dead
+        call: podcastindex.podcasts-dead
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /podcasts/batch/byguid
+      name: podcasts-batch-byguid
+      operations:
+      - method: POST
+        name: podcasts-batch-byguid
+        description: Batch By Feed GUID
+        call: podcastindex.podcasts-batch-byguid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /episodes/byfeedid
+      name: episodes-byfeedid
+      operations:
+      - method: GET
+        name: episodes-byfeedid
+        description: By Feed ID
+        call: podcastindex.episodes-byfeedid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /episodes/byfeedurl
+      name: episodes-byfeedurl
+      operations:
+      - method: GET
+        name: episodes-byfeedurl
+        description: By Feed URL
+        call: podcastindex.episodes-byfeedurl
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /episodes/bypodcastguid
+      name: episodes-bypodcastguid
+      operations:
+      - method: GET
+        name: episodes-bypodcastguid
+        description: By Podcast GUID
+        call: podcastindex.episodes-bypodcastguid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /episodes/byitunesid
+      name: episodes-byitunesid
+      operations:
+      - method: GET
+        name: episodes-byitunesid
+        description: By iTunes ID
+        call: podcastindex.episodes-byitunesid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /episodes/byid
+      name: episodes-byid
+      operations:
+      - method: GET
+        name: episodes-byid
+        description: By ID
+        call: podcastindex.episodes-byid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /episodes/byguid
+      name: episodes-byguid
+      operations:
+      - method: GET
+        name: episodes-byguid
+        description: By GUID
+        call: podcastindex.episodes-byguid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /episodes/live
+      name: episodes-live
+      operations:
+      - method: GET
+        name: episodes-live
+        description: Live
+        call: podcastindex.episodes-live
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /episodes/random
+      name: episodes-random
+      operations:
+      - method: GET
+        name: episodes-random
+        description: Random
+        call: podcastindex.episodes-random
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /recent/episodes
+      name: recent-episodes
+      operations:
+      - method: GET
+        name: recent-episodes
+        description: Episodes
+        call: podcastindex.recent-episodes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /recent/feeds
+      name: recent-feeds
+      operations:
+      - method: GET
+        name: recent-feeds
+        description: Feeds
+        call: podcastindex.recent-feeds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /recent/newfeeds
+      name: recent-newfeeds
+      operations:
+      - method: GET
+        name: recent-newfeeds
+        description: New Feeds
+        call: podcastindex.recent-newfeeds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /recent/newvaluefeeds
+      name: recent-newvaluefeeds
+      operations:
+      - method: GET
+        name: recent-newvaluefeeds
+        description: New Value Feeds
+        call: podcastindex.recent-newvaluefeeds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /recent/data
+      name: recent-data
+      operations:
+      - method: GET
+        name: recent-data
+        description: Recent Data
+        call: podcastindex.recent-data
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /recent/soundbites
+      name: recent-soundbites
+      operations:
+      - method: GET
+        name: recent-soundbites
+        description: Soundbites
+        call: podcastindex.recent-soundbites
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /value/byfeedid
+      name: value-byfeedid
+      operations:
+      - method: GET
+        name: value-byfeedid
+        description: By Feed ID
+        call: podcastindex.value-byfeedid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /value/byfeedurl
+      name: value-byfeedurl
+      operations:
+      - method: GET
+        name: value-byfeedurl
+        description: By Feed URL
+        call: podcastindex.value-byfeedurl
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /value/bypodcastguid
+      name: value-bypodcastguid
+      operations:
+      - method: GET
+        name: value-bypodcastguid
+        description: By Feed GUID
+        call: podcastindex.value-bypodcastguid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /value/byepisodeguid
+      name: value-byepisodeguid
+      operations:
+      - method: GET
+        name: value-byepisodeguid
+        description: By Episode GUID
+        call: podcastindex.value-byepisodeguid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /value/batch/byepisodeguid
+      name: value-batch-byepisodeguid
+      operations:
+      - method: POST
+        name: value-batch-byepisodeguid
+        description: Batch By Episode GUID
+        call: podcastindex.value-batch-byepisodeguid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /stats/current
+      name: stats-current
+      operations:
+      - method: GET
+        name: stats-current
+        description: Current
+        call: podcastindex.stats-current
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /categories/list
+      name: categories-list
+      operations:
+      - method: GET
+        name: categories-list
+        description: List
+        call: podcastindex.categories-list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /hub/pubnotify
+      name: hub-pubnotify
+      operations:
+      - method: GET
+        name: hub-pubnotify
+        description: Pub Notify
+        call: podcastindex.hub-pubnotify
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /add/byfeedurl
+      name: add-byfeedurl-get
+      operations:
+      - method: GET
+        name: add-byfeedurl-get
+        description: By Feed URL
+        call: podcastindex.add-byfeedurl-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /add/byfeedurl
+      name: add-byfeedurl-post
+      operations:
+      - method: POST
+        name: add-byfeedurl-post
+        description: By Feed URL
+        call: podcastindex.add-byfeedurl-post
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /add/byitunesid
+      name: add-byitunesid-get
+      operations:
+      - method: GET
+        name: add-byitunesid-get
+        description: By iTunes ID
+        call: podcastindex.add-byitunesid-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /add/byitunesid
+      name: add-byitunesid-post
+      operations:
+      - method: POST
+        name: add-byitunesid-post
+        description: By iTunes ID
+        call: podcastindex.add-byitunesid-post
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /static/stats/daily_counts.json
+      name: daily-counts-json
+      operations:
+      - method: GET
+        name: daily-counts-json
+        description: Stats Daily Counts
+        call: podcastindex.daily-counts-json
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /static/stats/hourly_counts.json
+      name: hourly-counts-json
+      operations:
+      - method: GET
+        name: hourly-counts-json
+        description: Stats Hourly Counts
+        call: podcastindex.hourly-counts-json
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /static/stats/chart-data.json
+      name: chart-data-json
+      operations:
+      - method: GET
+        name: chart-data-json
+        description: v4v Sats
+        call: podcastindex.chart-data-json
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /static/stats/v4vmusic.json
+      name: v4vmusic-json
+      operations:
+      - method: GET
+        name: v4vmusic-json
+        description: v4v Music Chart JSON
+        call: podcastindex.v4vmusic-json
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /static/stats/v4vmusic.opml
+      name: v4vmusic-opml
+      operations:
+      - method: GET
+        name: v4vmusic-opml
+        description: v4v Music Chart OPML
+        call: podcastindex.v4vmusic-opml
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /static/stats/v4vmusic.rss
+      name: v4vmusic-rss
+      operations:
+      - method: GET
+        name: v4vmusic-rss
+        description: v4v Music Chart RSS
+        call: podcastindex.v4vmusic-rss
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /static/tracking/current
+      name: current
+      operations:
+      - method: GET
+        name: current
+        description: Current
+        call: podcastindex.current
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /static/tracking/feedValueBlocks
+      name: feedvalueblocks-json
+      operations:
+      - method: GET
+        name: feedvalueblocks-json
+        description: Feed Value Blocks
+        call: podcastindex.feedvalueblocks-json
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /static/tracking/episodeValueBlocks
+      name: episodevalueblocks-json
+      operations:
+      - method: GET
+        name: episodevalueblocks-json
+        description: Episode Value Blocks
+        call: podcastindex.episodevalueblocks-json
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /static/public/podcastindex_dead_feeds.csv
+      name: podcastindex-dead-feeds-csv
+      operations:
+      - method: GET
+        name: podcastindex-dead-feeds-csv
+        description: Dead Feeds
+        call: podcastindex.podcastindex-dead-feeds-csv
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /static/public/podcastindex_feeds.db.tgz
+      name: podcastindex-feeds-db-tgz
+      operations:
+      - method: GET
+        name: podcastindex-feeds-db-tgz
+        description: Feeds Database
+        call: podcastindex.podcastindex-feeds-db-tgz
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: podcastindex-mcp
+    transport: http
+    description: MCP adapter for PodcastIndex.org API for AI agent use.
+    tools:
+    - name: search
+      description: Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.search
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: lookup
+      description: Lookup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.lookup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-byterm
+      description: Search Podcasts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.search-byterm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-bytitle
+      description: Search Podcasts by Title
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.search-bytitle
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-byperson
+      description: Search Episodes by Person
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.search-byperson
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-music-byterm
+      description: Search Music Podcasts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.search-music-byterm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: podcasts-byfeedid
+      description: By Feed ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.podcasts-byfeedid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: podcasts-byfeedurl
+      description: By Feed URL
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.podcasts-byfeedurl
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: podcasts-byitunesid
+      description: By iTunes ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.podcasts-byitunesid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: podcasts-byguid
+      description: By GUID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.podcasts-byguid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: podcasts-bytag
+      description: By Tag
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.podcasts-bytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: podcasts-bymedium
+      description: By Medium
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.podcasts-bymedium
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: podcasts-trending
+      description: Trending
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.podcasts-trending
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: podcasts-dead
+      description: Dead
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.podcasts-dead
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: podcasts-batch-byguid
+      description: Batch By Feed GUID
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: podcastindex.podcasts-batch-byguid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: episodes-byfeedid
+      description: By Feed ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.episodes-byfeedid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: episodes-byfeedurl
+      description: By Feed URL
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.episodes-byfeedurl
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: episodes-bypodcastguid
+      description: By Podcast GUID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.episodes-bypodcastguid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: episodes-byitunesid
+      description: By iTunes ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.episodes-byitunesid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: episodes-byid
+      description: By ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.episodes-byid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: episodes-byguid
+      description: By GUID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.episodes-byguid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: episodes-live
+      description: Live
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.episodes-live
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: episodes-random
+      description: Random
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.episodes-random
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recent-episodes
+      description: Episodes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.recent-episodes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recent-feeds
+      description: Feeds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.recent-feeds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recent-newfeeds
+      description: New Feeds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.recent-newfeeds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recent-newvaluefeeds
+      description: New Value Feeds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.recent-newvaluefeeds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recent-data
+      description: Recent Data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.recent-data
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recent-soundbites
+      description: Soundbites
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.recent-soundbites
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: value-byfeedid
+      description: By Feed ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.value-byfeedid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: value-byfeedurl
+      description: By Feed URL
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.value-byfeedurl
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: value-bypodcastguid
+      description: By Feed GUID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.value-bypodcastguid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: value-byepisodeguid
+      description: By Episode GUID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.value-byepisodeguid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: value-batch-byepisodeguid
+      description: Batch By Episode GUID
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: podcastindex.value-batch-byepisodeguid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stats-current
+      description: Current
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.stats-current
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: categories-list
+      description: List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.categories-list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hub-pubnotify
+      description: Pub Notify
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.hub-pubnotify
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-byfeedurl-get
+      description: By Feed URL
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.add-byfeedurl-get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-byfeedurl-post
+      description: By Feed URL
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: podcastindex.add-byfeedurl-post
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-byitunesid-get
+      description: By iTunes ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.add-byitunesid-get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-byitunesid-post
+      description: By iTunes ID
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: podcastindex.add-byitunesid-post
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: daily-counts-json
+      description: Stats Daily Counts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.daily-counts-json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: hourly-counts-json
+      description: Stats Hourly Counts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.hourly-counts-json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: chart-data-json
+      description: v4v Sats
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.chart-data-json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: v4vmusic-json
+      description: v4v Music Chart JSON
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.v4vmusic-json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: v4vmusic-opml
+      description: v4v Music Chart OPML
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.v4vmusic-opml
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: v4vmusic-rss
+      description: v4v Music Chart RSS
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.v4vmusic-rss
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: current
+      description: Current
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.current
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: feedvalueblocks-json
+      description: Feed Value Blocks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.feedvalueblocks-json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: episodevalueblocks-json
+      description: Episode Value Blocks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.episodevalueblocks-json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: podcastindex-dead-feeds-csv
+      description: Dead Feeds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.podcastindex-dead-feeds-csv
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: podcastindex-feeds-db-tgz
+      description: Feeds Database
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex.podcastindex-feeds-db-tgz
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    PODCASTINDEX_TOKEN: PODCASTINDEX_TOKEN
