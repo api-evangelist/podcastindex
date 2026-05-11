@@ -51,6 +51,10 @@ common:
     url: https://github.com/Podcastindex-org/docs-api
   - type: TermsOfService
     url: https://github.com/Podcastindex-org/legal/blob/main/TermsOfService.md
+  - type: Integrations
+    url: https://podcastindex.org/integrations
+integrations:
+  - name: Podcast Index
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
