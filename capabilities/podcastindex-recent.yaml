@@ -1,0 +1,232 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PodcastIndex.org API — Recent
+  description: 'PodcastIndex.org API — Recent. 6 operations. Lead operation: Recent Data. Self-contained Naftiko capability
+    covering one Podcastindex business surface.'
+  tags:
+  - Podcastindex
+  - Recent
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PODCASTINDEX_API_KEY: PODCASTINDEX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: podcastindex-recent
+    baseUri: https://api.podcastindex.org/api/1.0
+    description: PodcastIndex.org API — Recent business capability. Self-contained, no shared references.
+    resources:
+    - name: recent-data
+      path: /recent/data
+      operations:
+      - name: recentdata
+        method: GET
+        description: Recent Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recent-episodes
+      path: /recent/episodes
+      operations:
+      - name: recentepisodes
+        method: GET
+        description: Episodes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recent-feeds
+      path: /recent/feeds
+      operations:
+      - name: recentfeeds
+        method: GET
+        description: Feeds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recent-newfeeds
+      path: /recent/newfeeds
+      operations:
+      - name: recentnewfeeds
+        method: GET
+        description: New Feeds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recent-newvaluefeeds
+      path: /recent/newvaluefeeds
+      operations:
+      - name: recentnewvaluefeeds
+        method: GET
+        description: New Value Feeds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recent-soundbites
+      path: /recent/soundbites
+      operations:
+      - name: recentsoundbites
+        method: GET
+        description: Soundbites
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: User-Agent
+      value: '{{env.PODCASTINDEX_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: podcastindex-recent-rest
+    port: 8080
+    description: REST adapter for PodcastIndex.org API — Recent. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/recent/data
+      name: recent-data
+      description: REST surface for recent-data.
+      operations:
+      - method: GET
+        name: recentdata
+        description: Recent Data
+        call: podcastindex-recent.recentdata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/recent/episodes
+      name: recent-episodes
+      description: REST surface for recent-episodes.
+      operations:
+      - method: GET
+        name: recentepisodes
+        description: Episodes
+        call: podcastindex-recent.recentepisodes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/recent/feeds
+      name: recent-feeds
+      description: REST surface for recent-feeds.
+      operations:
+      - method: GET
+        name: recentfeeds
+        description: Feeds
+        call: podcastindex-recent.recentfeeds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/recent/newfeeds
+      name: recent-newfeeds
+      description: REST surface for recent-newfeeds.
+      operations:
+      - method: GET
+        name: recentnewfeeds
+        description: New Feeds
+        call: podcastindex-recent.recentnewfeeds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/recent/newvaluefeeds
+      name: recent-newvaluefeeds
+      description: REST surface for recent-newvaluefeeds.
+      operations:
+      - method: GET
+        name: recentnewvaluefeeds
+        description: New Value Feeds
+        call: podcastindex-recent.recentnewvaluefeeds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/recent/soundbites
+      name: recent-soundbites
+      description: REST surface for recent-soundbites.
+      operations:
+      - method: GET
+        name: recentsoundbites
+        description: Soundbites
+        call: podcastindex-recent.recentsoundbites
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: podcastindex-recent-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PodcastIndex.org API — Recent. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: recent-data
+      description: Recent Data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-recent.recentdata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: episodes
+      description: Episodes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-recent.recentepisodes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: feeds
+      description: Feeds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-recent.recentfeeds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: new-feeds
+      description: New Feeds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-recent.recentnewfeeds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: new-value-feeds
+      description: New Value Feeds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-recent.recentnewvaluefeeds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: soundbites
+      description: Soundbites
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-recent.recentsoundbites
+      outputParameters:
+      - type: object
+        mapping: $.

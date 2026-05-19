@@ -1,0 +1,154 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PodcastIndex.org API — Add
+  description: 'PodcastIndex.org API — Add. 4 operations. Lead operation: By Feed URL. Self-contained Naftiko capability covering
+    one Podcastindex business surface.'
+  tags:
+  - Podcastindex
+  - Add
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PODCASTINDEX_API_KEY: PODCASTINDEX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: podcastindex-add
+    baseUri: https://api.podcastindex.org/api/1.0
+    description: PodcastIndex.org API — Add business capability. Self-contained, no shared references.
+    resources:
+    - name: add-byfeedurl
+      path: /add/byfeedurl
+      operations:
+      - name: addbyfeedurlget
+        method: GET
+        description: By Feed URL
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: addbyfeedurlpost
+        method: POST
+        description: By Feed URL
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: add-byitunesid
+      path: /add/byitunesid
+      operations:
+      - name: addbyitunesidget
+        method: GET
+        description: By iTunes ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: addbyitunesidpost
+        method: POST
+        description: By iTunes ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: User-Agent
+      value: '{{env.PODCASTINDEX_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: podcastindex-add-rest
+    port: 8080
+    description: REST adapter for PodcastIndex.org API — Add. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/add/byfeedurl
+      name: add-byfeedurl
+      description: REST surface for add-byfeedurl.
+      operations:
+      - method: GET
+        name: addbyfeedurlget
+        description: By Feed URL
+        call: podcastindex-add.addbyfeedurlget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: addbyfeedurlpost
+        description: By Feed URL
+        call: podcastindex-add.addbyfeedurlpost
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/add/byitunesid
+      name: add-byitunesid
+      description: REST surface for add-byitunesid.
+      operations:
+      - method: GET
+        name: addbyitunesidget
+        description: By iTunes ID
+        call: podcastindex-add.addbyitunesidget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: addbyitunesidpost
+        description: By iTunes ID
+        call: podcastindex-add.addbyitunesidpost
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: podcastindex-add-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PodcastIndex.org API — Add. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: feed-url
+      description: By Feed URL
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-add.addbyfeedurlget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: feed-url-2
+      description: By Feed URL
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: podcastindex-add.addbyfeedurlpost
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: itunes-id
+      description: By iTunes ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-add.addbyitunesidget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: itunes-id-2
+      description: By iTunes ID
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: podcastindex-add.addbyitunesidpost
+      outputParameters:
+      - type: object
+        mapping: $.

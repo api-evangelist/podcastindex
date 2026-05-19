@@ -1,0 +1,168 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PodcastIndex.org API — Search
+  description: 'PodcastIndex.org API — Search. 4 operations. Lead operation: Search Episodes by Person. Self-contained Naftiko
+    capability covering one Podcastindex business surface.'
+  tags:
+  - Podcastindex
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PODCASTINDEX_API_KEY: PODCASTINDEX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: podcastindex-search
+    baseUri: https://api.podcastindex.org/api/1.0
+    description: PodcastIndex.org API — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: search-byperson
+      path: /search/byperson
+      operations:
+      - name: searchbyperson
+        method: GET
+        description: Search Episodes by Person
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: search-byterm
+      path: /search/byterm
+      operations:
+      - name: searchbyterm
+        method: GET
+        description: Search Podcasts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: search-bytitle
+      path: /search/bytitle
+      operations:
+      - name: searchbytitle
+        method: GET
+        description: Search Podcasts by Title
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: search-music-byterm
+      path: /search/music/byterm
+      operations:
+      - name: searchmusicbyterm
+        method: GET
+        description: Search Music Podcasts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: User-Agent
+      value: '{{env.PODCASTINDEX_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: podcastindex-search-rest
+    port: 8080
+    description: REST adapter for PodcastIndex.org API — Search. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/search/byperson
+      name: search-byperson
+      description: REST surface for search-byperson.
+      operations:
+      - method: GET
+        name: searchbyperson
+        description: Search Episodes by Person
+        call: podcastindex-search.searchbyperson
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/byterm
+      name: search-byterm
+      description: REST surface for search-byterm.
+      operations:
+      - method: GET
+        name: searchbyterm
+        description: Search Podcasts
+        call: podcastindex-search.searchbyterm
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/bytitle
+      name: search-bytitle
+      description: REST surface for search-bytitle.
+      operations:
+      - method: GET
+        name: searchbytitle
+        description: Search Podcasts by Title
+        call: podcastindex-search.searchbytitle
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/music/byterm
+      name: search-music-byterm
+      description: REST surface for search-music-byterm.
+      operations:
+      - method: GET
+        name: searchmusicbyterm
+        description: Search Music Podcasts
+        call: podcastindex-search.searchmusicbyterm
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: podcastindex-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PodcastIndex.org API — Search. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: search-episodes-person
+      description: Search Episodes by Person
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-search.searchbyperson
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-podcasts
+      description: Search Podcasts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-search.searchbyterm
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-podcasts-title
+      description: Search Podcasts by Title
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-search.searchbytitle
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-music-podcasts
+      description: Search Music Podcasts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-search.searchmusicbyterm
+      outputParameters:
+      - type: object
+        mapping: $.

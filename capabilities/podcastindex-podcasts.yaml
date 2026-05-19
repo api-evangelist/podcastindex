@@ -1,0 +1,338 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PodcastIndex.org API — Podcasts
+  description: 'PodcastIndex.org API — Podcasts. 9 operations. Lead operation: Batch By Feed GUID. Self-contained Naftiko
+    capability covering one Podcastindex business surface.'
+  tags:
+  - Podcastindex
+  - Podcasts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PODCASTINDEX_API_KEY: PODCASTINDEX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: podcastindex-podcasts
+    baseUri: https://api.podcastindex.org/api/1.0
+    description: PodcastIndex.org API — Podcasts business capability. Self-contained, no shared references.
+    resources:
+    - name: podcasts-batch-byguid
+      path: /podcasts/batch/byguid
+      operations:
+      - name: podcastsbatchbyguid
+        method: POST
+        description: Batch By Feed GUID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: podcasts-byfeedid
+      path: /podcasts/byfeedid
+      operations:
+      - name: podcastsbyfeedid
+        method: GET
+        description: By Feed ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-byfeedurl
+      path: /podcasts/byfeedurl
+      operations:
+      - name: podcastsbyfeedurl
+        method: GET
+        description: By Feed URL
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-byguid
+      path: /podcasts/byguid
+      operations:
+      - name: podcastsbyguid
+        method: GET
+        description: By GUID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-byitunesid
+      path: /podcasts/byitunesid
+      operations:
+      - name: podcastsbyitunesid
+        method: GET
+        description: By iTunes ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-bymedium
+      path: /podcasts/bymedium
+      operations:
+      - name: podcastsbymedium
+        method: GET
+        description: By Medium
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-bytag
+      path: /podcasts/bytag
+      operations:
+      - name: podcastsbytag
+        method: GET
+        description: By Tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-dead
+      path: /podcasts/dead
+      operations:
+      - name: podcastsdead
+        method: GET
+        description: Dead
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: podcasts-trending
+      path: /podcasts/trending
+      operations:
+      - name: podcaststrending
+        method: GET
+        description: Trending
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: User-Agent
+      value: '{{env.PODCASTINDEX_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: podcastindex-podcasts-rest
+    port: 8080
+    description: REST adapter for PodcastIndex.org API — Podcasts. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/podcasts/batch/byguid
+      name: podcasts-batch-byguid
+      description: REST surface for podcasts-batch-byguid.
+      operations:
+      - method: POST
+        name: podcastsbatchbyguid
+        description: Batch By Feed GUID
+        call: podcastindex-podcasts.podcastsbatchbyguid
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/podcasts/byfeedid
+      name: podcasts-byfeedid
+      description: REST surface for podcasts-byfeedid.
+      operations:
+      - method: GET
+        name: podcastsbyfeedid
+        description: By Feed ID
+        call: podcastindex-podcasts.podcastsbyfeedid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/podcasts/byfeedurl
+      name: podcasts-byfeedurl
+      description: REST surface for podcasts-byfeedurl.
+      operations:
+      - method: GET
+        name: podcastsbyfeedurl
+        description: By Feed URL
+        call: podcastindex-podcasts.podcastsbyfeedurl
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/podcasts/byguid
+      name: podcasts-byguid
+      description: REST surface for podcasts-byguid.
+      operations:
+      - method: GET
+        name: podcastsbyguid
+        description: By GUID
+        call: podcastindex-podcasts.podcastsbyguid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/podcasts/byitunesid
+      name: podcasts-byitunesid
+      description: REST surface for podcasts-byitunesid.
+      operations:
+      - method: GET
+        name: podcastsbyitunesid
+        description: By iTunes ID
+        call: podcastindex-podcasts.podcastsbyitunesid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/podcasts/bymedium
+      name: podcasts-bymedium
+      description: REST surface for podcasts-bymedium.
+      operations:
+      - method: GET
+        name: podcastsbymedium
+        description: By Medium
+        call: podcastindex-podcasts.podcastsbymedium
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/podcasts/bytag
+      name: podcasts-bytag
+      description: REST surface for podcasts-bytag.
+      operations:
+      - method: GET
+        name: podcastsbytag
+        description: By Tag
+        call: podcastindex-podcasts.podcastsbytag
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/podcasts/dead
+      name: podcasts-dead
+      description: REST surface for podcasts-dead.
+      operations:
+      - method: GET
+        name: podcastsdead
+        description: Dead
+        call: podcastindex-podcasts.podcastsdead
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/podcasts/trending
+      name: podcasts-trending
+      description: REST surface for podcasts-trending.
+      operations:
+      - method: GET
+        name: podcaststrending
+        description: Trending
+        call: podcastindex-podcasts.podcaststrending
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: podcastindex-podcasts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PodcastIndex.org API — Podcasts. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: batch-feed-guid
+      description: Batch By Feed GUID
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: podcastindex-podcasts.podcastsbatchbyguid
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: feed-id
+      description: By Feed ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-podcasts.podcastsbyfeedid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: feed-url
+      description: By Feed URL
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-podcasts.podcastsbyfeedurl
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: guid
+      description: By GUID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-podcasts.podcastsbyguid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: itunes-id
+      description: By iTunes ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-podcasts.podcastsbyitunesid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: medium
+      description: By Medium
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-podcasts.podcastsbymedium
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tag
+      description: By Tag
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-podcasts.podcastsbytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: dead
+      description: Dead
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-podcasts.podcastsdead
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: trending
+      description: Trending
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-podcasts.podcaststrending
+      outputParameters:
+      - type: object
+        mapping: $.

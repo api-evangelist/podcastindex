@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PodcastIndex.org API — Hub
+  description: 'PodcastIndex.org API — Hub. 1 operations. Lead operation: Pub Notify. Self-contained Naftiko capability covering
+    one Podcastindex business surface.'
+  tags:
+  - Podcastindex
+  - Hub
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PODCASTINDEX_API_KEY: PODCASTINDEX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: podcastindex-hub
+    baseUri: https://api.podcastindex.org/api/1.0
+    description: PodcastIndex.org API — Hub business capability. Self-contained, no shared references.
+    resources:
+    - name: hub-pubnotify
+      path: /hub/pubnotify
+      operations:
+      - name: hubpubnotify
+        method: GET
+        description: Pub Notify
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: User-Agent
+      value: '{{env.PODCASTINDEX_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: podcastindex-hub-rest
+    port: 8080
+    description: REST adapter for PodcastIndex.org API — Hub. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/hub/pubnotify
+      name: hub-pubnotify
+      description: REST surface for hub-pubnotify.
+      operations:
+      - method: GET
+        name: hubpubnotify
+        description: Pub Notify
+        call: podcastindex-hub.hubpubnotify
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: podcastindex-hub-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PodcastIndex.org API — Hub. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: pub-notify
+      description: Pub Notify
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: podcastindex-hub.hubpubnotify
+      outputParameters:
+      - type: object
+        mapping: $.
