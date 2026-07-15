@@ -1,0 +1,560 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/podcastindex-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 52
+  by_action_class:
+    connected: 48
+    acting: 4
+  by_consequence:
+    read: 48
+    write: 4
+  human_in_the_loop_required: 0
+operations:
+- path: /search
+  method: get
+  operationId: search
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /lookup
+  method: get
+  operationId: lookup
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /search/byterm
+  method: get
+  operationId: search/byterm
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /search/bytitle
+  method: get
+  operationId: search/bytitle
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /search/byperson
+  method: get
+  operationId: search/byperson
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /search/music/byterm
+  method: get
+  operationId: search/music/byterm
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /podcasts/byfeedid
+  method: get
+  operationId: podcasts/byfeedid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /podcasts/byfeedurl
+  method: get
+  operationId: podcasts/byfeedurl
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /podcasts/byitunesid
+  method: get
+  operationId: podcasts/byitunesid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /podcasts/byguid
+  method: get
+  operationId: podcasts/byguid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /podcasts/bytag
+  method: get
+  operationId: podcasts/bytag
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /podcasts/bymedium
+  method: get
+  operationId: podcasts/bymedium
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /podcasts/trending
+  method: get
+  operationId: podcasts/trending
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /podcasts/dead
+  method: get
+  operationId: podcasts/dead
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /podcasts/batch/byguid
+  method: post
+  operationId: podcasts/batch/byguid
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /episodes/byfeedid
+  method: get
+  operationId: episodes/byfeedid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /episodes/byfeedurl
+  method: get
+  operationId: episodes/byfeedurl
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /episodes/bypodcastguid
+  method: get
+  operationId: episodes/bypodcastguid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /episodes/byitunesid
+  method: get
+  operationId: episodes/byitunesid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /episodes/byid
+  method: get
+  operationId: episodes/byid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /episodes/byguid
+  method: get
+  operationId: episodes/byguid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /episodes/live
+  method: get
+  operationId: episodes/live
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /episodes/random
+  method: get
+  operationId: episodes/random
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /recent/episodes
+  method: get
+  operationId: recent/episodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /recent/feeds
+  method: get
+  operationId: recent/feeds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /recent/newfeeds
+  method: get
+  operationId: recent/newfeeds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /recent/newvaluefeeds
+  method: get
+  operationId: recent/newvaluefeeds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /recent/data
+  method: get
+  operationId: recent/data
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /recent/soundbites
+  method: get
+  operationId: recent/soundbites
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /value/byfeedid
+  method: get
+  operationId: value/byfeedid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /value/byfeedurl
+  method: get
+  operationId: value/byfeedurl
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /value/bypodcastguid
+  method: get
+  operationId: value/bypodcastguid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /value/byepisodeguid
+  method: get
+  operationId: value/byepisodeguid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /value/batch/byepisodeguid
+  method: post
+  operationId: value/batch/byepisodeguid
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /stats/current
+  method: get
+  operationId: stats/current
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /categories/list
+  method: get
+  operationId: categories/list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hub/pubnotify
+  method: get
+  operationId: hub/pubnotify
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /add/byfeedurl
+  method: get
+  operationId: add/byfeedurl:get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /add/byfeedurl
+  method: post
+  operationId: add/byfeedurl:post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /add/byitunesid
+  method: get
+  operationId: add/byitunesid:get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /add/byitunesid
+  method: post
+  operationId: add/byitunesid:post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /static/stats/daily_counts.json
+  method: get
+  operationId: daily_counts.json
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /static/stats/hourly_counts.json
+  method: get
+  operationId: hourly_counts.json
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /static/stats/chart-data.json
+  method: get
+  operationId: chart-data.json
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /static/stats/v4vmusic.json
+  method: get
+  operationId: v4vmusic.json
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /static/stats/v4vmusic.opml
+  method: get
+  operationId: v4vmusic.opml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /static/stats/v4vmusic.rss
+  method: get
+  operationId: v4vmusic.rss
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /static/tracking/current
+  method: get
+  operationId: current
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /static/tracking/feedValueBlocks
+  method: get
+  operationId: feedValueBlocks.json
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /static/tracking/episodeValueBlocks
+  method: get
+  operationId: episodeValueBlocks.json
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /static/public/podcastindex_dead_feeds.csv
+  method: get
+  operationId: podcastindex_dead_feeds.csv
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /static/public/podcastindex_feeds.db.tgz
+  method: get
+  operationId: podcastindex_feeds_db.tgz
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

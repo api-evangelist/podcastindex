@@ -37,6 +37,8 @@ apis:
       - type: OpenAPI
         url: openapi/podcastindex-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/podcastindex-agentic-access.yml
   - type: DomainSecurity
     url: security/podcastindex-domain-security.yml
   - type: Authentication
