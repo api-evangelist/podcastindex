@@ -1,0 +1,713 @@
+openapi: 3.0.2
+info:
+  version: 1.12.1
+  title: PodcastIndex.org Add Value API
+  termsOfService: https://github.com/Podcastindex-org/legal/blob/main/TermsOfService.md
+  contact:
+    email: info@podcastindex.org
+    url: https://podcastindex.org/
+  license:
+    name: MIT
+    url: https://github.com/Podcastindex-org/docs-api/blob/master/LICENSE
+  x-logo:
+    url: logo.svg
+    href: /
+  description: "Download the openapi spec in [json](pi_api.json) or [yaml](pi_api.yaml) format.\n\n# Overview\n\nThe Podcast Index (Podcast Index LLC) is a software developer focused partnership that provides tools and data to\nanyone who aspires to create new and exciting Podcast experiences without the heavy lifting of indexing,\naggregation and data management.\n\n# Example Code\n\nUsers have provided example code for working the API in the following languages:\n\n  - [AWS Lambda - python](https://github.com/tbowers/python-podcastindex-org-lambda)\n  - [Bash](https://github.com/suorcd/Bash-podcastindex-org-example)\n  - [C#](https://github.com/ComicStrip/csharp-podcastindex-org-example)\n  - [Elisp](https://github.com/sabexx/elisp-example)\n  - [Flutter/Dart](https://github.com/crediblecreative/flutter-dart-podcastindex-org-example)\n  - [Go](https://github.com/ComicStrip/Go-podcastindex-org-example)\n  - [Go](https://github.com/kilobit/podcast-index-client)\n  - [Java](https://github.com/ComicStrip/Java-podcastindex-org-example)\n  - [Java](https://github.com/stucoates/PodcastIndexJavaClient)\n  - [Node.js](https://github.com/ComicStrip/node.js-podcastindex-org-example)\n  - [PHP](https://github.com/Podcastindex-org/example-code)\n  - [Python](https://github.com/tbowers/python-podcastindex-org-example)\n  - [Swift](https://github.com/ComicStrip/Swift-podcastindex-org-example)\n  - ... [More](https://github.com/Podcastindex-org-Examples)\n\nDon't see your desired language, create an example repo and create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to your example code project!\n\n# Libraries\n\nUser created libraries for working with the API:\n\n  - Java\n      - [podcast4j](https://github.com/yusufyilmazfr/podcast4j)\n  - .NET\n      - [PodcastIndexSharp](https://www.nuget.org/packages/PodcastIndexSharp)\n  - Node.js/npm/yarn\n      - [podcast-index-api](https://www.npmjs.com/package/podcast-index-api)\n      - [podcastdx-client](https://www.npmjs.com/package/podcastdx-client)\n  - PHP\n      - [podcastindex-php](https://github.com/LowSociety/podcastindex-php)\n  - Python/pip\n      - [python-podcastindex](https://pypi.org/project/python-podcastindex/)\n  - R\n      - [podindexr](https://github.com/rpodcast/podindexr)\n  - Ruby\n      - [podcast-index](https://github.com/jasonyork/podcast-index)\n  - Swift\n      - [PodcastIndexKit](https://github.com/SparrowTek/PodcastIndexKit)\n  - Kotlin\n      - [PodcastIndex-SDK](https://github.com/mr3y-the-programmer/PodcastIndex-SDK)\n  - Go\n      - [podcastindex](https://github.com/jjgmckenzie/podcastindex)\n      - [podcastindex-go](https://github.com/koalahl/podcastindex-go)\n\nAre we missing a library? Did you create one for a different language? Create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to the new library!\n\n# Postman\n\nA collection file for use in the [Postman](https://www.postman.com/) application is available for this API.\n\n  1. Download the contents of the [Postman Docs](https://github.com/Podcastindex-org/docs-api/tree/master/Postman%20Docs) folder.\n  2. Import the `PodcastIndex.postman_collection.json` collection to Postman\n  3. Import the `PodcastIndexOrgEnvironment.postman_environment.json` to Postman\n  4. Click \"Environments\" on the left sidebar\n  5. Select the checkbox next to the PodcastIndexOrgEnvironment entry\n  6. Set `AuthKey` and `SeceretKey` values under the \"Current Value\" column using your API information\n  7. Click \"Collections\" from the sidebar\n  8. Select PodcastIndex\n  9. Select and run the endpoint to test\n\n# Contributing\n\nThe source for this API documentation is available at\n[https://github.com/Podcastindex-org/docs-api](https://github.com/Podcastindex-org/docs-api).\nSubmit an Issue or create a Pull Request.\n\n# Authentication Details\n\nSending an API request is easy. We use an Amazon-style request authorization token to secure each request.\n\n\nRegister for a free API key at https://api.podcastindex.org/\n\n\nThese headers parameters are required for each request: `User-Agent`, `X-Auth-Date`, `X-Auth-Key`, `Authorization`\n\n\nSee [Authentication](#auth) for description of parameters.\n\n# Legal\n\nLegal\n\n  - [Privacy Policy](https://github.com/Podcastindex-org/legal/blob/main/PrivacyPolicy.md)\n  - [Terms of Service](https://github.com/Podcastindex-org/legal/blob/main/TermsOfService.md)\n  - [License](https://github.com/Podcastindex-org/docs-api/blob/master/LICENSE)\n"
+servers:
+- url: https://api.podcastindex.org/api/1.0
+tags:
+- name: Value
+  description: 'The podcast''s "Value for Value" information
+
+    '
+paths:
+  /value/byfeedid:
+    get:
+      tags:
+      - Value
+      summary: By Feed ID
+      description: "This call returns the information for supporting the podcast via one of the \"Value for Value\" methods from the\nPodcastIndex ID.\n\n\nAdditionally, the value block data can be accessed using static JSON files (updated every 15 minutes).\n\n  - Feeds: https://tracking.podcastindex.org/feedValueBlocks.json\n  - Episodes: https://tracking.podcastindex.org/episodeValueBlocks.json\n\n\nNote: No API key needed for this endpoint.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/value/byfeedid?id=920666&pretty\n  - https://api.podcastindex.org/api/1.0/value/byfeedid?id=779873&pretty\n"
+      operationId: value/byfeedid
+      security: []
+      parameters:
+      - $ref: '#/components/parameters/id_feed_episode_pi_single'
+      - $ref: '#/components/parameters/pretty'
+      responses:
+        '200':
+          $ref: '#/components/responses/value_byfeedid'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+  /value/byfeedurl:
+    get:
+      tags:
+      - Value
+      summary: By Feed URL
+      description: "This call returns the information for supporting the podcast via one of the \"Value for Value\" methods from feed URL.\n\n\nAdditionally, the value block data can be accessed using static JSON files (updated every 15 minutes).\n\n  - Feeds: https://tracking.podcastindex.org/feedValueBlocks.json\n  - Episodes: https://tracking.podcastindex.org/episodeValueBlocks.json\n\n\nNote: No API key needed for this endpoint.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/value/byfeedurl?url=https://mp3s.nashownotes.com/pc20rss.xml&pretty\n  - https://api.podcastindex.org/api/1.0/value/byfeedurl?url=https://lespoesiesdheloise.fr/@heloise/feed.xml&pretty\n"
+      operationId: value/byfeedurl
+      security: []
+      parameters:
+      - $ref: '#/components/parameters/url'
+      - $ref: '#/components/parameters/pretty'
+      responses:
+        '200':
+          $ref: '#/components/responses/value_byfeedurl'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+  /value/bypodcastguid:
+    get:
+      tags:
+      - Value
+      summary: By Feed GUID
+      description: 'This call returns the information for supporting the podcast via one of the "Value for Value" methods from podcast GUID.
+
+
+
+        Note: No API key needed for this endpoint.
+
+
+
+        Example: https://api.podcastindex.org/api/1.0/value/bypodcastguid?guid=917393e3-1b1e-5cef-ace4-edaa54e1f810&pretty
+
+        '
+      operationId: value/bypodcastguid
+      security: []
+      parameters:
+      - $ref: '#/components/parameters/guid_feed_podcast'
+      - $ref: '#/components/parameters/pretty'
+      responses:
+        '200':
+          $ref: '#/components/responses/value_bypodcastguid'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+  /value/byepisodeguid:
+    get:
+      tags:
+      - Value
+      summary: By Episode GUID
+      description: "This call returns the information for supporting the podcast episode via one of the \"Value for Value\" methods from\npodcast GUID and the episode GUID.\n\n\nThe `podcastguid` is the GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier\nfor the podcast. See the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n\n\nThe `episodeguid` is the unique guid specified for the `<item>` in the feed but may not be globally unique.\n\n\nNote: No API key needed for this endpoint.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/value/byepisodeguid?podcastguid=917393e3-1b1e-5cef-ace4-edaa54e1f810&episodeguid=PC20143&pretty\n  - https://api.podcastindex.org/api/1.0/value/byepisodeguid?podcastguid=c73b1a23-1c28-5edb-94c3-10d1745d0877&episodeguid=bdea6759-a7b6-4c0d-9d1e-acca3133f4a9&pretty\n"
+      operationId: value/byepisodeguid
+      security: []
+      parameters:
+      - $ref: '#/components/parameters/podcastguid'
+      - $ref: '#/components/parameters/episodeguid'
+      - $ref: '#/components/parameters/pretty'
+      responses:
+        '200':
+          $ref: '#/components/responses/value_byepisodeguid'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+  /value/batch/byepisodeguid:
+    post:
+      tags:
+      - Value
+      summary: Batch By Episode GUID
+      description: 'This call returns the information for supporting the podcast episode via one of the "Value for Value" methods from
+
+        a JSON object containing one or more podcast GUID and one or more episode GUID for the podcast.
+
+
+
+        The JSON object key shall be the `podcastguid` from the `podcast:guid` tag in the feed.
+
+        This value is a unique, global identifier for the podcast. See the namespace spec for
+
+        [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.
+
+
+
+        The value of the `podcastguid` shall be an array of `episodeguid` values.
+
+        This is the unique guid specified for the `<item>` in the feed but may not be globally unique.
+
+
+
+        Note: No API key needed for this endpoint.
+
+        '
+      operationId: value/batch/byepisodeguid
+      security: []
+      parameters:
+      - $ref: '#/components/parameters/pretty'
+      requestBody:
+        description: Get episode value data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/value_batch_byepisodeguid'
+      responses:
+        '200':
+          $ref: '#/components/responses/value_batch_byepisodeguid'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+components:
+  schemas:
+    name_destination:
+      description: 'Name for the destination
+
+        '
+      type: string
+      example: podcaster
+    description_response:
+      description: 'Description of the response
+
+        '
+      type: string
+      example: Found matching feed
+    query_url:
+      description: 'Object containing the input query data
+
+        '
+      type: object
+      properties:
+        url:
+          $ref: '#/components/schemas/url_query'
+    query_guids:
+      description: 'Object containing the input query data
+
+        '
+      type: object
+      properties:
+        guids:
+          $ref: '#/components/schemas/guids'
+    query_id:
+      description: 'Object containing the input query data
+
+        '
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/id_query'
+    type_v4v:
+      description: 'Payment type
+
+        '
+      type: string
+      enum:
+      - lightning
+      - hive
+      - webmonetization
+      example: lightning
+    method_v4v:
+      description: 'Method for sending payment
+
+        '
+      type: string
+      example: keysend
+    destinations_v4v:
+      description: 'List of destinations where "Value for Value" payments should be sent.
+
+        '
+      type: array
+      items:
+        $ref: '#/components/schemas/destination_v4v'
+    query_podcastguid:
+      description: 'The value of the `podcastguid` argument passed to the request.
+
+        '
+      type: string
+      example: 917393e3-1b1e-5cef-ace4-edaa54e1f810
+    address_destination:
+      description: 'Address of node to receive payment
+
+        '
+      type: string
+      example: 03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a
+    title_feed:
+      description: 'Name of the feed
+
+        '
+      type: string
+      example: Batman University
+    id_query_guid:
+      description: 'The Podcast Index Id of the podcast GUID passed as an argument to the request
+
+        '
+      type: integer
+      example: 920666
+    query_episodeguid:
+      description: 'The value of the `episodeguid` argument passed to the request.
+
+        '
+      type: string
+      example: PC20143
+    customKey:
+      description: 'The name of a custom record key to send along with the payment. May not be reported.
+
+
+
+        See the [podcast namespace spec](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+
+        and [value specification](https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/value.md)
+
+        for more information.
+
+        '
+      type: string
+      nullable: true
+      example: '112111100'
+    value_byepisodeguid:
+      description: "Information for supporting the podcast via one of the \"Value for Value\" methods. May not be reported.\n\n\nExamples:\n  - `lightning` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=169991&pretty\n  - `webmonetization` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=779873&pretty\n"
+      type: object
+      nullable: true
+      properties:
+        model:
+          $ref: '#/components/schemas/model_v4v'
+        destinations:
+          $ref: '#/components/schemas/destinations_v4v'
+        title:
+          $ref: '#/components/schemas/title_episode'
+        feedTitle:
+          $ref: '#/components/schemas/title_feed'
+    customValue:
+      description: 'A custom value to pass along with the payment. This is considered the value that belongs to the customKey. May not be reported.
+
+
+
+        See the [podcast namespace spec](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+
+        and [value specification](https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/value.md)
+
+        for more information.
+
+        '
+      type: string
+      nullable: true
+      example: wal_ZmqFg13NB31oek
+    found:
+      description: 'Number of value data returned.
+
+        '
+      type: integer
+      example: 4
+    url_query:
+      description: 'Value passed to request in the `url` field
+
+        '
+      type: string
+      format: URL
+      example: https://feeds.theincomparable.com/batmanuniversity
+    suggested_v4v:
+      description: 'Suggested amount per second of playback to send. Unit is specific to the `type`.
+
+        '
+      type: string
+      nullable: true
+      example: '0.00000020000'
+    podcastguid:
+      description: 'The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.
+
+
+
+        See the namespace spec for
+
+        [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.
+
+        '
+      type: string
+      example: 9b024349-ccf0-5f69-a609-6b82873eab3c
+    value_guid_list:
+      description: 'List of value blocks
+
+        '
+      type: array
+      items:
+        $ref: '#/components/schemas/value_byepisodeguid_batch'
+    value:
+      description: "Information for supporting the podcast via one of the \"Value for Value\" methods. May not be reported.\n\n\nExamples:\n  - `lightning` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=169991&pretty\n  - `webmonetization` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=779873&pretty\n"
+      type: object
+      nullable: true
+      properties:
+        model:
+          $ref: '#/components/schemas/model_v4v'
+        destinations:
+          $ref: '#/components/schemas/destinations_v4v'
+    destination_v4v:
+      description: 'Destination for "Value for Value" payment.
+
+        '
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/name_destination'
+        address:
+          $ref: '#/components/schemas/address_destination'
+        type:
+          $ref: '#/components/schemas/type_destination'
+        split:
+          $ref: '#/components/schemas/split_destination'
+        fee:
+          $ref: '#/components/schemas/fee_destination'
+        customKey:
+          $ref: '#/components/schemas/customKey'
+        customValue:
+          $ref: '#/components/schemas/customValue'
+    split_destination:
+      description: 'Share of payment the destination should receive
+
+        '
+      type: integer
+      example: 99
+    query_byepisodeguid:
+      description: 'Object containing the input query data
+
+        '
+      type: object
+      properties:
+        podcastguid:
+          $ref: '#/components/schemas/query_podcastguid'
+        episodeguid:
+          $ref: '#/components/schemas/query_episodeguid'
+    value_batch_byepisodeguid:
+      description: 'JSON data where key is the `podcastguid` and value is a list of `episodeguid` values.
+
+        '
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          type: string
+      example:
+        917393e3-1b1e-5cef-ace4-edaa54e1f810:
+        - PC20141
+        - PC20142
+        - PC20143
+        c73b1a23-1c28-5edb-94c3-10d1745d0877:
+        - bdea6759-a7b6-4c0d-9d1e-acca3133f4a9
+    model_v4v:
+      description: 'Description of the method for providing "Value for Value" payments
+
+        '
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/type_v4v'
+        method:
+          $ref: '#/components/schemas/method_v4v'
+        suggested:
+          $ref: '#/components/schemas/suggested_v4v'
+    allfound:
+      description: 'Indicates if data was found for all `podcastguid` and `episodeguid` values.
+
+        '
+      type: boolean
+      example: true
+    status:
+      description: 'Indicates API request status
+
+        '
+      type: string
+      enum:
+      - 'true'
+      - 'false'
+      example: 'true'
+    value_byepisodeguid_batch:
+      description: 'Information for supporting the podcast via one of the "Value for Value" methods.
+
+        '
+      type: object
+      properties:
+        podcastGUID:
+          $ref: '#/components/schemas/podcastguid'
+        guid:
+          $ref: '#/components/schemas/guid'
+        title:
+          $ref: '#/components/schemas/title_episode'
+        feedTitle:
+          $ref: '#/components/schemas/title_feed'
+        model:
+          $ref: '#/components/schemas/model_v4v'
+        destinations:
+          $ref: '#/components/schemas/destinations_v4v'
+    title_episode:
+      description: 'Name of the episode
+
+        '
+      type: string
+      example: Gotham
+    guid:
+      description: 'The unique identifier for the episode
+
+        '
+      type: string
+      example: incomparable/batman/19
+    fee_destination:
+      description: 'Indicates if destination is included due to a fee being charged. May not be reported.
+
+        '
+      type: boolean
+      nullable: true
+      example: true
+    guids:
+      description: 'The `podcastguid` and `episodeguid` values passed to the request.
+
+        '
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          type: string
+      example:
+        917393e3-1b1e-5cef-ace4-edaa54e1f810:
+        - PC20141
+        - PC20142
+        - PC20143
+        c73b1a23-1c28-5edb-94c3-10d1745d0877:
+        - bdea6759-a7b6-4c0d-9d1e-acca3133f4a9
+    query_guid_id:
+      description: 'Object containing the input query data
+
+        '
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/id_query_guid'
+    type_destination:
+      description: 'Type of destination
+
+        '
+      type: string
+      enum:
+      - node
+      example: node
+    id_query:
+      description: 'Value passed to request in the `id` field
+
+        '
+      type: string
+      example: '920666'
+  responses:
+    value_byfeedid:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              query:
+                $ref: '#/components/schemas/query_id'
+              value:
+                $ref: '#/components/schemas/value'
+              description:
+                $ref: '#/components/schemas/description_response'
+    '400':
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              description:
+                $ref: '#/components/schemas/description_response'
+          example:
+            status: 'false'
+            description: Invalid parameters
+    value_byfeedurl:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              query:
+                $ref: '#/components/schemas/query_url'
+              value:
+                $ref: '#/components/schemas/value'
+              description:
+                $ref: '#/components/schemas/description_response'
+    value_batch_byepisodeguid:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              query:
+                $ref: '#/components/schemas/query_guids'
+              value:
+                $ref: '#/components/schemas/value_guid_list'
+              description:
+                $ref: '#/components/schemas/description_response'
+              allFound:
+                $ref: '#/components/schemas/allfound'
+              found:
+                $ref: '#/components/schemas/found'
+    value_bypodcastguid:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              query:
+                $ref: '#/components/schemas/query_guid_id'
+              value:
+                $ref: '#/components/schemas/value'
+              description:
+                $ref: '#/components/schemas/description_response'
+    value_byepisodeguid:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              query:
+                $ref: '#/components/schemas/query_byepisodeguid'
+              value:
+                $ref: '#/components/schemas/value_byepisodeguid'
+              description:
+                $ref: '#/components/schemas/description_response'
+    '401':
+      description: Not authenticated
+      content:
+        application/json:
+          schema:
+            type: string
+          example: Authorization header value either not set or blank.
+  parameters:
+    podcastguid:
+      name: podcastguid
+      in: query
+      description: 'The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.
+
+
+
+        See the namespace spec for
+
+        [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.
+
+        '
+      required: true
+      schema:
+        type: string
+      example: 917393e3-1b1e-5cef-ace4-edaa54e1f810
+    pretty:
+      name: pretty
+      in: query
+      description: 'If present, makes the output “pretty” to help with debugging.
+
+
+
+        Parameter shall not have a value
+
+        '
+      schema:
+        type: boolean
+      allowEmptyValue: true
+    episodeguid:
+      name: episodeguid
+      in: query
+      description: 'The guid specified by the `<guid>` in the episode `<item>`.
+
+        '
+      required: true
+      schema:
+        type: string
+      example: PC20143
+    guid_feed_podcast:
+      name: guid
+      in: query
+      description: 'The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.
+
+
+
+        See the namespace spec for
+
+        [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.
+
+        '
+      required: true
+      schema:
+        type: string
+      example: 9b024349-ccf0-5f69-a609-6b82873eab3c
+    url:
+      name: url
+      in: query
+      description: 'Podcast feed URL
+
+        '
+      required: true
+      allowReserved: true
+      schema:
+        type: string
+      example: https://feeds.theincomparable.com/batmanuniversity
+    id_feed_episode_pi_single:
+      name: id
+      in: query
+      description: 'The PodcastIndex Feed ID to search for.
+
+        '
+      required: true
+      schema:
+        type: integer
+      example: 75075
+  securitySchemes:
+    User-Agent:
+      type: apiKey
+      in: header
+      name: User-Agent
+      description: 'Please identify the system/product you are using to make this request.
+
+
+
+        *Example*: `SuperPodcastPlayer/1.3`
+
+        '
+    API-Key:
+      type: apiKey
+      in: header
+      name: X-Auth-Key
+      description: 'Your API key string
+
+
+
+        *Example*: `UXKCGDSYGUUEVQJSYDZH`
+
+        '
+    Date:
+      type: apiKey
+      in: header
+      name: X-Auth-Date
+      description: 'The current UTC unix epoch time as a string. 3 minute window.
+
+
+
+        This value is an integer; round down if needed. The value shall not include a decimal point.
+
+
+
+        Value generated should match the value shown on the website https://www.epochconverter.com/.
+
+
+
+        *Example*: `1613713388`
+
+        '
+    Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "A SHA-1 hash of the `X-Auth-Key`, the corresponding secret and the `X-Auth-Date` value concatenated as a string.\nThe resulting hash should be encoded as a hexadecimal value, two digits per byte, using lower case letters for\nthe hex digits \"a\" through \"f\".\n\n\nThe Authorization header is computed with something like this (pseudo-code):\n\n    authHeader = sha1(apiKey+apiSecret+unixTime)\n\nExample value, uses example values of `X-Auth-Key` and `X-Auth-Date` and an api secret of\n`yzJe2eE7XV-3eY576dyRZ6wXyAbndh6LUrCZ8KN|`\n\n\n*Example*: `UXKCGDSYGUUEVQJSYDZH`\n"
