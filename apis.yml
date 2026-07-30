@@ -5,9 +5,22 @@ description: >-
   anyone who aspires to create new and exciting Podcast experiences without the heavy lifting of indexing, aggregation
   and data management.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/podcastindex.png
 tags:
   - Podcasting
   - Podcast Index
@@ -18,24 +31,143 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/podcastindex/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: podcastindex:podcastindex
-    name: PodcastIndex API
-    description: >-
-      The Podcast Index API provides search, discovery, and metadata access for podcasts and episodes, including support
-      for value-for-value, podcast namespace tags, live items, and other modern podcasting features. It is a free, open
-      data API with examples and libraries available across multiple programming languages.
-    humanURL: https://podcastindex-org.github.io/docs-api/
-    baseURL: https://api.podcastindex.org/api/1.0
-    tags:
-      - Podcasting
-      - Discovery
-      - Search
-      - Metadata
-    properties:
-      - type: Documentation
-        url: https://podcastindex-org.github.io/docs-api/
-      - type: OpenAPI
-        url: openapi/podcastindex-openapi.yml
+- aid: podcastindex:podcastindex-add-api
+  name: PodcastIndex Add API
+  description: >-
+    Add new podcast feeds to the index.
+
+
+
+    **NOTE**: To add to the index, the API Key must have write or publisher permissions.
+  humanURL: https://podcastindex-org.github.io/docs-api/
+  baseURL: https://api.podcastindex.org/api/1.0
+  tags:
+  - Add
+  properties:
+  - type: OpenAPI
+    url: openapi/podcastindex-add-api-openapi.yml
+  - type: Documentation
+    url: https://podcastindex-org.github.io/docs-api/
+- aid: podcastindex:podcastindex-apple-replacement-api
+  name: PodcastIndex Apple Replacement API
+  description: The Apple Replacement API from PodcastIndex — 2 operation(s) for apple replacement.
+  humanURL: https://podcastindex-org.github.io/docs-api/
+  baseURL: https://api.podcastindex.org/api/1.0
+  tags:
+  - Apple Replacement
+  properties:
+  - type: OpenAPI
+    url: openapi/podcastindex-apple-replacement-api-openapi.yml
+  - type: Documentation
+    url: https://podcastindex-org.github.io/docs-api/
+- aid: podcastindex:podcastindex-categories-api
+  name: PodcastIndex Categories API
+  description: Categories used by the Podcast Index
+  humanURL: https://podcastindex-org.github.io/docs-api/
+  baseURL: https://api.podcastindex.org/api/1.0
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/podcastindex-categories-api-openapi.yml
+  - type: Documentation
+    url: https://podcastindex-org.github.io/docs-api/
+- aid: podcastindex:podcastindex-episodes-api
+  name: PodcastIndex Episodes API
+  description: Find details about one or more episodes of a podcast or podcasts.
+  humanURL: https://podcastindex-org.github.io/docs-api/
+  baseURL: https://api.podcastindex.org/api/1.0
+  tags:
+  - Episodes
+  properties:
+  - type: OpenAPI
+    url: openapi/podcastindex-episodes-api-openapi.yml
+  - type: Documentation
+    url: https://podcastindex-org.github.io/docs-api/
+- aid: podcastindex:podcastindex-hub-api
+  name: PodcastIndex Hub API
+  description: Notify the index that a feed has changed
+  humanURL: https://podcastindex-org.github.io/docs-api/
+  baseURL: https://api.podcastindex.org/api/1.0
+  tags:
+  - Hub
+  properties:
+  - type: OpenAPI
+    url: openapi/podcastindex-hub-api-openapi.yml
+  - type: Documentation
+    url: https://podcastindex-org.github.io/docs-api/
+- aid: podcastindex:podcastindex-podcasts-api
+  name: PodcastIndex Podcasts API
+  description: Find details about a Podcast and its feed.
+  humanURL: https://podcastindex-org.github.io/docs-api/
+  baseURL: https://api.podcastindex.org/api/1.0
+  tags:
+  - Podcasts
+  properties:
+  - type: OpenAPI
+    url: openapi/podcastindex-podcasts-api-openapi.yml
+  - type: Documentation
+    url: https://podcastindex-org.github.io/docs-api/
+- aid: podcastindex:podcastindex-recent-api
+  name: PodcastIndex Recent API
+  description: Find recent additions to the index
+  humanURL: https://podcastindex-org.github.io/docs-api/
+  baseURL: https://api.podcastindex.org/api/1.0
+  tags:
+  - Recent
+  properties:
+  - type: OpenAPI
+    url: openapi/podcastindex-recent-api-openapi.yml
+  - type: Documentation
+    url: https://podcastindex-org.github.io/docs-api/
+- aid: podcastindex:podcastindex-search-api
+  name: PodcastIndex Search API
+  description: Search the index
+  humanURL: https://podcastindex-org.github.io/docs-api/
+  baseURL: https://api.podcastindex.org/api/1.0
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/podcastindex-search-api-openapi.yml
+  - type: Documentation
+    url: https://podcastindex-org.github.io/docs-api/
+- aid: podcastindex:podcastindex-static-data-api
+  name: PodcastIndex Static Data API
+  description: The Static Data API from PodcastIndex — 11 operation(s) for static data.
+  humanURL: https://podcastindex-org.github.io/docs-api/
+  baseURL: https://api.podcastindex.org/api/1.0
+  tags:
+  - Static Data
+  properties:
+  - type: OpenAPI
+    url: openapi/podcastindex-static-data-api-openapi.yml
+  - type: Documentation
+    url: https://podcastindex-org.github.io/docs-api/
+- aid: podcastindex:podcastindex-stats-api
+  name: PodcastIndex Stats API
+  description: Statistics for items in the Podcast Index
+  humanURL: https://podcastindex-org.github.io/docs-api/
+  baseURL: https://api.podcastindex.org/api/1.0
+  tags:
+  - Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/podcastindex-stats-api-openapi.yml
+  - type: Documentation
+    url: https://podcastindex-org.github.io/docs-api/
+- aid: podcastindex:podcastindex-value-api
+  name: PodcastIndex Value API
+  description: The podcast's "Value for Value" information
+  humanURL: https://podcastindex-org.github.io/docs-api/
+  baseURL: https://api.podcastindex.org/api/1.0
+  tags:
+  - Value
+  properties:
+  - type: OpenAPI
+    url: openapi/podcastindex-value-api-openapi.yml
+  - type: Documentation
+    url: https://podcastindex-org.github.io/docs-api/
 common:
   - type: AgenticAccess
     url: agentic-access/podcastindex-agentic-access.yml
