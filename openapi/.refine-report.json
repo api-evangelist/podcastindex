@@ -1,0 +1,34 @@
+{
+  "provider": "podcastindex",
+  "sources": [
+    "podcastindex-add-api-openapi.yml",
+    "podcastindex-apple-replacement-api-openapi.yml",
+    "podcastindex-categories-api-openapi.yml",
+    "podcastindex-episodes-api-openapi.yml",
+    "podcastindex-hub-api-openapi.yml",
+    "podcastindex-podcasts-api-openapi.yml",
+    "podcastindex-recent-api-openapi.yml",
+    "podcastindex-search-api-openapi.yml",
+    "podcastindex-static-data-api-openapi.yml",
+    "podcastindex-stats-api-openapi.yml",
+    "podcastindex-value-api-openapi.yml"
+  ],
+  "outputs": [
+    "podcastindex-add-api-openapi.yml",
+    "podcastindex-apple-replacement-api-openapi.yml",
+    "podcastindex-categories-api-openapi.yml",
+    "podcastindex-episodes-api-openapi.yml",
+    "podcastindex-hub-api-openapi.yml",
+    "podcastindex-podcasts-api-openapi.yml",
+    "podcastindex-recent-api-openapi.yml",
+    "podcastindex-search-api-openapi.yml",
+    "podcastindex-static-data-api-openapi.yml",
+    "podcastindex-stats-api-openapi.yml",
+    "podcastindex-value-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
