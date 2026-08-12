@@ -169,6 +169,9 @@ apis:
   - type: Documentation
     url: https://podcastindex-org.github.io/docs-api/
 common:
+  - type: License
+    name: MIT
+    url: https://github.com/Podcastindex-org/docs-api/blob/master/LICENSE
   - type: AgenticAccess
     url: agentic-access/podcastindex-agentic-access.yml
   - type: DomainSecurity
