@@ -29,7 +29,7 @@ tags:
 created: '2025-05-02'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/podcastindex/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: podcastindex:podcastindex-add-api
   name: PodcastIndex Add API
