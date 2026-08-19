@@ -1,0 +1,410 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PodcastIndex.org Add Episodes API",
+    "version": "1.12.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Episodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "By Feed ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/episodes/byfeedid",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "The PodcastIndex Feed ID or IDs to search for.\n\n\nIf searching for multiple IDs, separate values with a comma. A maximum of 200 IDs can be provided.\n"
+              },
+              {
+                "name": "since",
+                "value": "1612125785",
+                "type": "query",
+                "description": "Return items since the specified epoch timestamp.\n"
+              },
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "enclosure",
+                "value": "https://op3.dev/e/mp3s.nashownotes.com/NA-1551-2023-04-30-Final.mp3",
+                "type": "query",
+                "description": "The URL for the episode enclosure to get the information for.\n"
+              },
+              {
+                "name": "fulltext",
+                "value": "",
+                "type": "query",
+                "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "newest",
+                "value": "",
+                "type": "query",
+                "description": "If present, returns only the most recent (newest) episode for each specified feed id.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns all the episodes we know about for this feed from the PodcastIndex ID.\nEpisodes are in reverse chronological order.\n\n\nWhen using the `enclosure` parameter, only the episode matching the URL is returned.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/episodes/byfeedid?id=75075&pretty\n  - https://api.podcastindex.org/api/1.0/episodes/byfeedid?id=41504,920666&pretty\n  - https://api.podcastindex.org/api/1.0/episodes/byfeedid?id=75075&newest&pretty\n  - https://api.podcastinde"
+        },
+        {
+          "info": {
+            "name": "By Feed URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/episodes/byfeedurl",
+            "params": [
+              {
+                "name": "url",
+                "value": "https://feeds.theincomparable.com/batmanuniversity",
+                "type": "query",
+                "description": "Podcast feed URL\n"
+              },
+              {
+                "name": "since",
+                "value": "1612125785",
+                "type": "query",
+                "description": "Return items since the specified epoch timestamp.\n"
+              },
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "fulltext",
+                "value": "",
+                "type": "query",
+                "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns all the episodes we know about for this feed from the feed URL.\nEpisodes are in reverse chronological order.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/episodes/byfeedurl?url=https://feeds.theincomparable.com/batmanuniversity&pretty\n  - Includes `persons`: https://api.podcastindex.org/api/1.0/episodes/byfeedurl?url=https://engineered.network/pragmatic/feed/index.xml&pretty\n  - Includes `value`: https://api.podcastindex.org/api/1.0/episodes/byfeedurl?url=https://closi"
+        },
+        {
+          "info": {
+            "name": "By Podcast GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/episodes/bypodcastguid",
+            "params": [
+              {
+                "name": "guid",
+                "value": "9b024349-ccf0-5f69-a609-6b82873eab3c",
+                "type": "query",
+                "description": "The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n\n\nSee the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n"
+              },
+              {
+                "name": "since",
+                "value": "1612125785",
+                "type": "query",
+                "description": "Return items since the specified epoch timestamp.\n"
+              },
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "fulltext",
+                "value": "",
+                "type": "query",
+                "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns all the episodes we know about for this feed from the [Podcast GUID](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid).\nEpisodes are in reverse chronological order.\n\n\nExample: https://api.podcastindex.org/api/1.0/episodes/bypodcastguid?guid=856cd618-7f34-57ea-9b84-3600f1f65e7f&pretty\n"
+        },
+        {
+          "info": {
+            "name": "By iTunes ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/episodes/byitunesid",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "The iTunes Feed ID to search for\n"
+              },
+              {
+                "name": "since",
+                "value": "1612125785",
+                "type": "query",
+                "description": "Return items since the specified epoch timestamp.\n"
+              },
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "enclosure",
+                "value": "https://op3.dev/e/mp3s.nashownotes.com/NA-1551-2023-04-30-Final.mp3",
+                "type": "query",
+                "description": "The URL for the episode enclosure to get the information for.\n"
+              },
+              {
+                "name": "fulltext",
+                "value": "",
+                "type": "query",
+                "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns all the episodes we know about for this feed from the iTunes ID.\nEpisodes are in reverse chronological order.\n\n\nWhen using the `enclosure` parameter, only the episode matching the URL is returned.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/episodes/byitunesid?id=1441923632&pretty\n  - Using `enclosure`: https://api.podcastindex.org/api/1.0/episodes/byitunesid?id=269169796&enclosure=https://op3.dev/e/mp3s.nashownotes.com/NA-1551-2023-04-30-Final.mp3&pretty\n"
+        },
+        {
+          "info": {
+            "name": "By ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/episodes/byid",
+            "params": [
+              {
+                "name": "id",
+                "value": "16795089",
+                "type": "query",
+                "description": "The PodcastIndex episode ID to search for.\n"
+              },
+              {
+                "name": "fulltext",
+                "value": "",
+                "type": "query",
+                "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get all the metadata for a single episode by passing its id.\n\n\nExample: https://api.podcastindex.org/api/1.0/episodes/byid?id=16795090&pretty\n"
+        },
+        {
+          "info": {
+            "name": "By GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/episodes/byguid",
+            "params": [
+              {
+                "name": "guid",
+                "value": "PC2084",
+                "type": "query",
+                "description": "The guid value for the episode to retrieve.\n\n\n  This value is the value specified in the feed's `<guid>` field.\n"
+              },
+              {
+                "name": "feedurl",
+                "value": "http://mp3s.nashownotes.com/pc20rss.xml",
+                "type": "query",
+                "description": "The Feed URL\n"
+              },
+              {
+                "name": "feedid",
+                "value": "920666",
+                "type": "query",
+                "description": "The PodcastIndex Feed ID\n"
+              },
+              {
+                "name": "podcastguid",
+                "value": "917393e3-1b1e-5cef-ace4-edaa54e1f810",
+                "type": "query",
+                "description": "The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n\n\nSee the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n"
+              },
+              {
+                "name": "fulltext",
+                "value": "",
+                "type": "query",
+                "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get all the metadata for a single episode by passing its guid and the feed id or URL.\n\n\nThe `feedid`, `feedurl`, or `podcastguid` is required.\n\n\nExamples: \n\n  - Search using Podcast Index feed ID: https://api.podcastindex.org/api/1.0/episodes/byguid?guid=PC2084&feedid=920666&pretty\n  - Search using feed URL: https://api.podcastindex.org/api/1.0/episodes/byguid?guid=PC2084&feedurl=http://mp3s.nashownotes.com/pc20rss.xml&pretty\n"
+        },
+        {
+          "info": {
+            "name": "Live",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/episodes/live",
+            "params": [
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get all episodes that have been found in the [podcast:liveitem](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#live-item) from the feeds.\n\n\nExamples: \n\n  - https://api.podcastindex.org/api/1.0/episodes/live?pretty\n"
+        },
+        {
+          "info": {
+            "name": "Random",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/episodes/random",
+            "params": [
+              {
+                "name": "max",
+                "value": "2",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Specifying a language code (like \"en\") will return only episodes having that specific language.\n\n\nYou can specify multiple languages by separating them with commas.\n\n\nIf you also want to return episodes that have no language given, use the token \"unknown\". (ex. en,es,ja,unknown).\n\n\nValues are not case sensitive.\n"
+              },
+              {
+                "name": "cat",
+                "value": "",
+                "type": "query",
+                "description": "Use this argument to specify that you **ONLY** want episodes with these categories in the results.\n\n\nSeparate multiple categories with commas.\n\n\nYou may specify either the Category ID and/or the Category Name.\n\n\nValues are not case sensitive.\n\n\nThe `cat` and `notcat` filters can be used together to fine tune a very specific result set.\n\n\nCategory numbers and names can be found in the\n[Podcast Namespace documentation](https://github.com/Podcastindex-org/podcast-namespace/blob/main/categories.json)\n"
+              },
+              {
+                "name": "notcat",
+                "value": "",
+                "type": "query",
+                "description": "Use this argument to specify categories of episodes to **NOT** show in the results.\n\n\nSeparate multiple categories with commas.\n\n\nYou may specify either the Category ID and/or the Category Name.\n\n\nValues are not case sensitive.\n\n\nThe `cat` and `notcat` filters can be used together to fine tune a very specific result set.\n\n\nCategory numbers and names can be found in the\n[Podcast Namespace documentation](https://github.com/Podcastindex-org/podcast-namespace/blob/main/categories.json)\n"
+              },
+              {
+                "name": "fulltext",
+                "value": "",
+                "type": "query",
+                "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns a random batch of episodes, in no specific order.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/episodes/random?notcat=News,Religion&lang=en,es&pretty\n  - https://api.podcastindex.org/api/1.0/episodes/random?max=2&pretty\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

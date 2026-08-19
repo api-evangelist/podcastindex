@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PodcastIndex.org Add API",
+    "version": "1.12.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Add",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "By Feed URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/add/byfeedurl",
+            "params": [
+              {
+                "name": "url",
+                "value": "https://feeds.theincomparable.com/batmanuniversity",
+                "type": "query",
+                "description": "Podcast feed URL\n"
+              },
+              {
+                "name": "chash",
+                "value": "ad651c60eaaf3344595c0dd0bd787993",
+                "type": "query",
+                "description": "The md5 hash of the following feed items in hex format.\nIf known, allows for easier duplicate checking.\n\n  - `title`\n  - `link`\n  - `feedLanguage`\n  - `generator`\n  - `author`\n  - `ownerName`\n  - `ownerEmail` (note: not exposed via the API)\n\nPseudo-code:\n\n      chash = md5(title+link+feedLanguage+generator+author+ownerName+ownerEmail)\n"
+              },
+              {
+                "name": "itunesid",
+                "value": "1441923632",
+                "type": "query",
+                "description": "If this parameter is given, and the existing feed has no associated iTunes ID, it will be associated with this ID.\nIf an existing iTunes ID is already associated with this feed it will **NOT** be changed.\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call adds a podcast to the index using its feed url. If a feed already exists, you will get its existing Feed ID returned.\n\n\n**NOTE**: this endpoint requires an API Key with the **write** permission.\n\n\nExample: https://api.podcastindex.org/api/1.0/add/byfeedurl?url=https://feeds.theincomparable.com/batmanuniversity&pretty\n"
+        },
+        {
+          "info": {
+            "name": "By Feed URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.podcastindex.org/api/1.0/add/byfeedurl",
+            "params": [
+              {
+                "name": "url",
+                "value": "https://feeds.theincomparable.com/batmanuniversity",
+                "type": "query",
+                "description": "Podcast feed URL\n"
+              },
+              {
+                "name": "itunesid",
+                "value": "1441923632",
+                "type": "query",
+                "description": "If this parameter is given, and the existing feed has no associated iTunes ID, it will be associated with this ID.\nIf an existing iTunes ID is already associated with this feed it will **NOT** be changed.\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call adds a podcast to the index using its feed url. If a feed already exists, you will get its existing Feed ID returned.\n\n\n**NOTE**: this endpoint requires an API Key with the **write** permission.\n\n\nExample: https://api.podcastindex.org/api/1.0/add/byfeedurl?url=https://feeds.theincomparable.com/batmanuniversity&pretty\n"
+        },
+        {
+          "info": {
+            "name": "By iTunes ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/add/byitunesid",
+            "params": [
+              {
+                "name": "id",
+                "value": "1441923632",
+                "type": "query",
+                "description": "The iTunes ID to add\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call adds a podcast to the index using its iTunes ID. If a feed already exists, it will be noted in the response.\n\n\n**NOTE**: this endpoint requires an API Key with the **write** permission.\n\n\nExample: https://api.podcastindex.org/api/1.0/add/byitunesid?id=1441923632&pretty\n"
+        },
+        {
+          "info": {
+            "name": "By iTunes ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.podcastindex.org/api/1.0/add/byitunesid",
+            "params": [
+              {
+                "name": "id",
+                "value": "1441923632",
+                "type": "query",
+                "description": "The iTunes ID to add\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call adds a podcast to the index using its iTunes ID. If a feed already exists, it will be noted in the response.\n\n\n**NOTE**: this endpoint requires an API Key with the **write** permission.\n\n\nExample: https://api.podcastindex.org/api/1.0/add/byitunesid?id=1441923632&pretty\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

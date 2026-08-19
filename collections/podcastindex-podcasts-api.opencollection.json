@@ -1,0 +1,337 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PodcastIndex.org Add Podcasts API",
+    "version": "1.12.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Podcasts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "By Feed ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/podcasts/byfeedid",
+            "params": [
+              {
+                "name": "id",
+                "value": "75075",
+                "type": "query",
+                "description": "The PodcastIndex Feed ID\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns everything we know about the feed from the PodcastIndex ID\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=75075&pretty\n  - Includes `value` and `funding`: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=169991&pretty\n"
+        },
+        {
+          "info": {
+            "name": "By Feed URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/podcasts/byfeedurl",
+            "params": [
+              {
+                "name": "url",
+                "value": "https://feeds.theincomparable.com/batmanuniversity",
+                "type": "query",
+                "description": "Podcast feed URL\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns everything we know about the feed from the feed URL\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/podcasts/byfeedurl?url=https://feeds.theincomparable.com/batmanuniversity&pretty\n  - Includes `value` and `funding`: https://api.podcastindex.org/api/1.0/podcasts/byfeedurl?url=https://engineered.network/pragmatic/feed/index.xml&pretty\n"
+        },
+        {
+          "info": {
+            "name": "By iTunes ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/podcasts/byitunesid",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "The iTunes Feed ID to search for\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns everything we know about the feed from the iTunes ID\n\n\nExample: https://api.podcastindex.org/api/1.0/podcasts/byitunesid?id=1441923632&pretty\n"
+        },
+        {
+          "info": {
+            "name": "By GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/podcasts/byguid",
+            "params": [
+              {
+                "name": "guid",
+                "value": "9b024349-ccf0-5f69-a609-6b82873eab3c",
+                "type": "query",
+                "description": "The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n\n\nSee the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns everything we know about the feed from the feed's GUID.\n\n\nThe GUID is a unique, global identifier for the podcast. See the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/podcasts/byguid?guid=9b024349-ccf0-5f69-a609-6b82873eab3c&pretty\n  - Includes `value` and `funding`: https://api.podcastindex.org/api/1.0/podcasts/byguid?guid=9b024349-ccf0-5f69-a609-6"
+        },
+        {
+          "info": {
+            "name": "By Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/podcasts/bytag",
+            "params": [
+              {
+                "name": "podcast-value",
+                "value": "",
+                "type": "query",
+                "description": "Get feeds supporting the [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value) tag.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "podcast-valueTimeSplit",
+                "value": "",
+                "type": "query",
+                "description": "Get feeds supporting the [`podcast:valueTimeSplit`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value-time-split) tag.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "max",
+                "value": "200",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "start_at",
+                "value": "1",
+                "type": "query",
+                "description": "Feed ID to start at for request\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns all feeds that support the specified\n[podcast namespace](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md) tag.\n\n\nThe only supported tags are:\n  - `podcast:value` using the `podcast-value` parameter\n  - `podcast:valueTimeSplit` using the `podcast-valueTimeSplit` parameter\n\n\nOnly the `podcast-value` or `podcast-valueTimeSplit` parameter should be used. If multiple are specified, the\nfirst parameter is used and the others are ignored.\n\n\nWhen called with"
+        },
+        {
+          "info": {
+            "name": "By Medium",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/podcasts/bymedium",
+            "params": [
+              {
+                "name": "medium",
+                "value": "film",
+                "type": "query",
+                "description": "The medium value to search for.\n\n\nFull list of possible values documented in\n[medium](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium) tag spec.\n"
+              },
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns all feeds marked with the specified\n[medium](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium) tag value.\n\n\nExample: https://api.podcastindex.org/api/1.0/podcasts/bymedium?medium=music&pretty\n"
+        },
+        {
+          "info": {
+            "name": "Trending",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/podcasts/trending",
+            "params": [
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "since",
+                "value": "1612125785",
+                "type": "query",
+                "description": "Return items since the specified epoch timestamp.\n"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Specifying a language code (like \"en\") will return only episodes having that specific language.\n\n\nYou can specify multiple languages by separating them with commas.\n\n\nIf you also want to return episodes that have no language given, use the token \"unknown\". (ex. en,es,ja,unknown).\n\n\nValues are not case sensitive.\n"
+              },
+              {
+                "name": "cat",
+                "value": "",
+                "type": "query",
+                "description": "Use this argument to specify that you **ONLY** want episodes with these categories in the results.\n\n\nSeparate multiple categories with commas.\n\n\nYou may specify either the Category ID and/or the Category Name.\n\n\nValues are not case sensitive.\n\n\nThe `cat` and `notcat` filters can be used together to fine tune a very specific result set.\n\n\nCategory numbers and names can be found in the\n[Podcast Namespace documentation](https://github.com/Podcastindex-org/podcast-namespace/blob/main/categories.json)\n"
+              },
+              {
+                "name": "notcat",
+                "value": "",
+                "type": "query",
+                "description": "Use this argument to specify categories of episodes to **NOT** show in the results.\n\n\nSeparate multiple categories with commas.\n\n\nYou may specify either the Category ID and/or the Category Name.\n\n\nValues are not case sensitive.\n\n\nThe `cat` and `notcat` filters can be used together to fine tune a very specific result set.\n\n\nCategory numbers and names can be found in the\n[Podcast Namespace documentation](https://github.com/Podcastindex-org/podcast-namespace/blob/main/categories.json)\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns the podcasts/feeds that in the index that are trending.\n\n\nExample: https://api.podcastindex.org/api/1.0/podcasts/trending?pretty\n"
+        },
+        {
+          "info": {
+            "name": "Dead",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/podcasts/dead",
+            "params": [
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns all feeds that have been marked dead (`dead` == 1)\n\n\nHourly statistics can also be access at https://public.podcastindex.org/podcastindex_dead_feeds.csv\nFor details, see [Dead Feeds](#get-/static/public/podcastindex_dead_feeds.csv).\n\n\nExample: https://api.podcastindex.org/api/1.0/podcasts/dead?pretty\n"
+        },
+        {
+          "info": {
+            "name": "Batch By Feed GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.podcastindex.org/api/1.0/podcasts/batch/byguid",
+            "params": [
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns everything we know about the feed from the feed's GUID provided in JSON array in the body of the request.\n\n\nThe GUID is a unique, global identifier for the podcast. See the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

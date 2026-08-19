@@ -1,0 +1,1726 @@
+{
+  "item": [
+    {
+      "id": "fea28bd4-ddde-4e7e-bcd6-b1346fb098d8",
+      "name": "Static Data",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c646ea91-7943-4953-ba7c-d04f357ff330",
+          "name": "Stats Daily Counts",
+          "request": {
+            "name": "Stats Daily Counts",
+            "description": {
+              "content": "Report a number of statistics about the feeds in Podcast Index's database. Updated daily.\n\n\nA subset of stats can be retrieved using the API endpoint [stats/current](#get-/stats/current).\n\n\nView at: https://stats.podcastindex.org/daily_counts.json\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "static",
+                "stats",
+                "daily_counts.json"
+              ],
+              "host": [
+                "stats",
+                "podcastindex",
+                "org"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "784078ca-78b0-4348-a244-6c008213aeb2",
+              "name": "Object containing the statistics for the Podcast Index feed data",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "daily_counts.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"feedCountTotal\": 4257865,\n  \"episodeCountTotal\": 143953477,\n  \"feedsWithNewEpisodes3days\": 97522,\n  \"feedsWithNewEpisodes7days\": 179043,\n  \"feedsWithNewEpisodes10days\": 212322,\n  \"feedsWithNewEpisodes14days\": 239664,\n  \"feedsWithNewEpisodes30days\": 306748,\n  \"feedsWithNewEpisodes60days\": 382945,\n  \"feedsWithNewEpisodes90days\": 436933,\n  \"paidFeedsWithNewEpisodes3days\": 77638,\n  \"paidFeedsWithNewEpisodes7days\": 140275,\n  \"paidFeedsWithNewEpisodes10days\": 165789,\n  \"paidFeedsWithNewEpisodes14days\": 186602,\n  \"paidFeedsWithNewEpisodes30days\": 237389,\n  \"paidFeedsWithNewEpisodes60days\": 77632,\n  \"paidFeedsWithNewEpisodes90days\": 335380,\n  \"newEpisodes3days\": 212324,\n  \"newEpisodes7days\": 442061,\n  \"newEpisodes10days\": 684833,\n  \"newEpisodes14days\": 907203,\n  \"newEpisodes30days\": 1901547,\n  \"newEpisodes60days\": 3710750,\n  \"newEpisodes90days\": 5498580,\n  \"feedsWithValueBlocks\": 21916,\n  \"feedsWithFundingTag\": 57582,\n  \"feedsWithTranscripts\": 61385,\n  \"episodesWithTranscripts\": 3198597,\n  \"feedsWithChapters\": 35582,\n  \"episodesWithChapters\": 652781,\n  \"feedsWithMediumMusic\": 3700,\n  \"feedsWithMediumVideo\": 1288\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "672a11a2-cb24-403f-854b-6ba3f036cb9d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "daily_counts.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <status>false</status>\n  <description>Invalid parameters</description>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "9fb1bf99-7846-4b0a-8ec4-ab4767573af3",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "daily_counts.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a67973ba-e4e5-4b7b-9de0-61fe9ed00b89",
+          "name": "Stats Hourly Counts",
+          "request": {
+            "name": "Stats Hourly Counts",
+            "description": {
+              "content": "Report a number of statistics about the feeds in Podcast Index's database. Updated hourly.\n\n\nA subset of stats can be retrieved using the API endpoint [stats/current](#get-/stats/current).\n\n\nView at: https://stats.podcastindex.org/hourly_counts.json\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "static",
+                "stats",
+                "hourly_counts.json"
+              ],
+              "host": [
+                "stats",
+                "podcastindex",
+                "org"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b90087c-9586-4861-9384-18f660ad68aa",
+              "name": "Object containing the statistics for the Podcast Index feed data",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "hourly_counts.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"feedCountTotal\": 4257865,\n  \"episodeCountTotal\": 143953477,\n  \"feedsWithNewEpisodes3days\": 97522,\n  \"feedsWithNewEpisodes7days\": 179043,\n  \"feedsWithNewEpisodes10days\": 212322,\n  \"feedsWithNewEpisodes14days\": 239664,\n  \"feedsWithNewEpisodes30days\": 306748,\n  \"feedsWithNewEpisodes60days\": 382945,\n  \"feedsWithNewEpisodes90days\": 436933,\n  \"paidFeedsWithNewEpisodes3days\": 77638,\n  \"paidFeedsWithNewEpisodes7days\": 140275,\n  \"paidFeedsWithNewEpisodes10days\": 165789,\n  \"paidFeedsWithNewEpisodes14days\": 186602,\n  \"paidFeedsWithNewEpisodes30days\": 237389,\n  \"paidFeedsWithNewEpisodes60days\": 77632,\n  \"paidFeedsWithNewEpisodes90days\": 335380,\n  \"newEpisodes3days\": 212324,\n  \"newEpisodes7days\": 442061,\n  \"newEpisodes10days\": 684833,\n  \"newEpisodes14days\": 907203,\n  \"newEpisodes30days\": 1901547,\n  \"newEpisodes60days\": 3710750,\n  \"newEpisodes90days\": 5498580,\n  \"feedsWithValueBlocks\": 21916,\n  \"feedsWithFundingTag\": 57582,\n  \"feedsWithTranscripts\": 61385,\n  \"episodesWithTranscripts\": 3198597,\n  \"feedsWithChapters\": 35582,\n  \"episodesWithChapters\": 652781,\n  \"feedsWithMediumMusic\": 3700,\n  \"feedsWithMediumVideo\": 1288\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5b9c234-7c93-468f-be99-db073ab0bfbe",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "hourly_counts.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <status>false</status>\n  <description>Invalid parameters</description>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "a42af99b-c3c5-4f6d-9c9d-84e891706476",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "hourly_counts.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1315272-5fba-488a-99d2-d822619d59bf",
+          "name": "v4v Sats",
+          "request": {
+            "name": "v4v Sats",
+            "description": {
+              "content": "Contains the raw data used to populate the graphs at https://stats.podcastindex.org/v4v.\n\nThis is a look at the total [sats](https://www.investopedia.com/terms/s/satoshi.asp) flowing through the Value4Value\nLightning podcasting economy over various periods of time.\n\nWe calculate this data based on our visibility as a one percent voluntary split on Podcastindex.org api\ncalls. Therefore, the true numbers could be higher, but they cannot be lower than listed here. This represents our\nbest approximation of how many sats are flowing across the entire ecosystem from listeners to creators, guests (via\nepisode splits), platforms, services and apps.\n\n\nView at: https://stats.podcastindex.org/chart-data.json\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "static",
+                "stats",
+                "chart-data.json"
+              ],
+              "host": [
+                "stats",
+                "podcastindex",
+                "org"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c428137-1255-49c3-8576-f9d378c14151",
+              "name": "Object containing the number of sats, transactions, and senders.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "chart-data.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sats\": [\n    {\n      \"x\": \"2024-5-24\",\n      \"y\": 629594\n    },\n    {\n      \"x\": \"2024-5-24\",\n      \"y\": 629594\n    }\n  ],\n  \"senders\": [\n    {\n      \"x\": \"2024-5-24\",\n      \"y\": 238\n    },\n    {\n      \"x\": \"2024-5-24\",\n      \"y\": 238\n    }\n  ],\n  \"txs\": [\n    {\n      \"x\": \"2024-5-24\",\n      \"y\": 8212\n    },\n    {\n      \"x\": \"2024-5-24\",\n      \"y\": 8212\n    }\n  ],\n  \"colors\": {\n    \"txcolor\": \"#ff3333\",\n    \"color14\": \"#9370db\",\n    \"color30\": \"#58d68d\",\n    \"color60\": \"#0088cc\",\n    \"color7\": \"#fffa90\",\n    \"color90\": \"#ff8800\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcd48bc4-67cf-4581-9e2a-33dfabec9211",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "chart-data.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <status>false</status>\n  <description>Invalid parameters</description>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "14a5a54a-a55b-49bc-b618-de564fcecc46",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "chart-data.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d688a0ce-4aa4-4119-9cad-0b091cb2f95b",
+          "name": "v4v Music Chart JSON",
+          "request": {
+            "name": "v4v Music Chart JSON",
+            "description": {
+              "content": "Contains the ranking of the music tracks played on podcasts that have been boosted the most over the last 7 days.\n\nEach entry shows the number of listener boosts sent over this time period. The chart is updated hourly.\n\n\nCan be viewed in a browser at https://podcastindex.top/ (https://stats.podcastindex.org/v4vmusic.html).\n\n\nView at: https://stats.podcastindex.org/v4vmusic.json\n\n\nAlso available in [OPML](#get-/static/stats/v4vmusic.opml) and [RSS](#get-/static/stats/v4vmusic.rss).\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "static",
+                "stats",
+                "v4vmusic.json"
+              ],
+              "host": [
+                "stats",
+                "podcastindex",
+                "org"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "511d57b2-ec76-4ee4-9bcd-26be35cf8b08",
+              "name": "The hourly Top X music",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "v4vmusic.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"Podcasting 2.0 Top 100 (Music)\",\n  \"description\": \"An hourly Top 100 music playlist.\",\n  \"timestamp\": 1724465107,\n  \"items\": {\n    \"rank\": 1,\n    \"boosts\": \"42\",\n    \"title\": \"To be in Nashville\",\n    \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"feedId\": 75075,\n    \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"feedGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n    \"itemGuid\": \"incomparable/batman/19\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82f448e9-6806-40e0-adc0-7045e7c0b203",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "v4vmusic.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <status>false</status>\n  <description>Invalid parameters</description>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "16b3aafc-9141-4266-adf9-4f11756cb2f5",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "v4vmusic.json"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d239682a-827d-4f88-a83b-b3b2a979e4ac",
+          "name": "v4v Music Chart OPML",
+          "request": {
+            "name": "v4v Music Chart OPML",
+            "description": {
+              "content": "Contains the ranking of the music tracks played on podcasts that have been boosted the most over the last 7 days.\n\nEach entry shows the number of listener boosts sent over this time period. The chart is updated hourly.\n\n\nCan be viewed in a browser at https://podcastindex.top/ (https://stats.podcastindex.org/v4vmusic.html).\n\n\nView at: https://stats.podcastindex.org/v4vmusic.opml\n\n\nAlso available in [JSON](#get-/static/stats/v4vmusic.json) and [RSS](#get-/static/stats/v4vmusic.rss).\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "static",
+                "stats",
+                "v4vmusic.opml"
+              ],
+              "host": [
+                "stats",
+                "podcastindex",
+                "org"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23172c30-0bee-4e7f-915d-d3392e0cc726",
+              "name": "The hourly Top X music\n\n\nData follows the [OPML spec](https://opml.org/spec2.opml) with additions of\n[Podcast Namespace](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md) attributes.\n\n\nExample `outline` entry:\n\n```xml\n<outline type=\"rss\" text=\"To be in Nashville\" xmlUrl=\"https://files.heycitizen.xyz/Songs/Albums/The-Heycitizen-Experience/the heycitizen experience.xml\" podcast:feedGuid=\"a2d2e313-9cbd-5169-b89c-ab07b33ecc33\" podcast:itemGuid=\"ac34129c-c78a-463e-a64f-01405e1f2be4\"/>\n```\n\nAttributes:\n\n  - `text`\n    - Title of Track\n    - Example: `\"To be in Nashville\"`\n  - `xmlUrl`\n    - Feed URL track is in\n    - Example: `\"https://files.heycitizen.xyz/Songs/Albums/The-Heycitizen-Experience/the heycitizen experience.xml\"`\n  - `podcast:feedGuid`\n    - The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n    - See the namespace spec for [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n    - Example: `\"a2d2e313-9cbd-5169-b89c-ab07b33ecc33\"`\n  - `podcast:itemGuid`\n    - The unique identifier for the episode\n    - Example: `\"ac34129c-c78a-463e-a64f-01405e1f2be4\"`\n",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "v4vmusic.opml"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "62742f84-2a9f-4f18-827e-91ef43b8f43c",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "v4vmusic.opml"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <status>false</status>\n  <description>Invalid parameters</description>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "71d1443b-f43e-499e-8439-a1fd06d4f606",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "v4vmusic.opml"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa90ab9b-0e20-43b7-b97e-12e04eebb2ce",
+          "name": "v4v Music Chart RSS",
+          "request": {
+            "name": "v4v Music Chart RSS",
+            "description": {
+              "content": "Contains the ranking of the music tracks played on podcasts that have been boosted the most over the last 7 days.\n\nEach entry shows the number of listener boosts sent over this time period. The chart is updated hourly.\n\n\nCan be viewed in a browser at https://podcastindex.top/ (https://stats.podcastindex.org/v4vmusic.html).\n\n\nView at: https://stats.podcastindex.org/v4vmusic.rss\n\n\nAlso available in [JSON](#get-/static/stats/v4vmusic.json) and [OPML](#get-/static/stats/v4vmusic.opml).\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "static",
+                "stats",
+                "v4vmusic.rss"
+              ],
+              "host": [
+                "stats",
+                "podcastindex",
+                "org"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/rss+xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fdb4842-8569-4b3d-8e62-e4109a472a62",
+              "name": "The hourly Top X music\n\n\nData follows the RSS XML spec with additions of\n[Podcast Namespace](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md) attributes.\n\n\nThe [`podcast:remoteItem`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#remote-item)\nis used to reference the episodes in the music chart.\n",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "v4vmusic.rss"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/rss+xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/rss+xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "687f7170-143c-4b1d-a084-8e2c4b3b1d6e",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "v4vmusic.rss"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <status>false</status>\n  <description>Invalid parameters</description>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "6338b3a9-1fbe-4f36-b493-8a7a141b5b54",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "stats",
+                    "v4vmusic.rss"
+                  ],
+                  "host": [
+                    "stats",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc6fd5ca-6c80-46e9-a3c3-a250031d3d47",
+          "name": "Current",
+          "request": {
+            "name": "Current",
+            "description": {
+              "content": "This call returns every new feed and episode added to the index over the past 24 hours in reverse chronological order.\n\n\nThis is similar to `/recent/feeds` but uses the date the feed was found by the index rather than the feed's\ninternal timestamp.\n\n\nSimilar data can also be retrieved using the API endpoint [recent/data](#get-/recent/data).\n\n\nAccess at: https://tracking.podcastindex.org/current\n\n\nThe prior 24 hours of data (going backwards until all tracked data is received) can be accessed using the timestamp\nof the previous data set. This is found in the `previousTrackingUrl`.\nThe format of these prior data sets follows the format described below.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "static",
+                "tracking",
+                "current"
+              ],
+              "host": [
+                "tracking",
+                "podcastindex",
+                "org"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "816bd2fa-4963-4269-b885-717b8dca0dda",
+              "name": "The feed and episode data seen by the Podcast Index.\n",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "tracking",
+                    "current"
+                  ],
+                  "host": [
+                    "tracking",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"feedCount\": 1,\n  \"itemCount\": 1,\n  \"max\": 2,\n  \"since\": 1613805249,\n  \"previousTrackingUrl\": \"https://tracking.podcastindex.org/1724468201\",\n  \"data\": {\n    \"nextSince\": 1613805249,\n    \"position\": 12843054496,\n    \"feeds\": [\n      {\n        \"feedId\": 75075,\n        \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n        \"feedTitle\": \"Batman University\",\n        \"feedDescription\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n        \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n        \"feedLanguage\": \"en-us\",\n        \"feedItunesId\": 1441923632\n      },\n      {\n        \"feedId\": 75075,\n        \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n        \"feedTitle\": \"Batman University\",\n        \"feedDescription\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n        \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n        \"feedLanguage\": \"en-us\",\n        \"feedItunesId\": 1441923632\n      }\n    ],\n    \"items\": [\n      {\n        \"episodeId\": 16795088,\n        \"episodeTitle\": \"Batman University\",\n        \"episodeDescription\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n        \"episodeImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n        \"episodeTimestamp\": 1546399813,\n        \"episodeAdded\": 1613786624,\n        \"episodeEnclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n        \"episodeEnclosureLength\": 26385472,\n        \"episodeEnclosureType\": \"audio/mp3\",\n        \"episodeDuration\": 54,\n        \"episodeType\": \"full\",\n        \"feedId\": 75075\n      },\n      {\n        \"episodeId\": 16795088,\n        \"episodeTitle\": \"Batman University\",\n        \"episodeDescription\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n        \"episodeImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n        \"episodeTimestamp\": 1546399813,\n        \"episodeAdded\": 1613786624,\n        \"episodeEnclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n        \"episodeEnclosureLength\": 26385472,\n        \"episodeEnclosureType\": \"audio/mp3\",\n        \"episodeDuration\": 54,\n        \"episodeType\": \"full\",\n        \"feedId\": 75075\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2761992-835d-4924-8e89-765ddb449d5d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "tracking",
+                    "current"
+                  ],
+                  "host": [
+                    "tracking",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <status>false</status>\n  <description>Invalid parameters</description>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "30993853-e4be-4ed9-b558-e1a0733b0da8",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "tracking",
+                    "current"
+                  ],
+                  "host": [
+                    "tracking",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "268fb538-40a3-437a-89ea-e4847d62b1e5",
+          "name": "Feed Value Blocks",
+          "request": {
+            "name": "Feed Value Blocks",
+            "description": {
+              "content": "Get all feeds with value blocks.\n\n\nAccess at: https://tracking.podcastindex.org/feedValueBlocks.json\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "static",
+                "tracking",
+                "feedValueBlocks"
+              ],
+              "host": [
+                "tracking",
+                "podcastindex",
+                "org"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ea06b6c-b4de-482d-a636-6a89994b98bf",
+              "name": "Array of episodes containing value blocks",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "tracking",
+                    "feedValueBlocks"
+                  ],
+                  "host": [
+                    "tracking",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 75075,\n    \"itunesId\": 1441923632,\n    \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n    \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"value\": {\n      \"model\": {\n        \"type\": \"lightning\",\n        \"method\": \"keysend\",\n        \"suggested\": \"0.00000020000\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"podcaster\",\n          \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n          \"type\": \"node\",\n          \"split\": 99,\n          \"fee\": true,\n          \"customKey\": \"112111100\",\n          \"customValue\": \"wal_ZmqFg13NB31oek\"\n        },\n        {\n          \"name\": \"podcaster\",\n          \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n          \"type\": \"node\",\n          \"split\": 99,\n          \"fee\": true,\n          \"customKey\": \"112111100\",\n          \"customValue\": \"wal_ZmqFg13NB31oek\"\n        }\n      ]\n    },\n    \"valueCreatedOn\": 1598369047\n  },\n  {\n    \"id\": 75075,\n    \"itunesId\": 1441923632,\n    \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n    \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"value\": {\n      \"model\": {\n        \"type\": \"lightning\",\n        \"method\": \"keysend\",\n        \"suggested\": \"0.00000020000\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"podcaster\",\n          \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n          \"type\": \"node\",\n          \"split\": 99,\n          \"fee\": true,\n          \"customKey\": \"112111100\",\n          \"customValue\": \"wal_ZmqFg13NB31oek\"\n        },\n        {\n          \"name\": \"podcaster\",\n          \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n          \"type\": \"node\",\n          \"split\": 99,\n          \"fee\": true,\n          \"customKey\": \"112111100\",\n          \"customValue\": \"wal_ZmqFg13NB31oek\"\n        }\n      ]\n    },\n    \"valueCreatedOn\": 1598369047\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bca8dbc2-2cde-4142-ab1a-00bdb0299afd",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "tracking",
+                    "feedValueBlocks"
+                  ],
+                  "host": [
+                    "tracking",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <status>false</status>\n  <description>Invalid parameters</description>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "371f289a-89fe-44ff-a1f3-a4d0bd8833cd",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "tracking",
+                    "feedValueBlocks"
+                  ],
+                  "host": [
+                    "tracking",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d603ddba-c2fa-4216-8e65-2ae983276dc9",
+          "name": "Episode Value Blocks",
+          "request": {
+            "name": "Episode Value Blocks",
+            "description": {
+              "content": "Get all episodes with value blocks.\n\n\nAccess at: https://tracking.podcastindex.org/episodeValueBlocks.json\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "static",
+                "tracking",
+                "episodeValueBlocks"
+              ],
+              "host": [
+                "tracking",
+                "podcastindex",
+                "org"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e47e3a3d-ca0b-4217-96eb-4329903ea085",
+              "name": "Array of episodes containing value blocks",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "tracking",
+                    "episodeValueBlocks"
+                  ],
+                  "host": [
+                    "tracking",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"episodeGuid\": \"incomparable/batman/19\",\n    \"episodeId\": 16795088,\n    \"feedId\": 75075,\n    \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"itunesId\": 1441923632,\n    \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n    \"value\": {\n      \"model\": {\n        \"type\": \"lightning\",\n        \"method\": \"keysend\",\n        \"suggested\": \"0.00000020000\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"podcaster\",\n          \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n          \"type\": \"node\",\n          \"split\": 99,\n          \"fee\": true,\n          \"customKey\": \"112111100\",\n          \"customValue\": \"wal_ZmqFg13NB31oek\"\n        },\n        {\n          \"name\": \"podcaster\",\n          \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n          \"type\": \"node\",\n          \"split\": 99,\n          \"fee\": true,\n          \"customKey\": \"112111100\",\n          \"customValue\": \"wal_ZmqFg13NB31oek\"\n        }\n      ]\n    },\n    \"valueCreatedOn\": 1598369047\n  },\n  {\n    \"episodeGuid\": \"incomparable/batman/19\",\n    \"episodeId\": 16795088,\n    \"feedId\": 75075,\n    \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"itunesId\": 1441923632,\n    \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n    \"value\": {\n      \"model\": {\n        \"type\": \"lightning\",\n        \"method\": \"keysend\",\n        \"suggested\": \"0.00000020000\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"podcaster\",\n          \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n          \"type\": \"node\",\n          \"split\": 99,\n          \"fee\": true,\n          \"customKey\": \"112111100\",\n          \"customValue\": \"wal_ZmqFg13NB31oek\"\n        },\n        {\n          \"name\": \"podcaster\",\n          \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n          \"type\": \"node\",\n          \"split\": 99,\n          \"fee\": true,\n          \"customKey\": \"112111100\",\n          \"customValue\": \"wal_ZmqFg13NB31oek\"\n        }\n      ]\n    },\n    \"valueCreatedOn\": 1598369047\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8251438-df14-4fd7-aeb3-8649d65deda0",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "tracking",
+                    "episodeValueBlocks"
+                  ],
+                  "host": [
+                    "tracking",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <status>false</status>\n  <description>Invalid parameters</description>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "ff8032bb-d03e-44df-89d3-fc6c91d9cf4c",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "tracking",
+                    "episodeValueBlocks"
+                  ],
+                  "host": [
+                    "tracking",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4014c18a-7f34-4f19-8bce-47c8718f3aec",
+          "name": "Dead Feeds",
+          "request": {
+            "name": "Dead Feeds",
+            "description": {
+              "content": "Lists all feed Ids that have been marked dead in the Podcast Index database. The list is updated every X hours.\n\n\nA subset of stats can be retrieved using the API endpoint [podcasts/dead](#get-/podcasts/dead).\n\n\nDownload from: https://public.podcastindex.org/podcastindex_dead_feeds.csv\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "static",
+                "public",
+                "podcastindex_dead_feeds.csv"
+              ],
+              "host": [
+                "public",
+                "podcastindex",
+                "org"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/csv"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a8162a2-8cb6-41a7-a6f9-918d7232a674",
+              "name": "Feed Ids in CSV file format.\n\n\nEach row is the feed id. No Header.\n\n\nExample:\n\n\n```csv\n3,\n38,\n43,\n45,\n56,\n```\n",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "public",
+                    "podcastindex_dead_feeds.csv"
+                  ],
+                  "host": [
+                    "public",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/csv"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c436025e-a787-4090-a545-0aa30e6f52a0",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "public",
+                    "podcastindex_dead_feeds.csv"
+                  ],
+                  "host": [
+                    "public",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <status>false</status>\n  <description>Invalid parameters</description>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "85601296-a223-466a-99ea-abd76edd41d5",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "public",
+                    "podcastindex_dead_feeds.csv"
+                  ],
+                  "host": [
+                    "public",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ca12b40-fa71-47d8-aeed-86adb972a56d",
+          "name": "Feeds Database",
+          "request": {
+            "name": "Feeds Database",
+            "description": {
+              "content": "Compressed database of all non-dead feeds in the Podcast Index database.\n\n\nUpdated daily. Some attributes excluded. No episodes included.\n\n\nDownload from: https://public.podcastindex.org/podcastindex_feeds.db.tgz\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "static",
+                "public",
+                "podcastindex_feeds.db.tgz"
+              ],
+              "host": [
+                "public",
+                "podcastindex",
+                "org"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/gzip"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7be230cc-abb3-453a-b9ad-1e3a48791a8c",
+              "name": "Podcast Index Feeds Database\n",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "public",
+                    "podcastindex_feeds.db.tgz"
+                  ],
+                  "host": [
+                    "public",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/gzip"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/gzip"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92e1a9c0-0769-4004-a9a9-c337ea1fdf74",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "public",
+                    "podcastindex_feeds.db.tgz"
+                  ],
+                  "host": [
+                    "public",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <status>false</status>\n  <description>Invalid parameters</description>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "a129da05-c7c5-4fa2-9e29-399d7d7e88b6",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "static",
+                    "public",
+                    "podcastindex_feeds.db.tgz"
+                  ],
+                  "host": [
+                    "public",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podcastindex.org/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fb243d13-a953-4ed5-aa2a-1e03a1f9f3c2",
+    "name": "PodcastIndex.org Add Static Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Download the openapi spec in [json](pi_api.json) or [yaml](pi_api.yaml) format.\n\n# Overview\n\nThe Podcast Index (Podcast Index LLC) is a software developer focused partnership that provides tools and data to\nanyone who aspires to create new and exciting Podcast experiences without the heavy lifting of indexing,\naggregation and data management.\n\n# Example Code\n\nUsers have provided example code for working the API in the following languages:\n\n  - [AWS Lambda - python](https://github.com/tbowers/python-podcastindex-org-lambda)\n  - [Bash](https://github.com/suorcd/Bash-podcastindex-org-example)\n  - [C#](https://github.com/ComicStrip/csharp-podcastindex-org-example)\n  - [Elisp](https://github.com/sabexx/elisp-example)\n  - [Flutter/Dart](https://github.com/crediblecreative/flutter-dart-podcastindex-org-example)\n  - [Go](https://github.com/ComicStrip/Go-podcastindex-org-example)\n  - [Go](https://github.com/kilobit/podcast-index-client)\n  - [Java](https://github.com/ComicStrip/Java-podcastindex-org-example)\n  - [Java](https://github.com/stucoates/PodcastIndexJavaClient)\n  - [Node.js](https://github.com/ComicStrip/node.js-podcastindex-org-example)\n  - [PHP](https://github.com/Podcastindex-org/example-code)\n  - [Python](https://github.com/tbowers/python-podcastindex-org-example)\n  - [Swift](https://github.com/ComicStrip/Swift-podcastindex-org-example)\n  - ... [More](https://github.com/Podcastindex-org-Examples)\n\nDon't see your desired language, create an example repo and create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to your example code project!\n\n# Libraries\n\nUser created libraries for working with the API:\n\n  - Java\n      - [podcast4j](https://github.com/yusufyilmazfr/podcast4j)\n  - .NET\n      - [PodcastIndexSharp](https://www.nuget.org/packages/PodcastIndexSharp)\n  - Node.js/npm/yarn\n      - [podcast-index-api](https://www.npmjs.com/package/podcast-index-api)\n      - [podcastdx-client](https://www.npmjs.com/package/podcastdx-client)\n  - PHP\n      - [podcastindex-php](https://github.com/LowSociety/podcastindex-php)\n  - Python/pip\n      - [python-podcastindex](https://pypi.org/project/python-podcastindex/)\n  - R\n      - [podindexr](https://github.com/rpodcast/podindexr)\n  - Ruby\n      - [podcast-index](https://github.com/jasonyork/podcast-index)\n  - Swift\n      - [PodcastIndexKit](https://github.com/SparrowTek/PodcastIndexKit)\n  - Kotlin\n      - [PodcastIndex-SDK](https://github.com/mr3y-the-programmer/PodcastIndex-SDK)\n  - Go\n      - [podcastindex](https://github.com/jjgmckenzie/podcastindex)\n      - [podcastindex-go](https://github.com/koalahl/podcastindex-go)\n\nAre we missing a library? Did you create one for a different language? Create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to the new library!\n\n# Postman\n\nA collection file for use in the [Postman](https://www.postman.com/) application is available for this API.\n\n  1. Download the contents of the [Postman Docs](https://github.com/Podcastindex-org/docs-api/tree/master/Postman%20Docs) folder.\n  2. Import the `PodcastIndex.postman_collection.json` collection to Postman\n  3. Import the `PodcastIndexOrgEnvironment.postman_environment.json` to Postman\n  4. Click \"Environments\" on the left sidebar\n  5. Select the checkbox next to the PodcastIndexOrgEnvironment entry\n  6. Set `AuthKey` and `SeceretKey` values under the \"Current Value\" column using your API information\n  7. Click \"Collections\" from the sidebar\n  8. Select PodcastIndex\n  9. Select and run the endpoint to test\n\n# Contributing\n\nThe source for this API documentation is available at\n[https://github.com/Podcastindex-org/docs-api](https://github.com/Podcastindex-org/docs-api).\nSubmit an Issue or create a Pull Request.\n\n# Authentication Details\n\nSending an API request is easy. We use an Amazon-style request authorization token to secure each request.\n\n\nRegister for a free API key at https://api.podcastindex.org/\n\n\nThese headers parameters are required for each request: `User-Agent`, `X-Auth-Date`, `X-Auth-Key`, `Authorization`\n\n\nSee [Authentication](#auth) for description of parameters.\n\n# Legal\n\nLegal\n\n  - [Privacy Policy](https://github.com/Podcastindex-org/legal/blob/main/PrivacyPolicy.md)\n  - [Terms of Service](https://github.com/Podcastindex-org/legal/blob/main/TermsOfService.md)\n  - [License](https://github.com/Podcastindex-org/docs-api/blob/master/LICENSE)\n\n\nContact Support:\n Email: info@podcastindex.org",
+      "type": "text/plain"
+    }
+  }
+}

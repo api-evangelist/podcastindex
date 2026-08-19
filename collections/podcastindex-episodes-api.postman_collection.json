@@ -1,0 +1,2256 @@
+{
+  "item": [
+    {
+      "id": "5c67d2dc-dd87-4b6a-8cd9-f33b54e40b6f",
+      "name": "Episodes",
+      "description": {
+        "content": "Find details about one or more episodes of a podcast or podcasts.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1849add1-b602-41ad-9764-070d6772ae5f",
+          "name": "By Feed ID",
+          "request": {
+            "name": "By Feed ID",
+            "description": {
+              "content": "This call returns all the episodes we know about for this feed from the PodcastIndex ID.\nEpisodes are in reverse chronological order.\n\n\nWhen using the `enclosure` parameter, only the episode matching the URL is returned.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/episodes/byfeedid?id=75075&pretty\n  - https://api.podcastindex.org/api/1.0/episodes/byfeedid?id=41504,920666&pretty\n  - https://api.podcastindex.org/api/1.0/episodes/byfeedid?id=75075&newest&pretty\n  - https://api.podcastindex.org/api/1.0/episodes/byfeedid?id=41504,920666&newest&pretty\n  - Includes `persons`: https://api.podcastindex.org/api/1.0/episodes/byfeedid?id=169991&pretty\n  - Includes `value`: https://api.podcastindex.org/api/1.0/episodes/byfeedid?id=4058673&pretty\n  - Using `enclosure`: https://api.podcastindex.org/api/1.0/episodes/byfeedid?id=41504&enclosure=https://op3.dev/e/mp3s.nashownotes.com/NA-1551-2023-04-30-Final.mp3&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "episodes",
+                "byfeedid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) The PodcastIndex Feed ID or IDs to search for.\n\n\nIf searching for multiple IDs, separate values with a comma. A maximum of 200 IDs can be provided.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Return items since the specified epoch timestamp.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "enclosure",
+                  "value": "<string>",
+                  "description": "The URL for the episode enclosure to get the information for.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "fulltext",
+                  "value": "<boolean>",
+                  "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "newest",
+                  "value": "<boolean>",
+                  "description": "If present, returns only the most recent (newest) episode for each specified feed id.\n\n\nParameter shall not have a value\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a38ccf38-2a25-4d0a-b5d5-b61382f255e2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byfeedid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "enclosure",
+                      "value": "https://op3.dev/e/mp3s.nashownotes.com/NA-1551-2023-04-30-Final.mp3"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "newest",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"liveItems\": [\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"startTime\": 1674154800,\n      \"endTime\": 1674167400,\n      \"status\": \"live\",\n      \"contentLink\": \"\",\n      \"duration\": 54,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"feedLanguage\": \"en-us\",\n      \"feedDead\": 0,\n      \"feedDuplicateOf\": 75075,\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n      \"transcriptUrl\": \"https://mp3s.nashownotes.com/NA-1322-Captions.srt\"\n    },\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"startTime\": 1674154800,\n      \"endTime\": 1674167400,\n      \"status\": \"live\",\n      \"contentLink\": \"\",\n      \"duration\": 54,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"feedLanguage\": \"en-us\",\n      \"feedDead\": 0,\n      \"feedDuplicateOf\": 75075,\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n      \"transcriptUrl\": \"https://mp3s.nashownotes.com/NA-1322-Captions.srt\"\n    }\n  ],\n  \"items\": [\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"duration\": 54,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"feedLanguage\": \"en-us\",\n      \"feedDead\": 0,\n      \"feedDuplicateOf\": 75075,\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n      \"transcriptUrl\": \"https://mp3s.nashownotes.com/NA-1322-Captions.srt\",\n      \"transcripts\": [\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        },\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        }\n      ],\n      \"soundbite\": {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      },\n      \"soundbites\": [\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"persons\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"socialInteract\": [\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"value\": {\n        \"model\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"method\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggested\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"destinations\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"duration\": 54,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"feedLanguage\": \"en-us\",\n      \"feedDead\": 0,\n      \"feedDuplicateOf\": 75075,\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n      \"transcriptUrl\": \"https://mp3s.nashownotes.com/NA-1322-Captions.srt\",\n      \"transcripts\": [\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        },\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        }\n      ],\n      \"soundbite\": {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      },\n      \"soundbites\": [\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"persons\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"socialInteract\": [\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"value\": {\n        \"model\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"method\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggested\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"destinations\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    }\n  ],\n  \"count\": 1,\n  \"query\": \"75075\",\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb8a5b82-1596-4ad9-9bbf-d039fc297155",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byfeedid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "enclosure",
+                      "value": "https://op3.dev/e/mp3s.nashownotes.com/NA-1551-2023-04-30-Final.mp3"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "newest",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae064323-7b2e-49dc-80fc-bf208057fb98",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byfeedid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "enclosure",
+                      "value": "https://op3.dev/e/mp3s.nashownotes.com/NA-1551-2023-04-30-Final.mp3"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "newest",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67a97b8d-4583-4081-bd79-d691228320e4",
+          "name": "By Feed URL",
+          "request": {
+            "name": "By Feed URL",
+            "description": {
+              "content": "This call returns all the episodes we know about for this feed from the feed URL.\nEpisodes are in reverse chronological order.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/episodes/byfeedurl?url=https://feeds.theincomparable.com/batmanuniversity&pretty\n  - Includes `persons`: https://api.podcastindex.org/api/1.0/episodes/byfeedurl?url=https://engineered.network/pragmatic/feed/index.xml&pretty\n  - Includes `value`: https://api.podcastindex.org/api/1.0/episodes/byfeedurl?url=https://closing-the-loop.github.io/feed.xml&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "episodes",
+                "byfeedurl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<string>",
+                  "description": "(Required) Podcast feed URL\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Return items since the specified epoch timestamp.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "fulltext",
+                  "value": "<boolean>",
+                  "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b4aafce4-3876-42b0-ae81-380865fab909",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byfeedurl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "https://feeds.theincomparable.com/batmanuniversity"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"items\": [\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"duration\": 54,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"feedLanguage\": \"en-us\",\n      \"feedDead\": 0,\n      \"feedDuplicateOf\": 75075,\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n      \"transcriptUrl\": \"https://mp3s.nashownotes.com/NA-1322-Captions.srt\",\n      \"transcripts\": [\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        },\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        }\n      ],\n      \"soundbite\": {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      },\n      \"soundbites\": [\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"persons\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"socialInteract\": [\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"value\": {\n        \"model\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"method\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggested\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"destinations\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"duration\": 54,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"feedLanguage\": \"en-us\",\n      \"feedDead\": 0,\n      \"feedDuplicateOf\": 75075,\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n      \"transcriptUrl\": \"https://mp3s.nashownotes.com/NA-1322-Captions.srt\",\n      \"transcripts\": [\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        },\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        }\n      ],\n      \"soundbite\": {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      },\n      \"soundbites\": [\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"persons\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"socialInteract\": [\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"value\": {\n        \"model\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"method\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggested\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"destinations\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    }\n  ],\n  \"count\": 1,\n  \"query\": {\n    \"url\": \"https://feeds.theincomparable.com/batmanuniversity\"\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a82cfae-e2a5-45d0-9f5b-3be479e38448",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byfeedurl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "https://feeds.theincomparable.com/batmanuniversity"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb25a5f6-4bcd-4031-ba1f-b25a7c0f1de9",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byfeedurl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "https://feeds.theincomparable.com/batmanuniversity"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7726fb2-e4a9-4ab2-9147-b6ca2f8f5cb0",
+          "name": "By Podcast GUID",
+          "request": {
+            "name": "By Podcast GUID",
+            "description": {
+              "content": "This call returns all the episodes we know about for this feed from the [Podcast GUID](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid).\nEpisodes are in reverse chronological order.\n\n\nExample: https://api.podcastindex.org/api/1.0/episodes/bypodcastguid?guid=856cd618-7f34-57ea-9b84-3600f1f65e7f&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "episodes",
+                "bypodcastguid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "guid",
+                  "value": "<string>",
+                  "description": "(Required) The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n\n\nSee the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Return items since the specified epoch timestamp.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "fulltext",
+                  "value": "<boolean>",
+                  "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3b8b168e-7b71-4e58-b783-9ab39fb9d830",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "bypodcastguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "9b024349-ccf0-5f69-a609-6b82873eab3c"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"items\": [\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"duration\": 54,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"feedLanguage\": \"en-us\",\n      \"feedDead\": 0,\n      \"feedDuplicateOf\": 75075,\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n      \"transcriptUrl\": \"https://mp3s.nashownotes.com/NA-1322-Captions.srt\",\n      \"transcripts\": [\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        },\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        }\n      ],\n      \"soundbite\": {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      },\n      \"soundbites\": [\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"persons\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"socialInteract\": [\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"value\": {\n        \"model\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"method\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggested\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"destinations\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"duration\": 54,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"feedLanguage\": \"en-us\",\n      \"feedDead\": 0,\n      \"feedDuplicateOf\": 75075,\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n      \"transcriptUrl\": \"https://mp3s.nashownotes.com/NA-1322-Captions.srt\",\n      \"transcripts\": [\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        },\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        }\n      ],\n      \"soundbite\": {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      },\n      \"soundbites\": [\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"persons\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"socialInteract\": [\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"value\": {\n        \"model\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"method\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggested\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"destinations\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    }\n  ],\n  \"count\": 1,\n  \"query\": {\n    \"url\": \"https://feeds.theincomparable.com/batmanuniversity\"\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae35f6ee-e648-47da-b3cb-4b4ffc872e88",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "bypodcastguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "9b024349-ccf0-5f69-a609-6b82873eab3c"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b912c23-b3c7-45e7-9d88-594681db218e",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "bypodcastguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "9b024349-ccf0-5f69-a609-6b82873eab3c"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "adc4c7a0-1148-4408-9941-569006be1fa6",
+          "name": "By iTunes ID",
+          "request": {
+            "name": "By iTunes ID",
+            "description": {
+              "content": "This call returns all the episodes we know about for this feed from the iTunes ID.\nEpisodes are in reverse chronological order.\n\n\nWhen using the `enclosure` parameter, only the episode matching the URL is returned.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/episodes/byitunesid?id=1441923632&pretty\n  - Using `enclosure`: https://api.podcastindex.org/api/1.0/episodes/byitunesid?id=269169796&enclosure=https://op3.dev/e/mp3s.nashownotes.com/NA-1551-2023-04-30-Final.mp3&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "episodes",
+                "byitunesid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) The iTunes Feed ID to search for\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Return items since the specified epoch timestamp.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "enclosure",
+                  "value": "<string>",
+                  "description": "The URL for the episode enclosure to get the information for.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "fulltext",
+                  "value": "<boolean>",
+                  "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aad4078a-374d-48a8-8731-71223d32b622",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byitunesid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1441923632"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "enclosure",
+                      "value": "https://op3.dev/e/mp3s.nashownotes.com/NA-1551-2023-04-30-Final.mp3"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"items\": [\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"duration\": 54,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"feedLanguage\": \"en-us\",\n      \"feedDead\": 0,\n      \"feedDuplicateOf\": 75075,\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n      \"transcriptUrl\": \"https://mp3s.nashownotes.com/NA-1322-Captions.srt\",\n      \"transcripts\": [\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        },\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        }\n      ],\n      \"soundbite\": {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      },\n      \"soundbites\": [\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"persons\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"socialInteract\": [\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"value\": {\n        \"model\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"method\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggested\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"destinations\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"duration\": 54,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"feedLanguage\": \"en-us\",\n      \"feedDead\": 0,\n      \"feedDuplicateOf\": 75075,\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n      \"transcriptUrl\": \"https://mp3s.nashownotes.com/NA-1322-Captions.srt\",\n      \"transcripts\": [\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        },\n        {\n          \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n          \"type\": \"application/srt\"\n        }\n      ],\n      \"soundbite\": {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      },\n      \"soundbites\": [\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"startTime\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"duration\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"persons\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"group\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"href\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"img\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"socialInteract\": [\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"protocol\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"accountUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"value\": {\n        \"model\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"method\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggested\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"destinations\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    }\n  ],\n  \"count\": 1,\n  \"query\": \"920666\",\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "206afc21-e010-4026-b066-92be743c60b2",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byitunesid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1441923632"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "enclosure",
+                      "value": "https://op3.dev/e/mp3s.nashownotes.com/NA-1551-2023-04-30-Final.mp3"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb4e9ce0-7db4-4d30-a6f1-82dbc4a49e45",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byitunesid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1441923632"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "enclosure",
+                      "value": "https://op3.dev/e/mp3s.nashownotes.com/NA-1551-2023-04-30-Final.mp3"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57812423-daa7-4ad7-b7e3-774656f64342",
+          "name": "By ID",
+          "request": {
+            "name": "By ID",
+            "description": {
+              "content": "Get all the metadata for a single episode by passing its id.\n\n\nExample: https://api.podcastindex.org/api/1.0/episodes/byid?id=16795090&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "episodes",
+                "byid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) The PodcastIndex episode ID to search for.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "fulltext",
+                  "value": "<boolean>",
+                  "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c1677446-4745-43d3-a6ef-8cabb2d105f7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "16795089"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"id\": 16795088,\n  \"episode\": {\n    \"id\": 16795088,\n    \"title\": \"Batman University\",\n    \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n    \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n    \"guid\": \"incomparable/batman/19\",\n    \"datePublished\": 1546399813,\n    \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n    \"dateCrawled\": 1598369047,\n    \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n    \"enclosureType\": \"audio/mp3\",\n    \"enclosureLength\": 26385472,\n    \"duration\": 54,\n    \"explicit\": 0,\n    \"episode\": 19,\n    \"episodeType\": \"full\",\n    \"season\": 3,\n    \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"imageUrlHash\": 3969216649,\n    \"feedItunesId\": 1441923632,\n    \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"feedImageUrlHash\": 1639321931,\n    \"feedId\": 75075,\n    \"feedTitle\": \"Batman University\",\n    \"feedLanguage\": \"en-us\",\n    \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n    \"transcripts\": [\n      {\n        \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n        \"type\": \"application/srt\"\n      },\n      {\n        \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n        \"type\": \"application/srt\"\n      }\n    ],\n    \"persons\": [\n      {\n        \"id\": 411960,\n        \"name\": \"Dave Jones\",\n        \"role\": \"Host\",\n        \"group\": \"Cast\",\n        \"href\": \"https://engineered.network/img/people/dave-jones.jp\",\n        \"img\": \"https://engineered.network/img/people/dave-jones.jp\"\n      },\n      {\n        \"id\": 411960,\n        \"name\": \"Dave Jones\",\n        \"role\": \"Host\",\n        \"group\": \"Cast\",\n        \"href\": \"https://engineered.network/img/people/dave-jones.jp\",\n        \"img\": \"https://engineered.network/img/people/dave-jones.jp\"\n      }\n    ],\n    \"socialInteract\": [\n      {\n        \"url\": \"https://podcastindex.social/@dave/109762601417741559\",\n        \"protocol\": \"activitypub\",\n        \"accountId\": \"@dave\",\n        \"accountUrl\": \"https://podcastindex.social/users/dave\",\n        \"priority\": 0\n      },\n      {\n        \"url\": \"https://podcastindex.social/@dave/109762601417741559\",\n        \"protocol\": \"activitypub\",\n        \"accountId\": \"@dave\",\n        \"accountUrl\": \"https://podcastindex.social/users/dave\",\n        \"priority\": 0\n      }\n    ],\n    \"value\": {\n      \"model\": {\n        \"type\": \"lightning\",\n        \"method\": \"keysend\",\n        \"suggested\": \"0.00000020000\"\n      },\n      \"destinations\": [\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"soundbite\": {\n      \"startTime\": 1123,\n      \"duration\": 40,\n      \"title\": \"Why the Podcast Namespace Matters\"\n    },\n    \"soundbites\": [\n      {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      },\n      {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      }\n    ]\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a81ee00a-135d-48b7-8c8a-00a23829dcf8",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "16795089"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6cd28855-021e-4a14-8e4c-2860067b143d",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "16795089"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03066697-5459-4561-9d73-713c05c7c3be",
+          "name": "By GUID",
+          "request": {
+            "name": "By GUID",
+            "description": {
+              "content": "Get all the metadata for a single episode by passing its guid and the feed id or URL.\n\n\nThe `feedid`, `feedurl`, or `podcastguid` is required.\n\n\nExamples: \n\n  - Search using Podcast Index feed ID: https://api.podcastindex.org/api/1.0/episodes/byguid?guid=PC2084&feedid=920666&pretty\n  - Search using feed URL: https://api.podcastindex.org/api/1.0/episodes/byguid?guid=PC2084&feedurl=http://mp3s.nashownotes.com/pc20rss.xml&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "episodes",
+                "byguid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "guid",
+                  "value": "<string>",
+                  "description": "(Required) The guid value for the episode to retrieve.\n\n\n  This value is the value specified in the feed's `<guid>` field.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "feedurl",
+                  "value": "<string>",
+                  "description": "The Feed URL\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "feedid",
+                  "value": "<string>",
+                  "description": "The PodcastIndex Feed ID\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "podcastguid",
+                  "value": "<string>",
+                  "description": "The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n\n\nSee the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "fulltext",
+                  "value": "<boolean>",
+                  "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0a64ff99-e0c1-4000-9bea-221cf69d23f4",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "PC2084"
+                    },
+                    {
+                      "key": "feedurl",
+                      "value": "http://mp3s.nashownotes.com/pc20rss.xml"
+                    },
+                    {
+                      "key": "feedid",
+                      "value": "920666"
+                    },
+                    {
+                      "key": "podcastguid",
+                      "value": "917393e3-1b1e-5cef-ace4-edaa54e1f810"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"id\": \"920666\",\n  \"url\": \"http://mp3s.nashownotes.com/pc20rss.xml\",\n  \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n  \"guid\": \"PC2084\",\n  \"episode\": {\n    \"id\": 16795088,\n    \"title\": \"Batman University\",\n    \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n    \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n    \"guid\": \"incomparable/batman/19\",\n    \"datePublished\": 1546399813,\n    \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n    \"dateCrawled\": 1598369047,\n    \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n    \"enclosureType\": \"audio/mp3\",\n    \"enclosureLength\": 26385472,\n    \"duration\": 54,\n    \"explicit\": 0,\n    \"episode\": 19,\n    \"episodeType\": \"full\",\n    \"season\": 3,\n    \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"imageUrlHash\": 3969216649,\n    \"feedItunesId\": 1441923632,\n    \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"feedImageUrlHash\": 1639321931,\n    \"feedId\": 75075,\n    \"feedTitle\": \"Batman University\",\n    \"feedLanguage\": \"en-us\",\n    \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\",\n    \"transcripts\": [\n      {\n        \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n        \"type\": \"application/srt\"\n      },\n      {\n        \"url\": \"https://mp3s.nashownotes.com/NA-1385-Captions.srt\",\n        \"type\": \"application/srt\"\n      }\n    ],\n    \"persons\": [\n      {\n        \"id\": 411960,\n        \"name\": \"Dave Jones\",\n        \"role\": \"Host\",\n        \"group\": \"Cast\",\n        \"href\": \"https://engineered.network/img/people/dave-jones.jp\",\n        \"img\": \"https://engineered.network/img/people/dave-jones.jp\"\n      },\n      {\n        \"id\": 411960,\n        \"name\": \"Dave Jones\",\n        \"role\": \"Host\",\n        \"group\": \"Cast\",\n        \"href\": \"https://engineered.network/img/people/dave-jones.jp\",\n        \"img\": \"https://engineered.network/img/people/dave-jones.jp\"\n      }\n    ],\n    \"socialInteract\": [\n      {\n        \"url\": \"https://podcastindex.social/@dave/109762601417741559\",\n        \"protocol\": \"activitypub\",\n        \"accountId\": \"@dave\",\n        \"accountUrl\": \"https://podcastindex.social/users/dave\",\n        \"priority\": 0\n      },\n      {\n        \"url\": \"https://podcastindex.social/@dave/109762601417741559\",\n        \"protocol\": \"activitypub\",\n        \"accountId\": \"@dave\",\n        \"accountUrl\": \"https://podcastindex.social/users/dave\",\n        \"priority\": 0\n      }\n    ],\n    \"value\": {\n      \"model\": {\n        \"type\": \"lightning\",\n        \"method\": \"keysend\",\n        \"suggested\": \"0.00000020000\"\n      },\n      \"destinations\": [\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"soundbite\": {\n      \"startTime\": 1123,\n      \"duration\": 40,\n      \"title\": \"Why the Podcast Namespace Matters\"\n    },\n    \"soundbites\": [\n      {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      },\n      {\n        \"startTime\": 1123,\n        \"duration\": 40,\n        \"title\": \"Why the Podcast Namespace Matters\"\n      }\n    ]\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ad3e4ec-c436-41f9-af7d-49cff73bae39",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "PC2084"
+                    },
+                    {
+                      "key": "feedurl",
+                      "value": "http://mp3s.nashownotes.com/pc20rss.xml"
+                    },
+                    {
+                      "key": "feedid",
+                      "value": "920666"
+                    },
+                    {
+                      "key": "podcastguid",
+                      "value": "917393e3-1b1e-5cef-ace4-edaa54e1f810"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "792f991f-7848-4187-8b86-8971047a9e07",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "byguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "PC2084"
+                    },
+                    {
+                      "key": "feedurl",
+                      "value": "http://mp3s.nashownotes.com/pc20rss.xml"
+                    },
+                    {
+                      "key": "feedid",
+                      "value": "920666"
+                    },
+                    {
+                      "key": "podcastguid",
+                      "value": "917393e3-1b1e-5cef-ace4-edaa54e1f810"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ea504af-54c1-4070-994b-bdf8de0c2768",
+          "name": "Live",
+          "request": {
+            "name": "Live",
+            "description": {
+              "content": "Get all episodes that have been found in the [podcast:liveitem](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#live-item) from the feeds.\n\n\nExamples: \n\n  - https://api.podcastindex.org/api/1.0/episodes/live?pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "episodes",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "12084d69-0f41-4794-aa7f-d67073c875f8",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"items\": [\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"explicit\": 0,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"feedTitle\": \"Batman University\",\n      \"feedLanguage\": \"en-us\",\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      }\n    },\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"explicit\": 0,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"feedTitle\": \"Batman University\",\n      \"feedLanguage\": \"en-us\",\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      }\n    }\n  ],\n  \"count\": 1,\n  \"max\": 2,\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbe4b62a-2c99-4cad-bcb8-e8736d09bbee",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e682fd59-1060-472e-b20e-915abb6b4a6f",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c3c6cc4-cdf7-43c1-87c5-fde881b2f175",
+          "name": "Random",
+          "request": {
+            "name": "Random",
+            "description": {
+              "content": "This call returns a random batch of episodes, in no specific order.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/episodes/random?notcat=News,Religion&lang=en,es&pretty\n  - https://api.podcastindex.org/api/1.0/episodes/random?max=2&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "episodes",
+                "random"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "1",
+                  "description": "Maximum number of results to return.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Specifying a language code (like \"en\") will return only episodes having that specific language.\n\n\nYou can specify multiple languages by separating them with commas.\n\n\nIf you also want to return episodes that have no language given, use the token \"unknown\". (ex. en,es,ja,unknown).\n\n\nValues are not case sensitive.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "cat",
+                  "value": "<string>",
+                  "description": "Use this argument to specify that you **ONLY** want episodes with these categories in the results.\n\n\nSeparate multiple categories with commas.\n\n\nYou may specify either the Category ID and/or the Category Name.\n\n\nValues are not case sensitive.\n\n\nThe `cat` and `notcat` filters can be used together to fine tune a very specific result set.\n\n\nCategory numbers and names can be found in the\n[Podcast Namespace documentation](https://github.com/Podcastindex-org/podcast-namespace/blob/main/categories.json)\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "notcat",
+                  "value": "<string>",
+                  "description": "Use this argument to specify categories of episodes to **NOT** show in the results.\n\n\nSeparate multiple categories with commas.\n\n\nYou may specify either the Category ID and/or the Category Name.\n\n\nValues are not case sensitive.\n\n\nThe `cat` and `notcat` filters can be used together to fine tune a very specific result set.\n\n\nCategory numbers and names can be found in the\n[Podcast Namespace documentation](https://github.com/Podcastindex-org/podcast-namespace/blob/main/categories.json)\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "fulltext",
+                  "value": "<boolean>",
+                  "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1b6a2bb2-abdd-460e-ac91-0a71153d845f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "2"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "cat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "notcat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"episodes\": [\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"feedTitle\": \"Batman University\",\n      \"feedLanguage\": \"en-us\",\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      },\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\"\n    },\n    {\n      \"id\": 16795088,\n      \"title\": \"Batman University\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.\",\n      \"guid\": \"incomparable/batman/19\",\n      \"datePublished\": 1546399813,\n      \"datePublishedPretty\": \"January 01, 2019 9:30pm\",\n      \"dateCrawled\": 1598369047,\n      \"enclosureUrl\": \"https://www.theincomparable.com/podcast/batmanuniversity302.mp3\",\n      \"enclosureType\": \"audio/mp3\",\n      \"enclosureLength\": 26385472,\n      \"explicit\": 0,\n      \"episode\": 19,\n      \"episodeType\": \"full\",\n      \"season\": 3,\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedItunesId\": 1441923632,\n      \"feedImage\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"feedId\": 75075,\n      \"feedTitle\": \"Batman University\",\n      \"feedLanguage\": \"en-us\",\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      },\n      \"chaptersUrl\": \"https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com\"\n    }\n  ],\n  \"count\": 1,\n  \"max\": 2,\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b995ba45-b498-44fd-9ec8-7ee4f9b043a7",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "2"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "cat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "notcat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ebd1404-3c60-4621-a95c-8a97e6983161",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "episodes",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "2"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "cat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "notcat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "fulltext",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podcastindex.org/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1d1ea782-a778-4226-9772-40d193d8e616",
+    "name": "PodcastIndex.org Add Episodes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Download the openapi spec in [json](pi_api.json) or [yaml](pi_api.yaml) format.\n\n# Overview\n\nThe Podcast Index (Podcast Index LLC) is a software developer focused partnership that provides tools and data to\nanyone who aspires to create new and exciting Podcast experiences without the heavy lifting of indexing,\naggregation and data management.\n\n# Example Code\n\nUsers have provided example code for working the API in the following languages:\n\n  - [AWS Lambda - python](https://github.com/tbowers/python-podcastindex-org-lambda)\n  - [Bash](https://github.com/suorcd/Bash-podcastindex-org-example)\n  - [C#](https://github.com/ComicStrip/csharp-podcastindex-org-example)\n  - [Elisp](https://github.com/sabexx/elisp-example)\n  - [Flutter/Dart](https://github.com/crediblecreative/flutter-dart-podcastindex-org-example)\n  - [Go](https://github.com/ComicStrip/Go-podcastindex-org-example)\n  - [Go](https://github.com/kilobit/podcast-index-client)\n  - [Java](https://github.com/ComicStrip/Java-podcastindex-org-example)\n  - [Java](https://github.com/stucoates/PodcastIndexJavaClient)\n  - [Node.js](https://github.com/ComicStrip/node.js-podcastindex-org-example)\n  - [PHP](https://github.com/Podcastindex-org/example-code)\n  - [Python](https://github.com/tbowers/python-podcastindex-org-example)\n  - [Swift](https://github.com/ComicStrip/Swift-podcastindex-org-example)\n  - ... [More](https://github.com/Podcastindex-org-Examples)\n\nDon't see your desired language, create an example repo and create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to your example code project!\n\n# Libraries\n\nUser created libraries for working with the API:\n\n  - Java\n      - [podcast4j](https://github.com/yusufyilmazfr/podcast4j)\n  - .NET\n      - [PodcastIndexSharp](https://www.nuget.org/packages/PodcastIndexSharp)\n  - Node.js/npm/yarn\n      - [podcast-index-api](https://www.npmjs.com/package/podcast-index-api)\n      - [podcastdx-client](https://www.npmjs.com/package/podcastdx-client)\n  - PHP\n      - [podcastindex-php](https://github.com/LowSociety/podcastindex-php)\n  - Python/pip\n      - [python-podcastindex](https://pypi.org/project/python-podcastindex/)\n  - R\n      - [podindexr](https://github.com/rpodcast/podindexr)\n  - Ruby\n      - [podcast-index](https://github.com/jasonyork/podcast-index)\n  - Swift\n      - [PodcastIndexKit](https://github.com/SparrowTek/PodcastIndexKit)\n  - Kotlin\n      - [PodcastIndex-SDK](https://github.com/mr3y-the-programmer/PodcastIndex-SDK)\n  - Go\n      - [podcastindex](https://github.com/jjgmckenzie/podcastindex)\n      - [podcastindex-go](https://github.com/koalahl/podcastindex-go)\n\nAre we missing a library? Did you create one for a different language? Create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to the new library!\n\n# Postman\n\nA collection file for use in the [Postman](https://www.postman.com/) application is available for this API.\n\n  1. Download the contents of the [Postman Docs](https://github.com/Podcastindex-org/docs-api/tree/master/Postman%20Docs) folder.\n  2. Import the `PodcastIndex.postman_collection.json` collection to Postman\n  3. Import the `PodcastIndexOrgEnvironment.postman_environment.json` to Postman\n  4. Click \"Environments\" on the left sidebar\n  5. Select the checkbox next to the PodcastIndexOrgEnvironment entry\n  6. Set `AuthKey` and `SeceretKey` values under the \"Current Value\" column using your API information\n  7. Click \"Collections\" from the sidebar\n  8. Select PodcastIndex\n  9. Select and run the endpoint to test\n\n# Contributing\n\nThe source for this API documentation is available at\n[https://github.com/Podcastindex-org/docs-api](https://github.com/Podcastindex-org/docs-api).\nSubmit an Issue or create a Pull Request.\n\n# Authentication Details\n\nSending an API request is easy. We use an Amazon-style request authorization token to secure each request.\n\n\nRegister for a free API key at https://api.podcastindex.org/\n\n\nThese headers parameters are required for each request: `User-Agent`, `X-Auth-Date`, `X-Auth-Key`, `Authorization`\n\n\nSee [Authentication](#auth) for description of parameters.\n\n# Legal\n\nLegal\n\n  - [Privacy Policy](https://github.com/Podcastindex-org/legal/blob/main/PrivacyPolicy.md)\n  - [Terms of Service](https://github.com/Podcastindex-org/legal/blob/main/TermsOfService.md)\n  - [License](https://github.com/Podcastindex-org/docs-api/blob/master/LICENSE)\n\n\nContact Support:\n Email: info@podcastindex.org",
+      "type": "text/plain"
+    }
+  }
+}

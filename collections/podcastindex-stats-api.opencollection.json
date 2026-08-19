@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PodcastIndex.org Add Stats API",
+    "version": "1.12.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Current",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/stats/current",
+            "params": [
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return the most recent index statistics.\n\n\nHourly statistics can also be access at https://stats.podcastindex.org/hourly_counts.json\nFor details, see [Stats Hourly Counts](#get-/static/stats/hourly_counts.json).\n\n\nDaily statistics can also be access at https://stats.podcastindex.org/daily_counts.json.\nFor details, see [Stats Daily Counts](#get-/static/stats/daily_counts.json).\n\n\nExample: https://api.podcastindex.org/api/1.0/stats/current?pretty\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

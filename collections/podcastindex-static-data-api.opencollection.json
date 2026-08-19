@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PodcastIndex.org Add Static Data API",
+    "version": "1.12.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Static Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Stats Daily Counts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/static/stats/daily_counts.json"
+          },
+          "docs": "Report a number of statistics about the feeds in Podcast Index's database. Updated daily.\n\n\nA subset of stats can be retrieved using the API endpoint [stats/current](#get-/stats/current).\n\n\nView at: https://stats.podcastindex.org/daily_counts.json\n"
+        },
+        {
+          "info": {
+            "name": "Stats Hourly Counts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/static/stats/hourly_counts.json"
+          },
+          "docs": "Report a number of statistics about the feeds in Podcast Index's database. Updated hourly.\n\n\nA subset of stats can be retrieved using the API endpoint [stats/current](#get-/stats/current).\n\n\nView at: https://stats.podcastindex.org/hourly_counts.json\n"
+        },
+        {
+          "info": {
+            "name": "v4v Sats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/static/stats/chart-data.json"
+          },
+          "docs": "Contains the raw data used to populate the graphs at https://stats.podcastindex.org/v4v.\n\nThis is a look at the total [sats](https://www.investopedia.com/terms/s/satoshi.asp) flowing through the Value4Value\nLightning podcasting economy over various periods of time.\n\nWe calculate this data based on our visibility as a one percent voluntary split on Podcastindex.org api\ncalls. Therefore, the true numbers could be higher, but they cannot be lower than listed here. This represents our\nbest approxima"
+        },
+        {
+          "info": {
+            "name": "v4v Music Chart JSON",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/static/stats/v4vmusic.json"
+          },
+          "docs": "Contains the ranking of the music tracks played on podcasts that have been boosted the most over the last 7 days.\n\nEach entry shows the number of listener boosts sent over this time period. The chart is updated hourly.\n\n\nCan be viewed in a browser at https://podcastindex.top/ (https://stats.podcastindex.org/v4vmusic.html).\n\n\nView at: https://stats.podcastindex.org/v4vmusic.json\n\n\nAlso available in [OPML](#get-/static/stats/v4vmusic.opml) and [RSS](#get-/static/stats/v4vmusic.rss).\n"
+        },
+        {
+          "info": {
+            "name": "v4v Music Chart OPML",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/static/stats/v4vmusic.opml"
+          },
+          "docs": "Contains the ranking of the music tracks played on podcasts that have been boosted the most over the last 7 days.\n\nEach entry shows the number of listener boosts sent over this time period. The chart is updated hourly.\n\n\nCan be viewed in a browser at https://podcastindex.top/ (https://stats.podcastindex.org/v4vmusic.html).\n\n\nView at: https://stats.podcastindex.org/v4vmusic.opml\n\n\nAlso available in [JSON](#get-/static/stats/v4vmusic.json) and [RSS](#get-/static/stats/v4vmusic.rss).\n"
+        },
+        {
+          "info": {
+            "name": "v4v Music Chart RSS",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/static/stats/v4vmusic.rss"
+          },
+          "docs": "Contains the ranking of the music tracks played on podcasts that have been boosted the most over the last 7 days.\n\nEach entry shows the number of listener boosts sent over this time period. The chart is updated hourly.\n\n\nCan be viewed in a browser at https://podcastindex.top/ (https://stats.podcastindex.org/v4vmusic.html).\n\n\nView at: https://stats.podcastindex.org/v4vmusic.rss\n\n\nAlso available in [JSON](#get-/static/stats/v4vmusic.json) and [OPML](#get-/static/stats/v4vmusic.opml).\n"
+        },
+        {
+          "info": {
+            "name": "Current",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/static/tracking/current"
+          },
+          "docs": "This call returns every new feed and episode added to the index over the past 24 hours in reverse chronological order.\n\n\nThis is similar to `/recent/feeds` but uses the date the feed was found by the index rather than the feed's\ninternal timestamp.\n\n\nSimilar data can also be retrieved using the API endpoint [recent/data](#get-/recent/data).\n\n\nAccess at: https://tracking.podcastindex.org/current\n\n\nThe prior 24 hours of data (going backwards until all tracked data is received) can be accessed usin"
+        },
+        {
+          "info": {
+            "name": "Feed Value Blocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/static/tracking/feedValueBlocks"
+          },
+          "docs": "Get all feeds with value blocks.\n\n\nAccess at: https://tracking.podcastindex.org/feedValueBlocks.json\n"
+        },
+        {
+          "info": {
+            "name": "Episode Value Blocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/static/tracking/episodeValueBlocks"
+          },
+          "docs": "Get all episodes with value blocks.\n\n\nAccess at: https://tracking.podcastindex.org/episodeValueBlocks.json\n"
+        },
+        {
+          "info": {
+            "name": "Dead Feeds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/static/public/podcastindex_dead_feeds.csv"
+          },
+          "docs": "Lists all feed Ids that have been marked dead in the Podcast Index database. The list is updated every X hours.\n\n\nA subset of stats can be retrieved using the API endpoint [podcasts/dead](#get-/podcasts/dead).\n\n\nDownload from: https://public.podcastindex.org/podcastindex_dead_feeds.csv\n"
+        },
+        {
+          "info": {
+            "name": "Feeds Database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/static/public/podcastindex_feeds.db.tgz"
+          },
+          "docs": "Compressed database of all non-dead feeds in the Podcast Index database.\n\n\nUpdated daily. Some attributes excluded. No episodes included.\n\n\nDownload from: https://public.podcastindex.org/podcastindex_feeds.db.tgz\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

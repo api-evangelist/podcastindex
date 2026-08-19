@@ -1,0 +1,250 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PodcastIndex.org Add Search API",
+    "version": "1.12.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Podcasts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/search/byterm",
+            "params": [
+              {
+                "name": "q",
+                "value": "batman university",
+                "type": "query",
+                "description": "Terms to search for\n"
+              },
+              {
+                "name": "val",
+                "value": "",
+                "type": "query",
+                "description": "Only returns feeds with a `value` block of the specified type. Use `any` to return feeds with any `value` block.\n"
+              },
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "aponly",
+                "value": "true",
+                "type": "query",
+                "description": "Only returns feeds with an `itunesId`.\n"
+              },
+              {
+                "name": "clean",
+                "value": "",
+                "type": "query",
+                "description": "If present, only non-explicit feeds will be returned.\nMeaning, feeds where the `itunes:explicit` flag is set to `false`.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "similar",
+                "value": "",
+                "type": "query",
+                "description": "If present, include similar matches in search response. For `search/byterm`, prioritizes title matches.\n"
+              },
+              {
+                "name": "fulltext",
+                "value": "",
+                "type": "query",
+                "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns all of the feeds that match the search terms in the `title`, `author` or `owner` of the feed.\n\n\nExample: https://api.podcastindex.org/api/1.0/search/byterm?q=batman+university&pretty\n"
+        },
+        {
+          "info": {
+            "name": "Search Podcasts by Title",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/search/bytitle",
+            "params": [
+              {
+                "name": "q",
+                "value": "batman university",
+                "type": "query",
+                "description": "Terms to search for\n"
+              },
+              {
+                "name": "val",
+                "value": "",
+                "type": "query",
+                "description": "Only returns feeds with a `value` block of the specified type. Use `any` to return feeds with any `value` block.\n"
+              },
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "clean",
+                "value": "",
+                "type": "query",
+                "description": "If present, only non-explicit feeds will be returned.\nMeaning, feeds where the `itunes:explicit` flag is set to `false`.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "fulltext",
+                "value": "",
+                "type": "query",
+                "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "similar",
+                "value": "",
+                "type": "query",
+                "description": "If present, include similar matches in search response. For `search/byterm`, prioritizes title matches.\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns all of the feeds where the `title` of the feed matches the search term (ignores case).\n\n\nExample \"everything everywhere daily\" will match the podcast\n[Everything Everywhere Daily](https://podcastindex.org/podcast/437685) by \"everything everywhere\" will not.\n\n\nExample: https://api.podcastindex.org/api/1.0/search/bytitle?q=everything+everywhere+daily&pretty\n"
+        },
+        {
+          "info": {
+            "name": "Search Episodes by Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/search/byperson",
+            "params": [
+              {
+                "name": "q",
+                "value": "adam curry",
+                "type": "query",
+                "description": "Person search for\n"
+              },
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "fulltext",
+                "value": "",
+                "type": "query",
+                "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns all of the episodes where the specified person is mentioned.\n\n\nIt searches the following fields:\n\n  - Person tags\n  - Episode title\n  - Episode description\n  - Feed owner\n  - Feed author\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/search/byperson?q=adam%20curry&pretty\n  - https://api.podcastindex.org/api/1.0/search/byperson?q=Martin+Mouritzen&pretty\n  - https://api.podcastindex.org/api/1.0/search/byperson?q=Klaus+Schwab&pretty\n"
+        },
+        {
+          "info": {
+            "name": "Search Music Podcasts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/search/music/byterm",
+            "params": [
+              {
+                "name": "q",
+                "value": "batman university",
+                "type": "query",
+                "description": "Terms to search for\n"
+              },
+              {
+                "name": "val",
+                "value": "",
+                "type": "query",
+                "description": "Only returns feeds with a `value` block of the specified type. Use `any` to return feeds with any `value` block.\n"
+              },
+              {
+                "name": "aponly",
+                "value": "true",
+                "type": "query",
+                "description": "Only returns feeds with an `itunesId`.\n"
+              },
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Maximum number of results to return.\n"
+              },
+              {
+                "name": "clean",
+                "value": "",
+                "type": "query",
+                "description": "If present, only non-explicit feeds will be returned.\nMeaning, feeds where the `itunes:explicit` flag is set to `false`.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "fulltext",
+                "value": "",
+                "type": "query",
+                "description": "If present, return the full text value of any text fields (ex: `description`).\nIf not provided, field value is truncated to 100 words.\n\n\nParameter shall not have a value\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Auth-Key",
+              "value": "{{X-Auth-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This call returns all of the feeds that match the search terms in the `title`, `author` or `owner` of the <feed></feed>\nwhere the [medium](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium) is `music`.\n\n\nExample: https://api.podcastindex.org/api/1.0/search/music/byterm?q=able+kirby&pretty\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

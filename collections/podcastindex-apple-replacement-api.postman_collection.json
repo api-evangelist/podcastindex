@@ -1,0 +1,434 @@
+{
+  "item": [
+    {
+      "id": "2fc76963-be1a-45c0-9e5f-ca2c60bf5d6b",
+      "name": "Apple Replacement",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "43f9371c-19b4-4b9d-9789-1fe41251115a",
+          "name": "Search",
+          "request": {
+            "name": "Search",
+            "description": {
+              "content": "Replaces the Apple search API but returns data from the Podcast Index database.\n\n\nNote: No API key needed for this endpoint.\n\n\nExample:\n\n  - Apple: https://itunes.apple.com/search?media=podcast&entity=podcast&term=batman\n  - PodcastIndex: https://api.podcastindex.org/search?term=batman\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "search"
+              ],
+              "host": [
+                "api",
+                "podcastindex",
+                "org"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "term",
+                  "value": "<string>",
+                  "description": "(Required) The term to search for\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f86cb173-13d2-47e9-aa2a-7677266cf520",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "api",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [
+                    {
+                      "key": "term",
+                      "value": "batman"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resultCount\": 1,\n  \"results\": [\n    {\n      \"artistName\": \"Tony Sindelar\",\n      \"artworkUrl100\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl30\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl60\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl600\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"collectionCensoredName\": \"Batman University\",\n      \"collectionExplicitness\": \"cleaned\",\n      \"collectionHdPrice\": 0,\n      \"collectionId\": 1441923632,\n      \"collectionName\": \"Batman University\",\n      \"collectionPrice\": 0,\n      \"collectionViewUrl\": \"https://podcasts.apple.com/us/podcast/*/id1441923632?uo=4\",\n      \"contentAdvisoryRating\": \"Clean\",\n      \"country\": \"USA\",\n      \"currency\": \"USD\",\n      \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"genreIds\": [\n        1309,\n        26\n      ],\n      \"genres\": [\n        \"TV & Film\",\n        \"Podcats\"\n      ],\n      \"kind\": \"podcast\",\n      \"primaryGenreName\": \"\",\n      \"releaseDate\": \"2022-10-03T02:17:03-0500\",\n      \"trackCensoredName\": \"Batman University\",\n      \"trackCount\": 12,\n      \"trackExplicitness\": \"cleaned\",\n      \"trackHdPrice\": 0,\n      \"trackHdRentalPrice\": 0,\n      \"trackId\": 1441923632,\n      \"trackName\": \"Batman University\",\n      \"trackPrice\": 0,\n      \"trackRentalPrice\": 0,\n      \"trackViewUrl\": \"https://podcasts.apple.com/us/podcast/*/id1441923632?uo=4\",\n      \"wrapperType\": \"track\"\n    },\n    {\n      \"artistName\": \"Tony Sindelar\",\n      \"artworkUrl100\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl30\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl60\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl600\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"collectionCensoredName\": \"Batman University\",\n      \"collectionExplicitness\": \"cleaned\",\n      \"collectionHdPrice\": 0,\n      \"collectionId\": 1441923632,\n      \"collectionName\": \"Batman University\",\n      \"collectionPrice\": 0,\n      \"collectionViewUrl\": \"https://podcasts.apple.com/us/podcast/*/id1441923632?uo=4\",\n      \"contentAdvisoryRating\": \"Clean\",\n      \"country\": \"USA\",\n      \"currency\": \"USD\",\n      \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"genreIds\": [\n        1309,\n        26\n      ],\n      \"genres\": [\n        \"TV & Film\",\n        \"Podcats\"\n      ],\n      \"kind\": \"podcast\",\n      \"primaryGenreName\": \"\",\n      \"releaseDate\": \"2022-10-03T02:17:03-0500\",\n      \"trackCensoredName\": \"Batman University\",\n      \"trackCount\": 12,\n      \"trackExplicitness\": \"cleaned\",\n      \"trackHdPrice\": 0,\n      \"trackHdRentalPrice\": 0,\n      \"trackId\": 1441923632,\n      \"trackName\": \"Batman University\",\n      \"trackPrice\": 0,\n      \"trackRentalPrice\": 0,\n      \"trackViewUrl\": \"https://podcasts.apple.com/us/podcast/*/id1441923632?uo=4\",\n      \"wrapperType\": \"track\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ccc5210-e066-49f1-8eac-5ee25bac372f",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "api",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [
+                    {
+                      "key": "term",
+                      "value": "batman"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b738c0ac-c579-481c-8184-b95f42674fb7",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "api",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [
+                    {
+                      "key": "term",
+                      "value": "batman"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa233e4c-1a71-4ff2-b7ce-78a6fc0ceeb6",
+          "name": "Lookup",
+          "request": {
+            "name": "Lookup",
+            "description": {
+              "content": "Replaces the Apple podcast lookup API but returns data from the Podcast Index database.\n\n\nNote: No API key needed for this endpoint.\n\n\nExample:\n\n  - Apple: https://itunes.apple.com/lookup?media=podcast&entity=podcast&id=1636765656\n  - PodcastIndex: https://api.podcastindex.org/lookup?entity=podcast&id=1636765656\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "lookup"
+              ],
+              "host": [
+                "api",
+                "podcastindex",
+                "org"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) The iTunes Feed ID to search for\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity",
+                  "value": "<string>",
+                  "description": "(Required) The iTunes entity type to look in\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ade905cc-d6be-44ee-95fc-f9a50bbfc149",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "api",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1441923632"
+                    },
+                    {
+                      "key": "entity",
+                      "value": "podcast"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resultCount\": 1,\n  \"results\": [\n    {\n      \"artistName\": \"Tony Sindelar\",\n      \"artworkUrl100\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl30\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl60\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl600\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"collectionCensoredName\": \"Batman University\",\n      \"collectionExplicitness\": \"cleaned\",\n      \"collectionHdPrice\": 0,\n      \"collectionId\": 1441923632,\n      \"collectionName\": \"Batman University\",\n      \"collectionPrice\": 0,\n      \"collectionViewUrl\": \"https://podcasts.apple.com/us/podcast/*/id1441923632?uo=4\",\n      \"contentAdvisoryRating\": \"Clean\",\n      \"country\": \"USA\",\n      \"currency\": \"USD\",\n      \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"genreIds\": [\n        1309,\n        26\n      ],\n      \"genres\": [\n        \"TV & Film\",\n        \"Podcats\"\n      ],\n      \"kind\": \"podcast\",\n      \"primaryGenreName\": \"\",\n      \"releaseDate\": \"2022-10-03T02:17:03-0500\",\n      \"trackCensoredName\": \"Batman University\",\n      \"trackCount\": 12,\n      \"trackExplicitness\": \"cleaned\",\n      \"trackHdPrice\": 0,\n      \"trackHdRentalPrice\": 0,\n      \"trackId\": 1441923632,\n      \"trackName\": \"Batman University\",\n      \"trackPrice\": 0,\n      \"trackRentalPrice\": 0,\n      \"trackViewUrl\": \"https://podcasts.apple.com/us/podcast/*/id1441923632?uo=4\",\n      \"wrapperType\": \"track\"\n    },\n    {\n      \"artistName\": \"Tony Sindelar\",\n      \"artworkUrl100\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl30\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl60\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"artworkUrl600\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg\",\n      \"collectionCensoredName\": \"Batman University\",\n      \"collectionExplicitness\": \"cleaned\",\n      \"collectionHdPrice\": 0,\n      \"collectionId\": 1441923632,\n      \"collectionName\": \"Batman University\",\n      \"collectionPrice\": 0,\n      \"collectionViewUrl\": \"https://podcasts.apple.com/us/podcast/*/id1441923632?uo=4\",\n      \"contentAdvisoryRating\": \"Clean\",\n      \"country\": \"USA\",\n      \"currency\": \"USD\",\n      \"feedUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"genreIds\": [\n        1309,\n        26\n      ],\n      \"genres\": [\n        \"TV & Film\",\n        \"Podcats\"\n      ],\n      \"kind\": \"podcast\",\n      \"primaryGenreName\": \"\",\n      \"releaseDate\": \"2022-10-03T02:17:03-0500\",\n      \"trackCensoredName\": \"Batman University\",\n      \"trackCount\": 12,\n      \"trackExplicitness\": \"cleaned\",\n      \"trackHdPrice\": 0,\n      \"trackHdRentalPrice\": 0,\n      \"trackId\": 1441923632,\n      \"trackName\": \"Batman University\",\n      \"trackPrice\": 0,\n      \"trackRentalPrice\": 0,\n      \"trackViewUrl\": \"https://podcasts.apple.com/us/podcast/*/id1441923632?uo=4\",\n      \"wrapperType\": \"track\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d34e1de5-8a77-4bb3-acb7-8b69430cc2fb",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "api",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1441923632"
+                    },
+                    {
+                      "key": "entity",
+                      "value": "podcast"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cde5dba-eced-402b-971e-0c44b6c4908d",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "lookup"
+                  ],
+                  "host": [
+                    "api",
+                    "podcastindex",
+                    "org"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1441923632"
+                    },
+                    {
+                      "key": "entity",
+                      "value": "podcast"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podcastindex.org/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d88a5764-537d-4fa5-a1a2-54f233004df0",
+    "name": "PodcastIndex.org Add Apple Replacement API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Download the openapi spec in [json](pi_api.json) or [yaml](pi_api.yaml) format.\n\n# Overview\n\nThe Podcast Index (Podcast Index LLC) is a software developer focused partnership that provides tools and data to\nanyone who aspires to create new and exciting Podcast experiences without the heavy lifting of indexing,\naggregation and data management.\n\n# Example Code\n\nUsers have provided example code for working the API in the following languages:\n\n  - [AWS Lambda - python](https://github.com/tbowers/python-podcastindex-org-lambda)\n  - [Bash](https://github.com/suorcd/Bash-podcastindex-org-example)\n  - [C#](https://github.com/ComicStrip/csharp-podcastindex-org-example)\n  - [Elisp](https://github.com/sabexx/elisp-example)\n  - [Flutter/Dart](https://github.com/crediblecreative/flutter-dart-podcastindex-org-example)\n  - [Go](https://github.com/ComicStrip/Go-podcastindex-org-example)\n  - [Go](https://github.com/kilobit/podcast-index-client)\n  - [Java](https://github.com/ComicStrip/Java-podcastindex-org-example)\n  - [Java](https://github.com/stucoates/PodcastIndexJavaClient)\n  - [Node.js](https://github.com/ComicStrip/node.js-podcastindex-org-example)\n  - [PHP](https://github.com/Podcastindex-org/example-code)\n  - [Python](https://github.com/tbowers/python-podcastindex-org-example)\n  - [Swift](https://github.com/ComicStrip/Swift-podcastindex-org-example)\n  - ... [More](https://github.com/Podcastindex-org-Examples)\n\nDon't see your desired language, create an example repo and create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to your example code project!\n\n# Libraries\n\nUser created libraries for working with the API:\n\n  - Java\n      - [podcast4j](https://github.com/yusufyilmazfr/podcast4j)\n  - .NET\n      - [PodcastIndexSharp](https://www.nuget.org/packages/PodcastIndexSharp)\n  - Node.js/npm/yarn\n      - [podcast-index-api](https://www.npmjs.com/package/podcast-index-api)\n      - [podcastdx-client](https://www.npmjs.com/package/podcastdx-client)\n  - PHP\n      - [podcastindex-php](https://github.com/LowSociety/podcastindex-php)\n  - Python/pip\n      - [python-podcastindex](https://pypi.org/project/python-podcastindex/)\n  - R\n      - [podindexr](https://github.com/rpodcast/podindexr)\n  - Ruby\n      - [podcast-index](https://github.com/jasonyork/podcast-index)\n  - Swift\n      - [PodcastIndexKit](https://github.com/SparrowTek/PodcastIndexKit)\n  - Kotlin\n      - [PodcastIndex-SDK](https://github.com/mr3y-the-programmer/PodcastIndex-SDK)\n  - Go\n      - [podcastindex](https://github.com/jjgmckenzie/podcastindex)\n      - [podcastindex-go](https://github.com/koalahl/podcastindex-go)\n\nAre we missing a library? Did you create one for a different language? Create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to the new library!\n\n# Postman\n\nA collection file for use in the [Postman](https://www.postman.com/) application is available for this API.\n\n  1. Download the contents of the [Postman Docs](https://github.com/Podcastindex-org/docs-api/tree/master/Postman%20Docs) folder.\n  2. Import the `PodcastIndex.postman_collection.json` collection to Postman\n  3. Import the `PodcastIndexOrgEnvironment.postman_environment.json` to Postman\n  4. Click \"Environments\" on the left sidebar\n  5. Select the checkbox next to the PodcastIndexOrgEnvironment entry\n  6. Set `AuthKey` and `SeceretKey` values under the \"Current Value\" column using your API information\n  7. Click \"Collections\" from the sidebar\n  8. Select PodcastIndex\n  9. Select and run the endpoint to test\n\n# Contributing\n\nThe source for this API documentation is available at\n[https://github.com/Podcastindex-org/docs-api](https://github.com/Podcastindex-org/docs-api).\nSubmit an Issue or create a Pull Request.\n\n# Authentication Details\n\nSending an API request is easy. We use an Amazon-style request authorization token to secure each request.\n\n\nRegister for a free API key at https://api.podcastindex.org/\n\n\nThese headers parameters are required for each request: `User-Agent`, `X-Auth-Date`, `X-Auth-Key`, `Authorization`\n\n\nSee [Authentication](#auth) for description of parameters.\n\n# Legal\n\nLegal\n\n  - [Privacy Policy](https://github.com/Podcastindex-org/legal/blob/main/PrivacyPolicy.md)\n  - [Terms of Service](https://github.com/Podcastindex-org/legal/blob/main/TermsOfService.md)\n  - [License](https://github.com/Podcastindex-org/docs-api/blob/master/LICENSE)\n\n\nContact Support:\n Email: info@podcastindex.org",
+      "type": "text/plain"
+    }
+  }
+}

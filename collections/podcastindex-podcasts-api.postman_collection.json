@@ -1,0 +1,2197 @@
+{
+  "item": [
+    {
+      "id": "8d4a09e4-9820-45bf-9a0d-23c5ca055431",
+      "name": "Podcasts",
+      "description": {
+        "content": "Find details about a Podcast and its feed.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f66290ff-016c-4a2a-9dfe-e39639133801",
+          "name": "By Feed ID",
+          "request": {
+            "name": "By Feed ID",
+            "description": {
+              "content": "This call returns everything we know about the feed from the PodcastIndex ID\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=75075&pretty\n  - Includes `value` and `funding`: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=169991&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcasts",
+                "byfeedid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) The PodcastIndex Feed ID\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2f6d4b12-ff3f-42e3-a482-e4e0ee490ca1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byfeedid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "75075"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"query\": {\n    \"id\": \"920666\"\n  },\n  \"feed\": {\n    \"id\": 75075,\n    \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n    \"title\": \"Batman University\",\n    \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"originalUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n    \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n    \"author\": \"Tony Sindelar\",\n    \"ownerName\": \"The Incomparable\",\n    \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"lastUpdateTime\": 1613394044,\n    \"lastCrawlTime\": 1613394034,\n    \"lastParseTime\": 1613394045,\n    \"lastGoodHttpStatusTime\": 1613394034,\n    \"lastHttpStatus\": 200,\n    \"contentType\": \"application/rss+xml\",\n    \"itunesId\": 1441923632,\n    \"itunesType\": \"episodic\",\n    \"generator\": \"my podcast host\",\n    \"language\": \"en-us\",\n    \"explicit\": false,\n    \"type\": 0,\n    \"medium\": \"music\",\n    \"dead\": 0,\n    \"chash\": \"ad651c60eaaf3344595c0dd0bd787993\",\n    \"episodeCount\": 19,\n    \"crawlErrors\": 0,\n    \"parseErrors\": 0,\n    \"categories\": {\n      \"104\": \"Tv\",\n      \"105\": \"Film\",\n      \"107\": \"Reviews\"\n    },\n    \"locked\": 0,\n    \"imageUrlHash\": 3969216649,\n    \"value\": {\n      \"model\": {\n        \"type\": \"lightning\",\n        \"method\": \"keysend\",\n        \"suggested\": \"0.00000020000\"\n      },\n      \"destinations\": [\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"funding\": {\n      \"url\": \"https://patreon.com/johnchidgey\",\n      \"message\": \"Pragmatic on Patreon\"\n    }\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "030dc6cd-f649-4460-9ef7-8c9b7e62dea3",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byfeedid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "75075"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a3faeef-962e-4d23-b27e-6a28c1b71f91",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byfeedid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "75075"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73377b95-180a-4b2b-ac03-094c77305c32",
+          "name": "By Feed URL",
+          "request": {
+            "name": "By Feed URL",
+            "description": {
+              "content": "This call returns everything we know about the feed from the feed URL\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/podcasts/byfeedurl?url=https://feeds.theincomparable.com/batmanuniversity&pretty\n  - Includes `value` and `funding`: https://api.podcastindex.org/api/1.0/podcasts/byfeedurl?url=https://engineered.network/pragmatic/feed/index.xml&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcasts",
+                "byfeedurl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<string>",
+                  "description": "(Required) Podcast feed URL\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3cc15d38-e780-4392-951f-8b1fee0ba954",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byfeedurl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "https://feeds.theincomparable.com/batmanuniversity"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"query\": {\n    \"url\": \"https://feeds.theincomparable.com/batmanuniversity\"\n  },\n  \"feed\": {\n    \"id\": 75075,\n    \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n    \"title\": \"Batman University\",\n    \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"originalUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n    \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n    \"author\": \"Tony Sindelar\",\n    \"ownerName\": \"The Incomparable\",\n    \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"lastUpdateTime\": 1613394044,\n    \"lastCrawlTime\": 1613394034,\n    \"lastParseTime\": 1613394045,\n    \"lastGoodHttpStatusTime\": 1613394034,\n    \"lastHttpStatus\": 200,\n    \"contentType\": \"application/rss+xml\",\n    \"itunesId\": 1441923632,\n    \"itunesType\": \"episodic\",\n    \"generator\": \"my podcast host\",\n    \"language\": \"en-us\",\n    \"explicit\": false,\n    \"type\": 0,\n    \"medium\": \"music\",\n    \"dead\": 0,\n    \"chash\": \"ad651c60eaaf3344595c0dd0bd787993\",\n    \"episodeCount\": 19,\n    \"crawlErrors\": 0,\n    \"parseErrors\": 0,\n    \"categories\": {\n      \"104\": \"Tv\",\n      \"105\": \"Film\",\n      \"107\": \"Reviews\"\n    },\n    \"locked\": 0,\n    \"imageUrlHash\": 3969216649,\n    \"value\": {\n      \"model\": {\n        \"type\": \"lightning\",\n        \"method\": \"keysend\",\n        \"suggested\": \"0.00000020000\"\n      },\n      \"destinations\": [\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"funding\": {\n      \"url\": \"https://patreon.com/johnchidgey\",\n      \"message\": \"Pragmatic on Patreon\"\n    }\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1c99e7f-90da-45c6-8b8a-1fa7cdb028d1",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byfeedurl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "https://feeds.theincomparable.com/batmanuniversity"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fc5b0eb-6a4e-4a75-b232-80732e13c1cb",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byfeedurl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "https://feeds.theincomparable.com/batmanuniversity"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4eeb1703-9c2e-4c10-b891-e6499a2b9087",
+          "name": "By iTunes ID",
+          "request": {
+            "name": "By iTunes ID",
+            "description": {
+              "content": "This call returns everything we know about the feed from the iTunes ID\n\n\nExample: https://api.podcastindex.org/api/1.0/podcasts/byitunesid?id=1441923632&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcasts",
+                "byitunesid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) The iTunes Feed ID to search for\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9434bb0b-2449-4931-9d43-031f8889dfe6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byitunesid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1441923632"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"query\": {\n    \"id\": \"920666\"\n  },\n  \"feed\": {\n    \"id\": 75075,\n    \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n    \"title\": \"Batman University\",\n    \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"originalUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n    \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n    \"author\": \"Tony Sindelar\",\n    \"ownerName\": \"The Incomparable\",\n    \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"lastUpdateTime\": 1613394044,\n    \"lastCrawlTime\": 1613394034,\n    \"lastParseTime\": 1613394045,\n    \"lastGoodHttpStatusTime\": 1613394034,\n    \"lastHttpStatus\": 200,\n    \"contentType\": \"application/rss+xml\",\n    \"itunesId\": 1441923632,\n    \"generator\": \"my podcast host\",\n    \"language\": \"en-us\",\n    \"type\": 0,\n    \"dead\": 0,\n    \"episodeCount\": 19,\n    \"crawlErrors\": 0,\n    \"parseErrors\": 0,\n    \"categories\": {\n      \"104\": \"Tv\",\n      \"105\": \"Film\",\n      \"107\": \"Reviews\"\n    },\n    \"locked\": 0,\n    \"funding\": {\n      \"url\": \"https://patreon.com/johnchidgey\",\n      \"message\": \"Pragmatic on Patreon\"\n    }\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1163194c-c625-4d8d-9afc-9d4fad97d661",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byitunesid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1441923632"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "073554f4-708b-4db0-9cdd-9cb3b31c04ae",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byitunesid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "1441923632"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c22096a1-63dc-4bfa-a0dc-b1a848469064",
+          "name": "By GUID",
+          "request": {
+            "name": "By GUID",
+            "description": {
+              "content": "This call returns everything we know about the feed from the feed's GUID.\n\n\nThe GUID is a unique, global identifier for the podcast. See the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/podcasts/byguid?guid=9b024349-ccf0-5f69-a609-6b82873eab3c&pretty\n  - Includes `value` and `funding`: https://api.podcastindex.org/api/1.0/podcasts/byguid?guid=9b024349-ccf0-5f69-a609-6b82873eab3c&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcasts",
+                "byguid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "guid",
+                  "value": "<string>",
+                  "description": "(Required) The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n\n\nSee the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6066b03e-d661-46b8-8027-517d1d7a1831",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "9b024349-ccf0-5f69-a609-6b82873eab3c"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"query\": {\n    \"guid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n    \"id\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\"\n  },\n  \"feed\": {\n    \"id\": 75075,\n    \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n    \"title\": \"Batman University\",\n    \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"originalUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n    \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n    \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n    \"author\": \"Tony Sindelar\",\n    \"ownerName\": \"The Incomparable\",\n    \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n    \"lastUpdateTime\": 1613394044,\n    \"lastCrawlTime\": 1613394034,\n    \"lastParseTime\": 1613394045,\n    \"lastGoodHttpStatusTime\": 1613394034,\n    \"lastHttpStatus\": 200,\n    \"contentType\": \"application/rss+xml\",\n    \"itunesId\": 1441923632,\n    \"itunesType\": \"episodic\",\n    \"generator\": \"my podcast host\",\n    \"language\": \"en-us\",\n    \"explicit\": false,\n    \"type\": 0,\n    \"medium\": \"music\",\n    \"dead\": 0,\n    \"chash\": \"ad651c60eaaf3344595c0dd0bd787993\",\n    \"episodeCount\": 19,\n    \"crawlErrors\": 0,\n    \"parseErrors\": 0,\n    \"categories\": {\n      \"104\": \"Tv\",\n      \"105\": \"Film\",\n      \"107\": \"Reviews\"\n    },\n    \"locked\": 0,\n    \"imageUrlHash\": 3969216649,\n    \"value\": {\n      \"model\": {\n        \"type\": \"lightning\",\n        \"method\": \"keysend\",\n        \"suggested\": \"0.00000020000\"\n      },\n      \"destinations\": [\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"funding\": {\n      \"url\": \"https://patreon.com/johnchidgey\",\n      \"message\": \"Pragmatic on Patreon\"\n    }\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53ef3272-c12c-4618-a83a-5fd3007838cc",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "9b024349-ccf0-5f69-a609-6b82873eab3c"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88806159-dfbd-4ad5-918d-59cf5da0d9c2",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "byguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "9b024349-ccf0-5f69-a609-6b82873eab3c"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60f2cc37-1e0c-4c9c-b706-f3cea1270fb8",
+          "name": "By Tag",
+          "request": {
+            "name": "By Tag",
+            "description": {
+              "content": "This call returns all feeds that support the specified\n[podcast namespace](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md) tag.\n\n\nThe only supported tags are:\n  - `podcast:value` using the `podcast-value` parameter\n  - `podcast:valueTimeSplit` using the `podcast-valueTimeSplit` parameter\n\n\nOnly the `podcast-value` or `podcast-valueTimeSplit` parameter should be used. If multiple are specified, the\nfirst parameter is used and the others are ignored.\n\n\nWhen called without a `start_at` value, the top 500 feeds sorted by popularity are returned in descending order.\n\n\nWhen called with a `start_at` value, the feeds are returned sorted by the `feedId` starting with the specified value\nup to the max number of feeds to return. The `nextStartAt` specifies the value to pass to the next `start_at`.\nRepeat this sequence until no items are returned.\n\n\nExamples:\n  - https://api.podcastindex.org/api/1.0/podcasts/bytag?podcast-value&max=200&pretty\n  - https://api.podcastindex.org/api/1.0/podcasts/bytag?podcast-value&max=200&start_at=1&pretty\n  - https://api.podcastindex.org/api/1.0/podcasts/bytag?podcast-valueTimeSplit&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcasts",
+                "bytag"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "podcast-value",
+                  "value": "<boolean>",
+                  "description": "Get feeds supporting the [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value) tag.\n\n\nParameter shall not have a value\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "podcast-valueTimeSplit",
+                  "value": "<boolean>",
+                  "description": "Get feeds supporting the [`podcast:valueTimeSplit`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value-time-split) tag.\n\n\nParameter shall not have a value\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_at",
+                  "value": "<integer>",
+                  "description": "Feed ID to start at for request\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7f604182-0a7d-433f-9527-1e3463f384d7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "bytag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "podcast-value",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "podcast-valueTimeSplit",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "200"
+                    },
+                    {
+                      "key": "start_at",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"feeds\": [\n    {\n      \"id\": 75075,\n      \"title\": \"Batman University\",\n      \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"originalUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n      \"author\": \"Tony Sindelar\",\n      \"ownerName\": \"The Incomparable\",\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"lastUpdateTime\": 1613394044,\n      \"lastCrawlTime\": 1613394034,\n      \"lastParseTime\": 1613394045,\n      \"lastGoodHttpStatusTime\": 1613394034,\n      \"lastHttpStatus\": 200,\n      \"contentType\": \"application/rss+xml\",\n      \"itunesId\": 1441923632,\n      \"generator\": \"my podcast host\",\n      \"language\": \"en-us\",\n      \"type\": 0,\n      \"dead\": 0,\n      \"crawlErrors\": 0,\n      \"parseErrors\": 0,\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      },\n      \"locked\": 0,\n      \"popularity\": 1,\n      \"imageUrlHash\": 3969216649,\n      \"value\": {\n        \"model\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"method\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggested\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"destinations\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"funding\": {\n        \"url\": \"https://patreon.com/johnchidgey\",\n        \"message\": \"Pragmatic on Patreon\"\n      },\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"valueCreatedOn\": 1598369047\n    },\n    {\n      \"id\": 75075,\n      \"title\": \"Batman University\",\n      \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"originalUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n      \"author\": \"Tony Sindelar\",\n      \"ownerName\": \"The Incomparable\",\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"lastUpdateTime\": 1613394044,\n      \"lastCrawlTime\": 1613394034,\n      \"lastParseTime\": 1613394045,\n      \"lastGoodHttpStatusTime\": 1613394034,\n      \"lastHttpStatus\": 200,\n      \"contentType\": \"application/rss+xml\",\n      \"itunesId\": 1441923632,\n      \"generator\": \"my podcast host\",\n      \"language\": \"en-us\",\n      \"type\": 0,\n      \"dead\": 0,\n      \"crawlErrors\": 0,\n      \"parseErrors\": 0,\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      },\n      \"locked\": 0,\n      \"popularity\": 1,\n      \"imageUrlHash\": 3969216649,\n      \"value\": {\n        \"model\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"method\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"suggested\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"destinations\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"funding\": {\n        \"url\": \"https://patreon.com/johnchidgey\",\n        \"message\": \"Pragmatic on Patreon\"\n      },\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"valueCreatedOn\": 1598369047\n    }\n  ],\n  \"count\": 1,\n  \"total\": 13143,\n  \"nextStartAt\": 322043,\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a203397c-4b34-4ab5-942c-5dbba7006265",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "bytag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "podcast-value",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "podcast-valueTimeSplit",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "200"
+                    },
+                    {
+                      "key": "start_at",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8182befd-57ee-430a-82c6-cb4c3a71dbe2",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "bytag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "podcast-value",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "podcast-valueTimeSplit",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "200"
+                    },
+                    {
+                      "key": "start_at",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e24f1382-a08b-419e-9580-03b7fae6facf",
+          "name": "By Medium",
+          "request": {
+            "name": "By Medium",
+            "description": {
+              "content": "This call returns all feeds marked with the specified\n[medium](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium) tag value.\n\n\nExample: https://api.podcastindex.org/api/1.0/podcasts/bymedium?medium=music&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcasts",
+                "bymedium"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "medium",
+                  "value": "<string>",
+                  "description": "The medium value to search for.\n\n\nFull list of possible values documented in\n[medium](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium) tag spec.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "779553b3-2d81-4ada-9ace-799064aefd61",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "bymedium"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "medium",
+                      "value": "film"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"feeds\": [\n    {\n      \"id\": 75075,\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"title\": \"Batman University\",\n      \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"originalUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n      \"author\": \"Tony Sindelar\",\n      \"ownerName\": \"The Incomparable\",\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"lastUpdateTime\": 1613394044,\n      \"lastCrawlTime\": 1613394034,\n      \"lastParseTime\": 1613394045,\n      \"lastGoodHttpStatusTime\": 1613394034,\n      \"lastHttpStatus\": 200,\n      \"contentType\": \"application/rss+xml\",\n      \"itunesId\": 1441923632,\n      \"generator\": \"my podcast host\",\n      \"language\": \"en-us\",\n      \"explicit\": false,\n      \"type\": 0,\n      \"medium\": \"music\",\n      \"dead\": 0,\n      \"episodeCount\": 19,\n      \"crawlErrors\": 0,\n      \"parseErrors\": 0,\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      },\n      \"locked\": 0,\n      \"imageUrlHash\": 3969216649,\n      \"newestItemPubdate\": 1546399813\n    },\n    {\n      \"id\": 75075,\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"title\": \"Batman University\",\n      \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"originalUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n      \"author\": \"Tony Sindelar\",\n      \"ownerName\": \"The Incomparable\",\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"lastUpdateTime\": 1613394044,\n      \"lastCrawlTime\": 1613394034,\n      \"lastParseTime\": 1613394045,\n      \"lastGoodHttpStatusTime\": 1613394034,\n      \"lastHttpStatus\": 200,\n      \"contentType\": \"application/rss+xml\",\n      \"itunesId\": 1441923632,\n      \"generator\": \"my podcast host\",\n      \"language\": \"en-us\",\n      \"explicit\": false,\n      \"type\": 0,\n      \"medium\": \"music\",\n      \"dead\": 0,\n      \"episodeCount\": 19,\n      \"crawlErrors\": 0,\n      \"parseErrors\": 0,\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      },\n      \"locked\": 0,\n      \"imageUrlHash\": 3969216649,\n      \"newestItemPubdate\": 1546399813\n    }\n  ],\n  \"count\": 1,\n  \"medium\": \"film\",\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0040309-4e13-45ee-aef3-5ae1c8f0e49c",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "bymedium"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "medium",
+                      "value": "film"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1748177-141c-4b66-89dd-71b71d1c0a37",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "bymedium"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "medium",
+                      "value": "film"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41d8d22b-e653-4d18-98cf-fed8382c373a",
+          "name": "Trending",
+          "request": {
+            "name": "Trending",
+            "description": {
+              "content": "This call returns the podcasts/feeds that in the index that are trending.\n\n\nExample: https://api.podcastindex.org/api/1.0/podcasts/trending?pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcasts",
+                "trending"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Return items since the specified epoch timestamp.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Specifying a language code (like \"en\") will return only episodes having that specific language.\n\n\nYou can specify multiple languages by separating them with commas.\n\n\nIf you also want to return episodes that have no language given, use the token \"unknown\". (ex. en,es,ja,unknown).\n\n\nValues are not case sensitive.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "cat",
+                  "value": "<string>",
+                  "description": "Use this argument to specify that you **ONLY** want episodes with these categories in the results.\n\n\nSeparate multiple categories with commas.\n\n\nYou may specify either the Category ID and/or the Category Name.\n\n\nValues are not case sensitive.\n\n\nThe `cat` and `notcat` filters can be used together to fine tune a very specific result set.\n\n\nCategory numbers and names can be found in the\n[Podcast Namespace documentation](https://github.com/Podcastindex-org/podcast-namespace/blob/main/categories.json)\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "notcat",
+                  "value": "<string>",
+                  "description": "Use this argument to specify categories of episodes to **NOT** show in the results.\n\n\nSeparate multiple categories with commas.\n\n\nYou may specify either the Category ID and/or the Category Name.\n\n\nValues are not case sensitive.\n\n\nThe `cat` and `notcat` filters can be used together to fine tune a very specific result set.\n\n\nCategory numbers and names can be found in the\n[Podcast Namespace documentation](https://github.com/Podcastindex-org/podcast-namespace/blob/main/categories.json)\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e688e6a3-9f81-4574-b50f-9f0a09d88060",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "trending"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "cat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "notcat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"feeds\": [\n    {\n      \"id\": 75075,\n      \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"title\": \"Batman University\",\n      \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n      \"author\": \"Tony Sindelar\",\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"newestItemPublishTime\": 1546399813,\n      \"itunesId\": 1441923632,\n      \"trendScore\": 1,\n      \"language\": \"en-us\",\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      }\n    },\n    {\n      \"id\": 75075,\n      \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"title\": \"Batman University\",\n      \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n      \"author\": \"Tony Sindelar\",\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"newestItemPublishTime\": 1546399813,\n      \"itunesId\": 1441923632,\n      \"trendScore\": 1,\n      \"language\": \"en-us\",\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      }\n    }\n  ],\n  \"count\": 1,\n  \"max\": 2,\n  \"since\": 1613805249,\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6615f714-961f-4377-be6c-b1fc3acaa275",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "trending"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "cat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "notcat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "248cd483-c890-4309-b689-fa23e693c606",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "trending"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "since",
+                      "value": "1612125785"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "en"
+                    },
+                    {
+                      "key": "cat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "notcat",
+                      "value": "News"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29d07425-ab7b-430b-bbb9-97f2228270dc",
+          "name": "Dead",
+          "request": {
+            "name": "Dead",
+            "description": {
+              "content": "This call returns all feeds that have been marked dead (`dead` == 1)\n\n\nHourly statistics can also be access at https://public.podcastindex.org/podcastindex_dead_feeds.csv\nFor details, see [Dead Feeds](#get-/static/public/podcastindex_dead_feeds.csv).\n\n\nExample: https://api.podcastindex.org/api/1.0/podcasts/dead?pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcasts",
+                "dead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b3ddc1d8-c8d2-4915-9de0-335d06185a89",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "dead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"feeds\": [\n    {\n      \"id\": 75075,\n      \"title\": \"Batman University\",\n      \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"duplicateOf\": 75075\n    },\n    {\n      \"id\": 75075,\n      \"title\": \"Batman University\",\n      \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"duplicateOf\": 75075\n    }\n  ],\n  \"count\": 1,\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc433acf-1db4-454b-880d-4215b3491276",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "dead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2d12924-740b-4d69-a6ea-d23325bc5c02",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "dead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a8815a9-c0c6-4ac9-b8d3-4beae7657fd1",
+          "name": "Batch By Feed GUID",
+          "request": {
+            "name": "Batch By Feed GUID",
+            "description": {
+              "content": "This call returns everything we know about the feed from the feed's GUID provided in JSON array in the body of the request.\n\n\nThe GUID is a unique, global identifier for the podcast. See the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcasts",
+                "batch",
+                "byguid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Auth-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2b1cbf70-a50c-4a83-acd0-666270a5338b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "batch",
+                    "byguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"917393e3-1b1e-5cef-ace4-edaa54e1f810\",\n  \"c73b1a23-1c28-5edb-94c3-10d1745d0877\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"allFound\": true,\n  \"found\": 4,\n  \"feeds\": [\n    {\n      \"id\": 75075,\n      \"title\": \"Batman University\",\n      \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"originalUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n      \"author\": \"Tony Sindelar\",\n      \"ownerName\": \"The Incomparable\",\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"lastUpdateTime\": 1613394044,\n      \"lastCrawlTime\": 1613394034,\n      \"lastParseTime\": 1613394045,\n      \"inPollingQueue\": 1,\n      \"priority\": 5,\n      \"lastGoodHttpStatusTime\": 1613394034,\n      \"lastHttpStatus\": 200,\n      \"contentType\": \"application/rss+xml\",\n      \"itunesId\": 1441923632,\n      \"generator\": \"my podcast host\",\n      \"createdOn\": 1613394034,\n      \"language\": \"en-us\",\n      \"type\": 0,\n      \"dead\": 0,\n      \"crawlErrors\": 0,\n      \"parseErrors\": 0,\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      },\n      \"locked\": 0,\n      \"explicit\": false,\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"medium\": \"music\",\n      \"episodeCount\": 19,\n      \"imageUrlHash\": 3969216649,\n      \"newestItemPubdate\": 1546399813,\n      \"valueBlock\": \"string\"\n    },\n    {\n      \"id\": 75075,\n      \"title\": \"Batman University\",\n      \"url\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"originalUrl\": \"https://feeds.theincomparable.com/batmanuniversity\",\n      \"link\": \"https://www.theincomparable.com/batmanuniversity/\",\n      \"description\": \"Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.\",\n      \"author\": \"Tony Sindelar\",\n      \"ownerName\": \"The Incomparable\",\n      \"image\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"artwork\": \"https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11\",\n      \"lastUpdateTime\": 1613394044,\n      \"lastCrawlTime\": 1613394034,\n      \"lastParseTime\": 1613394045,\n      \"inPollingQueue\": 1,\n      \"priority\": 5,\n      \"lastGoodHttpStatusTime\": 1613394034,\n      \"lastHttpStatus\": 200,\n      \"contentType\": \"application/rss+xml\",\n      \"itunesId\": 1441923632,\n      \"generator\": \"my podcast host\",\n      \"createdOn\": 1613394034,\n      \"language\": \"en-us\",\n      \"type\": 0,\n      \"dead\": 0,\n      \"crawlErrors\": 0,\n      \"parseErrors\": 0,\n      \"categories\": {\n        \"104\": \"Tv\",\n        \"105\": \"Film\",\n        \"107\": \"Reviews\"\n      },\n      \"locked\": 0,\n      \"explicit\": false,\n      \"podcastGuid\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"medium\": \"music\",\n      \"episodeCount\": 19,\n      \"imageUrlHash\": 3969216649,\n      \"newestItemPubdate\": 1546399813,\n      \"valueBlock\": \"string\"\n    }\n  ],\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04f976e4-1b7f-4e40-8fde-2b40d2f78b67",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "batch",
+                    "byguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"917393e3-1b1e-5cef-ace4-edaa54e1f810\",\n  \"c73b1a23-1c28-5edb-94c3-10d1745d0877\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "291a72ad-8638-4e9f-83f2-1a89a52a14f2",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcasts",
+                    "batch",
+                    "byguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Auth-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"917393e3-1b1e-5cef-ace4-edaa54e1f810\",\n  \"c73b1a23-1c28-5edb-94c3-10d1745d0877\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podcastindex.org/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e589c967-6ae8-4b8e-a193-2f2544f6735e",
+    "name": "PodcastIndex.org Add Podcasts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Download the openapi spec in [json](pi_api.json) or [yaml](pi_api.yaml) format.\n\n# Overview\n\nThe Podcast Index (Podcast Index LLC) is a software developer focused partnership that provides tools and data to\nanyone who aspires to create new and exciting Podcast experiences without the heavy lifting of indexing,\naggregation and data management.\n\n# Example Code\n\nUsers have provided example code for working the API in the following languages:\n\n  - [AWS Lambda - python](https://github.com/tbowers/python-podcastindex-org-lambda)\n  - [Bash](https://github.com/suorcd/Bash-podcastindex-org-example)\n  - [C#](https://github.com/ComicStrip/csharp-podcastindex-org-example)\n  - [Elisp](https://github.com/sabexx/elisp-example)\n  - [Flutter/Dart](https://github.com/crediblecreative/flutter-dart-podcastindex-org-example)\n  - [Go](https://github.com/ComicStrip/Go-podcastindex-org-example)\n  - [Go](https://github.com/kilobit/podcast-index-client)\n  - [Java](https://github.com/ComicStrip/Java-podcastindex-org-example)\n  - [Java](https://github.com/stucoates/PodcastIndexJavaClient)\n  - [Node.js](https://github.com/ComicStrip/node.js-podcastindex-org-example)\n  - [PHP](https://github.com/Podcastindex-org/example-code)\n  - [Python](https://github.com/tbowers/python-podcastindex-org-example)\n  - [Swift](https://github.com/ComicStrip/Swift-podcastindex-org-example)\n  - ... [More](https://github.com/Podcastindex-org-Examples)\n\nDon't see your desired language, create an example repo and create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to your example code project!\n\n# Libraries\n\nUser created libraries for working with the API:\n\n  - Java\n      - [podcast4j](https://github.com/yusufyilmazfr/podcast4j)\n  - .NET\n      - [PodcastIndexSharp](https://www.nuget.org/packages/PodcastIndexSharp)\n  - Node.js/npm/yarn\n      - [podcast-index-api](https://www.npmjs.com/package/podcast-index-api)\n      - [podcastdx-client](https://www.npmjs.com/package/podcastdx-client)\n  - PHP\n      - [podcastindex-php](https://github.com/LowSociety/podcastindex-php)\n  - Python/pip\n      - [python-podcastindex](https://pypi.org/project/python-podcastindex/)\n  - R\n      - [podindexr](https://github.com/rpodcast/podindexr)\n  - Ruby\n      - [podcast-index](https://github.com/jasonyork/podcast-index)\n  - Swift\n      - [PodcastIndexKit](https://github.com/SparrowTek/PodcastIndexKit)\n  - Kotlin\n      - [PodcastIndex-SDK](https://github.com/mr3y-the-programmer/PodcastIndex-SDK)\n  - Go\n      - [podcastindex](https://github.com/jjgmckenzie/podcastindex)\n      - [podcastindex-go](https://github.com/koalahl/podcastindex-go)\n\nAre we missing a library? Did you create one for a different language? Create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to the new library!\n\n# Postman\n\nA collection file for use in the [Postman](https://www.postman.com/) application is available for this API.\n\n  1. Download the contents of the [Postman Docs](https://github.com/Podcastindex-org/docs-api/tree/master/Postman%20Docs) folder.\n  2. Import the `PodcastIndex.postman_collection.json` collection to Postman\n  3. Import the `PodcastIndexOrgEnvironment.postman_environment.json` to Postman\n  4. Click \"Environments\" on the left sidebar\n  5. Select the checkbox next to the PodcastIndexOrgEnvironment entry\n  6. Set `AuthKey` and `SeceretKey` values under the \"Current Value\" column using your API information\n  7. Click \"Collections\" from the sidebar\n  8. Select PodcastIndex\n  9. Select and run the endpoint to test\n\n# Contributing\n\nThe source for this API documentation is available at\n[https://github.com/Podcastindex-org/docs-api](https://github.com/Podcastindex-org/docs-api).\nSubmit an Issue or create a Pull Request.\n\n# Authentication Details\n\nSending an API request is easy. We use an Amazon-style request authorization token to secure each request.\n\n\nRegister for a free API key at https://api.podcastindex.org/\n\n\nThese headers parameters are required for each request: `User-Agent`, `X-Auth-Date`, `X-Auth-Key`, `Authorization`\n\n\nSee [Authentication](#auth) for description of parameters.\n\n# Legal\n\nLegal\n\n  - [Privacy Policy](https://github.com/Podcastindex-org/legal/blob/main/PrivacyPolicy.md)\n  - [Terms of Service](https://github.com/Podcastindex-org/legal/blob/main/TermsOfService.md)\n  - [License](https://github.com/Podcastindex-org/docs-api/blob/master/LICENSE)\n\n\nContact Support:\n Email: info@podcastindex.org",
+      "type": "text/plain"
+    }
+  }
+}

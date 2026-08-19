@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PodcastIndex.org Add Apple Replacement API",
+    "version": "1.12.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Apple Replacement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/search",
+            "params": [
+              {
+                "name": "term",
+                "value": "batman",
+                "type": "query",
+                "description": "The term to search for\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ]
+          },
+          "docs": "Replaces the Apple search API but returns data from the Podcast Index database.\n\n\nNote: No API key needed for this endpoint.\n\n\nExample:\n\n  - Apple: https://itunes.apple.com/search?media=podcast&entity=podcast&term=batman\n  - PodcastIndex: https://api.podcastindex.org/search?term=batman\n"
+        },
+        {
+          "info": {
+            "name": "Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/lookup",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "The iTunes Feed ID to search for\n"
+              },
+              {
+                "name": "entity",
+                "value": "podcast",
+                "type": "query",
+                "description": "The iTunes entity type to look in\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ]
+          },
+          "docs": "Replaces the Apple podcast lookup API but returns data from the Podcast Index database.\n\n\nNote: No API key needed for this endpoint.\n\n\nExample:\n\n  - Apple: https://itunes.apple.com/lookup?media=podcast&entity=podcast&id=1636765656\n  - PodcastIndex: https://api.podcastindex.org/lookup?entity=podcast&id=1636765656\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

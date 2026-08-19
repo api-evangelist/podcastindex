@@ -1,0 +1,993 @@
+{
+  "item": [
+    {
+      "id": "14de3eef-fc4d-42ab-9c84-c73ce9687f80",
+      "name": "Value",
+      "description": {
+        "content": "The podcast's \"Value for Value\" information\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c54ff3f2-fc4b-460b-a829-9de09c8a0d6e",
+          "name": "By Feed ID",
+          "request": {
+            "name": "By Feed ID",
+            "description": {
+              "content": "This call returns the information for supporting the podcast via one of the \"Value for Value\" methods from the\nPodcastIndex ID.\n\n\nAdditionally, the value block data can be accessed using static JSON files (updated every 15 minutes).\n\n  - Feeds: https://tracking.podcastindex.org/feedValueBlocks.json\n  - Episodes: https://tracking.podcastindex.org/episodeValueBlocks.json\n\n\nNote: No API key needed for this endpoint.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/value/byfeedid?id=920666&pretty\n  - https://api.podcastindex.org/api/1.0/value/byfeedid?id=779873&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "value",
+                "byfeedid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) The PodcastIndex Feed ID to search for.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "419528cd-2920-47d0-b213-0528b3b51e11",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "byfeedid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "75075"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"query\": {\n    \"id\": \"920666\"\n  },\n  \"value\": {\n    \"model\": {\n      \"type\": \"lightning\",\n      \"method\": \"keysend\",\n      \"suggested\": \"0.00000020000\"\n    },\n    \"destinations\": [\n      {\n        \"name\": \"podcaster\",\n        \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n        \"type\": \"node\",\n        \"split\": 99,\n        \"fee\": true,\n        \"customKey\": \"112111100\",\n        \"customValue\": \"wal_ZmqFg13NB31oek\"\n      },\n      {\n        \"name\": \"podcaster\",\n        \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n        \"type\": \"node\",\n        \"split\": 99,\n        \"fee\": true,\n        \"customKey\": \"112111100\",\n        \"customValue\": \"wal_ZmqFg13NB31oek\"\n      }\n    ]\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce054e0f-11d5-4747-9601-8261b38af7a9",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "byfeedid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "75075"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b0735a5-7629-4fe8-adcc-e31a293f0853",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "byfeedid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "75075"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76c1376e-ab7c-4738-83f4-dbb3c6bd0263",
+          "name": "By Feed URL",
+          "request": {
+            "name": "By Feed URL",
+            "description": {
+              "content": "This call returns the information for supporting the podcast via one of the \"Value for Value\" methods from feed URL.\n\n\nAdditionally, the value block data can be accessed using static JSON files (updated every 15 minutes).\n\n  - Feeds: https://tracking.podcastindex.org/feedValueBlocks.json\n  - Episodes: https://tracking.podcastindex.org/episodeValueBlocks.json\n\n\nNote: No API key needed for this endpoint.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/value/byfeedurl?url=https://mp3s.nashownotes.com/pc20rss.xml&pretty\n  - https://api.podcastindex.org/api/1.0/value/byfeedurl?url=https://lespoesiesdheloise.fr/@heloise/feed.xml&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "value",
+                "byfeedurl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<string>",
+                  "description": "(Required) Podcast feed URL\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eec60e97-3cda-4285-a74b-897a0e8ac12f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "byfeedurl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "https://feeds.theincomparable.com/batmanuniversity"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"query\": {\n    \"url\": \"https://feeds.theincomparable.com/batmanuniversity\"\n  },\n  \"value\": {\n    \"model\": {\n      \"type\": \"lightning\",\n      \"method\": \"keysend\",\n      \"suggested\": \"0.00000020000\"\n    },\n    \"destinations\": [\n      {\n        \"name\": \"podcaster\",\n        \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n        \"type\": \"node\",\n        \"split\": 99,\n        \"fee\": true,\n        \"customKey\": \"112111100\",\n        \"customValue\": \"wal_ZmqFg13NB31oek\"\n      },\n      {\n        \"name\": \"podcaster\",\n        \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n        \"type\": \"node\",\n        \"split\": 99,\n        \"fee\": true,\n        \"customKey\": \"112111100\",\n        \"customValue\": \"wal_ZmqFg13NB31oek\"\n      }\n    ]\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f345f47-059f-4153-ac9c-b89b511e8570",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "byfeedurl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "https://feeds.theincomparable.com/batmanuniversity"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69faf521-464d-4a21-b35c-954f0a9c49b1",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "byfeedurl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "https://feeds.theincomparable.com/batmanuniversity"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a09141c8-c3b3-47de-8b7c-c91939760fca",
+          "name": "By Feed GUID",
+          "request": {
+            "name": "By Feed GUID",
+            "description": {
+              "content": "This call returns the information for supporting the podcast via one of the \"Value for Value\" methods from podcast GUID.\n\n\nNote: No API key needed for this endpoint.\n\n\nExample: https://api.podcastindex.org/api/1.0/value/bypodcastguid?guid=917393e3-1b1e-5cef-ace4-edaa54e1f810&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "value",
+                "bypodcastguid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "guid",
+                  "value": "<string>",
+                  "description": "(Required) The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n\n\nSee the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b05364a3-24fc-4ed2-bdf6-134dcf66c28f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "bypodcastguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "9b024349-ccf0-5f69-a609-6b82873eab3c"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"query\": {\n    \"id\": 920666\n  },\n  \"value\": {\n    \"model\": {\n      \"type\": \"lightning\",\n      \"method\": \"keysend\",\n      \"suggested\": \"0.00000020000\"\n    },\n    \"destinations\": [\n      {\n        \"name\": \"podcaster\",\n        \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n        \"type\": \"node\",\n        \"split\": 99,\n        \"fee\": true,\n        \"customKey\": \"112111100\",\n        \"customValue\": \"wal_ZmqFg13NB31oek\"\n      },\n      {\n        \"name\": \"podcaster\",\n        \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n        \"type\": \"node\",\n        \"split\": 99,\n        \"fee\": true,\n        \"customKey\": \"112111100\",\n        \"customValue\": \"wal_ZmqFg13NB31oek\"\n      }\n    ]\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c867cf6-f801-4ede-83ff-2089ced02d8e",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "bypodcastguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "9b024349-ccf0-5f69-a609-6b82873eab3c"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c423713f-eed6-4e5f-b230-ecf5db5b8fc6",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "bypodcastguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "guid",
+                      "value": "9b024349-ccf0-5f69-a609-6b82873eab3c"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10a947b0-af0d-41c6-88c5-9dacfb713a8d",
+          "name": "By Episode GUID",
+          "request": {
+            "name": "By Episode GUID",
+            "description": {
+              "content": "This call returns the information for supporting the podcast episode via one of the \"Value for Value\" methods from\npodcast GUID and the episode GUID.\n\n\nThe `podcastguid` is the GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier\nfor the podcast. See the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n\n\nThe `episodeguid` is the unique guid specified for the `<item>` in the feed but may not be globally unique.\n\n\nNote: No API key needed for this endpoint.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/value/byepisodeguid?podcastguid=917393e3-1b1e-5cef-ace4-edaa54e1f810&episodeguid=PC20143&pretty\n  - https://api.podcastindex.org/api/1.0/value/byepisodeguid?podcastguid=c73b1a23-1c28-5edb-94c3-10d1745d0877&episodeguid=bdea6759-a7b6-4c0d-9d1e-acca3133f4a9&pretty\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "value",
+                "byepisodeguid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "podcastguid",
+                  "value": "<string>",
+                  "description": "(Required) The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n\n\nSee the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "episodeguid",
+                  "value": "<string>",
+                  "description": "(Required) The guid specified by the `<guid>` in the episode `<item>`.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40c89641-6efc-4806-8d3c-518df579c1f8",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "byepisodeguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "podcastguid",
+                      "value": "917393e3-1b1e-5cef-ace4-edaa54e1f810"
+                    },
+                    {
+                      "key": "episodeguid",
+                      "value": "PC20143"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"query\": {\n    \"podcastguid\": \"917393e3-1b1e-5cef-ace4-edaa54e1f810\",\n    \"episodeguid\": \"PC20143\"\n  },\n  \"value\": {\n    \"model\": {\n      \"type\": \"lightning\",\n      \"method\": \"keysend\",\n      \"suggested\": \"0.00000020000\"\n    },\n    \"destinations\": [\n      {\n        \"name\": \"podcaster\",\n        \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n        \"type\": \"node\",\n        \"split\": 99,\n        \"fee\": true,\n        \"customKey\": \"112111100\",\n        \"customValue\": \"wal_ZmqFg13NB31oek\"\n      },\n      {\n        \"name\": \"podcaster\",\n        \"address\": \"03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a\",\n        \"type\": \"node\",\n        \"split\": 99,\n        \"fee\": true,\n        \"customKey\": \"112111100\",\n        \"customValue\": \"wal_ZmqFg13NB31oek\"\n      }\n    ],\n    \"title\": \"Gotham\",\n    \"feedTitle\": \"Batman University\"\n  },\n  \"description\": \"Found matching feed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c145b69-93b4-4dce-a61b-5565a0ae1202",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "byepisodeguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "podcastguid",
+                      "value": "917393e3-1b1e-5cef-ace4-edaa54e1f810"
+                    },
+                    {
+                      "key": "episodeguid",
+                      "value": "PC20143"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea9a38ee-5c7e-42d8-8b6a-c061d00535dd",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "byepisodeguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "podcastguid",
+                      "value": "917393e3-1b1e-5cef-ace4-edaa54e1f810"
+                    },
+                    {
+                      "key": "episodeguid",
+                      "value": "PC20143"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6287fedb-5f70-4236-8acf-f9f9d7ee9c60",
+          "name": "Batch By Episode GUID",
+          "request": {
+            "name": "Batch By Episode GUID",
+            "description": {
+              "content": "This call returns the information for supporting the podcast episode via one of the \"Value for Value\" methods from\na JSON object containing one or more podcast GUID and one or more episode GUID for the podcast.\n\n\nThe JSON object key shall be the `podcastguid` from the `podcast:guid` tag in the feed.\nThis value is a unique, global identifier for the podcast. See the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n\n\nThe value of the `podcastguid` shall be an array of `episodeguid` values.\nThis is the unique guid specified for the `<item>` in the feed but may not be globally unique.\n\n\nNote: No API key needed for this endpoint.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "value",
+                "batch",
+                "byepisodeguid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>",
+                  "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_1\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_2\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "536aa0d7-32f9-4424-8d5d-1bf95d79e2fa",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "batch",
+                    "byepisodeguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_1\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_2\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"true\",\n  \"query\": {\n    \"guids\": {\n      \"key_0\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_1\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_2\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  \"value\": [\n    {\n      \"podcastGUID\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"guid\": \"incomparable/batman/19\",\n      \"title\": \"Gotham\",\n      \"feedTitle\": \"Batman University\",\n      \"model\": {\n        \"type\": \"lightning\",\n        \"method\": \"keysend\",\n        \"suggested\": \"0.00000020000\"\n      },\n      \"destinations\": [\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    {\n      \"podcastGUID\": \"9b024349-ccf0-5f69-a609-6b82873eab3c\",\n      \"guid\": \"incomparable/batman/19\",\n      \"title\": \"Gotham\",\n      \"feedTitle\": \"Batman University\",\n      \"model\": {\n        \"type\": \"lightning\",\n        \"method\": \"keysend\",\n        \"suggested\": \"0.00000020000\"\n      },\n      \"destinations\": [\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"split\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fee\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"customValue\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"description\": \"Found matching feed\",\n  \"allFound\": true,\n  \"found\": 4\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "796066ba-1f63-4e14-92eb-1ad84ad35eb6",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "batch",
+                    "byepisodeguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_1\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_2\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"false\",\n  \"description\": \"Invalid parameters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f77acf9-09f3-4eb6-8218-e9b39f5ef612",
+              "name": "Not authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "value",
+                    "batch",
+                    "byepisodeguid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_1\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"key_2\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Authorization header value either not set or blank.\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.podcastindex.org/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1f702061-0c7c-4ccb-ad9d-f86d1e7955e1",
+    "name": "PodcastIndex.org Add Value API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Download the openapi spec in [json](pi_api.json) or [yaml](pi_api.yaml) format.\n\n# Overview\n\nThe Podcast Index (Podcast Index LLC) is a software developer focused partnership that provides tools and data to\nanyone who aspires to create new and exciting Podcast experiences without the heavy lifting of indexing,\naggregation and data management.\n\n# Example Code\n\nUsers have provided example code for working the API in the following languages:\n\n  - [AWS Lambda - python](https://github.com/tbowers/python-podcastindex-org-lambda)\n  - [Bash](https://github.com/suorcd/Bash-podcastindex-org-example)\n  - [C#](https://github.com/ComicStrip/csharp-podcastindex-org-example)\n  - [Elisp](https://github.com/sabexx/elisp-example)\n  - [Flutter/Dart](https://github.com/crediblecreative/flutter-dart-podcastindex-org-example)\n  - [Go](https://github.com/ComicStrip/Go-podcastindex-org-example)\n  - [Go](https://github.com/kilobit/podcast-index-client)\n  - [Java](https://github.com/ComicStrip/Java-podcastindex-org-example)\n  - [Java](https://github.com/stucoates/PodcastIndexJavaClient)\n  - [Node.js](https://github.com/ComicStrip/node.js-podcastindex-org-example)\n  - [PHP](https://github.com/Podcastindex-org/example-code)\n  - [Python](https://github.com/tbowers/python-podcastindex-org-example)\n  - [Swift](https://github.com/ComicStrip/Swift-podcastindex-org-example)\n  - ... [More](https://github.com/Podcastindex-org-Examples)\n\nDon't see your desired language, create an example repo and create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to your example code project!\n\n# Libraries\n\nUser created libraries for working with the API:\n\n  - Java\n      - [podcast4j](https://github.com/yusufyilmazfr/podcast4j)\n  - .NET\n      - [PodcastIndexSharp](https://www.nuget.org/packages/PodcastIndexSharp)\n  - Node.js/npm/yarn\n      - [podcast-index-api](https://www.npmjs.com/package/podcast-index-api)\n      - [podcastdx-client](https://www.npmjs.com/package/podcastdx-client)\n  - PHP\n      - [podcastindex-php](https://github.com/LowSociety/podcastindex-php)\n  - Python/pip\n      - [python-podcastindex](https://pypi.org/project/python-podcastindex/)\n  - R\n      - [podindexr](https://github.com/rpodcast/podindexr)\n  - Ruby\n      - [podcast-index](https://github.com/jasonyork/podcast-index)\n  - Swift\n      - [PodcastIndexKit](https://github.com/SparrowTek/PodcastIndexKit)\n  - Kotlin\n      - [PodcastIndex-SDK](https://github.com/mr3y-the-programmer/PodcastIndex-SDK)\n  - Go\n      - [podcastindex](https://github.com/jjgmckenzie/podcastindex)\n      - [podcastindex-go](https://github.com/koalahl/podcastindex-go)\n\nAre we missing a library? Did you create one for a different language? Create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to the new library!\n\n# Postman\n\nA collection file for use in the [Postman](https://www.postman.com/) application is available for this API.\n\n  1. Download the contents of the [Postman Docs](https://github.com/Podcastindex-org/docs-api/tree/master/Postman%20Docs) folder.\n  2. Import the `PodcastIndex.postman_collection.json` collection to Postman\n  3. Import the `PodcastIndexOrgEnvironment.postman_environment.json` to Postman\n  4. Click \"Environments\" on the left sidebar\n  5. Select the checkbox next to the PodcastIndexOrgEnvironment entry\n  6. Set `AuthKey` and `SeceretKey` values under the \"Current Value\" column using your API information\n  7. Click \"Collections\" from the sidebar\n  8. Select PodcastIndex\n  9. Select and run the endpoint to test\n\n# Contributing\n\nThe source for this API documentation is available at\n[https://github.com/Podcastindex-org/docs-api](https://github.com/Podcastindex-org/docs-api).\nSubmit an Issue or create a Pull Request.\n\n# Authentication Details\n\nSending an API request is easy. We use an Amazon-style request authorization token to secure each request.\n\n\nRegister for a free API key at https://api.podcastindex.org/\n\n\nThese headers parameters are required for each request: `User-Agent`, `X-Auth-Date`, `X-Auth-Key`, `Authorization`\n\n\nSee [Authentication](#auth) for description of parameters.\n\n# Legal\n\nLegal\n\n  - [Privacy Policy](https://github.com/Podcastindex-org/legal/blob/main/PrivacyPolicy.md)\n  - [Terms of Service](https://github.com/Podcastindex-org/legal/blob/main/TermsOfService.md)\n  - [License](https://github.com/Podcastindex-org/docs-api/blob/master/LICENSE)\n\n\nContact Support:\n Email: info@podcastindex.org",
+      "type": "text/plain"
+    }
+  }
+}

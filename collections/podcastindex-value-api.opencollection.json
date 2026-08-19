@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PodcastIndex.org Add Value API",
+    "version": "1.12.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Value",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "By Feed ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/value/byfeedid",
+            "params": [
+              {
+                "name": "id",
+                "value": "75075",
+                "type": "query",
+                "description": "The PodcastIndex Feed ID to search for.\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ]
+          },
+          "docs": "This call returns the information for supporting the podcast via one of the \"Value for Value\" methods from the\nPodcastIndex ID.\n\n\nAdditionally, the value block data can be accessed using static JSON files (updated every 15 minutes).\n\n  - Feeds: https://tracking.podcastindex.org/feedValueBlocks.json\n  - Episodes: https://tracking.podcastindex.org/episodeValueBlocks.json\n\n\nNote: No API key needed for this endpoint.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/value/byfeedid?id=920666&pret"
+        },
+        {
+          "info": {
+            "name": "By Feed URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/value/byfeedurl",
+            "params": [
+              {
+                "name": "url",
+                "value": "https://feeds.theincomparable.com/batmanuniversity",
+                "type": "query",
+                "description": "Podcast feed URL\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ]
+          },
+          "docs": "This call returns the information for supporting the podcast via one of the \"Value for Value\" methods from feed URL.\n\n\nAdditionally, the value block data can be accessed using static JSON files (updated every 15 minutes).\n\n  - Feeds: https://tracking.podcastindex.org/feedValueBlocks.json\n  - Episodes: https://tracking.podcastindex.org/episodeValueBlocks.json\n\n\nNote: No API key needed for this endpoint.\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/value/byfeedurl?url=https://mp3s.nashown"
+        },
+        {
+          "info": {
+            "name": "By Feed GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/value/bypodcastguid",
+            "params": [
+              {
+                "name": "guid",
+                "value": "9b024349-ccf0-5f69-a609-6b82873eab3c",
+                "type": "query",
+                "description": "The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n\n\nSee the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ]
+          },
+          "docs": "This call returns the information for supporting the podcast via one of the \"Value for Value\" methods from podcast GUID.\n\n\nNote: No API key needed for this endpoint.\n\n\nExample: https://api.podcastindex.org/api/1.0/value/bypodcastguid?guid=917393e3-1b1e-5cef-ace4-edaa54e1f810&pretty\n"
+        },
+        {
+          "info": {
+            "name": "By Episode GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.podcastindex.org/api/1.0/value/byepisodeguid",
+            "params": [
+              {
+                "name": "podcastguid",
+                "value": "917393e3-1b1e-5cef-ace4-edaa54e1f810",
+                "type": "query",
+                "description": "The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n\n\nSee the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n"
+              },
+              {
+                "name": "episodeguid",
+                "value": "PC20143",
+                "type": "query",
+                "description": "The guid specified by the `<guid>` in the episode `<item>`.\n"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ]
+          },
+          "docs": "This call returns the information for supporting the podcast episode via one of the \"Value for Value\" methods from\npodcast GUID and the episode GUID.\n\n\nThe `podcastguid` is the GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier\nfor the podcast. See the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n\n\nThe `episodeguid` is the unique guid specified for the `<item>` in the feed but may not"
+        },
+        {
+          "info": {
+            "name": "Batch By Episode GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.podcastindex.org/api/1.0/value/batch/byepisodeguid",
+            "params": [
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query",
+                "description": "If present, makes the output “pretty” to help with debugging.\n\n\nParameter shall not have a value\n"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This call returns the information for supporting the podcast episode via one of the \"Value for Value\" methods from\na JSON object containing one or more podcast GUID and one or more episode GUID for the podcast.\n\n\nThe JSON object key shall be the `podcastguid` from the `podcast:guid` tag in the feed.\nThis value is a unique, global identifier for the podcast. See the namespace spec for\n[guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n\n\nThe value"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
