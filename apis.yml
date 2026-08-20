@@ -41,7 +41,8 @@ apis:
     **NOTE**: To add to the index, the API Key must have write or publisher permissions.
   humanURL: https://podcastindex-org.github.io/docs-api/
   baseURL: https://api.podcastindex.org/api/1.0
-  tags:
+  tags: []
+  tags_raw:
   - Add
   properties:
   - type: OpenAPI
