@@ -177,6 +177,8 @@ apis:
   humanURL: https://podcastindex-org.github.io/docs-api/
   baseURL: https://api.podcastindex.org/api/1.0
   tags:
+  - value
+  tags_raw:
   - Value
   properties:
   - type: OpenAPI
