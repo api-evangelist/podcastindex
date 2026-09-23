@@ -1,17 +1,7 @@
 {
   "provider": "podcastindex",
   "sources": [
-    "podcastindex-add-api-openapi.yml",
-    "podcastindex-apple-replacement-api-openapi.yml",
-    "podcastindex-categories-api-openapi.yml",
-    "podcastindex-episodes-api-openapi.yml",
-    "podcastindex-hub-api-openapi.yml",
-    "podcastindex-podcasts-api-openapi.yml",
-    "podcastindex-recent-api-openapi.yml",
-    "podcastindex-search-api-openapi.yml",
-    "podcastindex-static-data-api-openapi.yml",
-    "podcastindex-stats-api-openapi.yml",
-    "podcastindex-value-api-openapi.yml"
+    "_original/podcastindex-openapi.yml"
   ],
   "outputs": [
     "podcastindex-add-api-openapi.yml",
@@ -29,6 +19,24 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "podcastindex-openapi.yml: upgraded openapi 3.0.2 -> OpenAPI 3.2.0",
+    "podcastindex-openapi.yml: declared missing tag: Apple Replacement",
+    "podcastindex-openapi.yml: declared missing tag: Static Data",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "podcastindex-add-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "podcastindex-apple-replacement-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "podcastindex-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "podcastindex-episodes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "podcastindex-hub-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "podcastindex-podcasts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "podcastindex-recent-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "podcastindex-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "podcastindex-static-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "podcastindex-stats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "podcastindex-value-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

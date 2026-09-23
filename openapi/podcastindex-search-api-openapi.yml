@@ -1,7 +1,7 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
   version: 1.12.1
-  title: PodcastIndex.org Add Search API
+  title: PodcastIndex.org Search API
   termsOfService: https://github.com/Podcastindex-org/legal/blob/main/TermsOfService.md
   contact:
     email: info@podcastindex.org
@@ -12,14 +12,12 @@ info:
   x-logo:
     url: logo.svg
     href: /
-  description: "Download the openapi spec in [json](pi_api.json) or [yaml](pi_api.yaml) format.\n\n# Overview\n\nThe Podcast Index (Podcast Index LLC) is a software developer focused partnership that provides tools and data to\nanyone who aspires to create new and exciting Podcast experiences without the heavy lifting of indexing,\naggregation and data management.\n\n# Example Code\n\nUsers have provided example code for working the API in the following languages:\n\n  - [AWS Lambda - python](https://github.com/tbowers/python-podcastindex-org-lambda)\n  - [Bash](https://github.com/suorcd/Bash-podcastindex-org-example)\n  - [C#](https://github.com/ComicStrip/csharp-podcastindex-org-example)\n  - [Elisp](https://github.com/sabexx/elisp-example)\n  - [Flutter/Dart](https://github.com/crediblecreative/flutter-dart-podcastindex-org-example)\n  - [Go](https://github.com/ComicStrip/Go-podcastindex-org-example)\n  - [Go](https://github.com/kilobit/podcast-index-client)\n  - [Java](https://github.com/ComicStrip/Java-podcastindex-org-example)\n  - [Java](https://github.com/stucoates/PodcastIndexJavaClient)\n  - [Node.js](https://github.com/ComicStrip/node.js-podcastindex-org-example)\n  - [PHP](https://github.com/Podcastindex-org/example-code)\n  - [Python](https://github.com/tbowers/python-podcastindex-org-example)\n  - [Swift](https://github.com/ComicStrip/Swift-podcastindex-org-example)\n  - ... [More](https://github.com/Podcastindex-org-Examples)\n\nDon't see your desired language, create an example repo and create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to your example code project!\n\n# Libraries\n\nUser created libraries for working with the API:\n\n  - Java\n      - [podcast4j](https://github.com/yusufyilmazfr/podcast4j)\n  - .NET\n      - [PodcastIndexSharp](https://www.nuget.org/packages/PodcastIndexSharp)\n  - Node.js/npm/yarn\n      - [podcast-index-api](https://www.npmjs.com/package/podcast-index-api)\n      - [podcastdx-client](https://www.npmjs.com/package/podcastdx-client)\n  - PHP\n      - [podcastindex-php](https://github.com/LowSociety/podcastindex-php)\n  - Python/pip\n      - [python-podcastindex](https://pypi.org/project/python-podcastindex/)\n  - R\n      - [podindexr](https://github.com/rpodcast/podindexr)\n  - Ruby\n      - [podcast-index](https://github.com/jasonyork/podcast-index)\n  - Swift\n      - [PodcastIndexKit](https://github.com/SparrowTek/PodcastIndexKit)\n  - Kotlin\n      - [PodcastIndex-SDK](https://github.com/mr3y-the-programmer/PodcastIndex-SDK)\n  - Go\n      - [podcastindex](https://github.com/jjgmckenzie/podcastindex)\n      - [podcastindex-go](https://github.com/koalahl/podcastindex-go)\n\nAre we missing a library? Did you create one for a different language? Create a\n[Pull Request](https://github.com/Podcastindex-org/docs-api/pulls) with a link to the new library!\n\n# Postman\n\nA collection file for use in the [Postman](https://www.postman.com/) application is available for this API.\n\n  1. Download the contents of the [Postman Docs](https://github.com/Podcastindex-org/docs-api/tree/master/Postman%20Docs) folder.\n  2. Import the `PodcastIndex.postman_collection.json` collection to Postman\n  3. Import the `PodcastIndexOrgEnvironment.postman_environment.json` to Postman\n  4. Click \"Environments\" on the left sidebar\n  5. Select the checkbox next to the PodcastIndexOrgEnvironment entry\n  6. Set `AuthKey` and `SeceretKey` values under the \"Current Value\" column using your API information\n  7. Click \"Collections\" from the sidebar\n  8. Select PodcastIndex\n  9. Select and run the endpoint to test\n\n# Contributing\n\nThe source for this API documentation is available at\n[https://github.com/Podcastindex-org/docs-api](https://github.com/Podcastindex-org/docs-api).\nSubmit an Issue or create a Pull Request.\n\n# Authentication Details\n\nSending an API request is easy. We use an Amazon-style request authorization token to secure each request.\n\n\nRegister for a free API key at https://api.podcastindex.org/\n\n\nThese headers parameters are required for each request: `User-Agent`, `X-Auth-Date`, `X-Auth-Key`, `Authorization`\n\n\nSee [Authentication](#auth) for description of parameters.\n\n# Legal\n\nLegal\n\n  - [Privacy Policy](https://github.com/Podcastindex-org/legal/blob/main/PrivacyPolicy.md)\n  - [Terms of Service](https://github.com/Podcastindex-org/legal/blob/main/TermsOfService.md)\n  - [License](https://github.com/Podcastindex-org/docs-api/blob/master/LICENSE)\n"
+  description: Download the openapi spec in json or yaml format.
 servers:
 - url: https://api.podcastindex.org/api/1.0
 tags:
 - name: Search
-  description: 'Search the index
-
-    '
+  description: Search the index
 paths:
   /search/byterm:
     get:
@@ -29,10 +27,7 @@ paths:
       description: 'This call returns all of the feeds that match the search terms in the `title`, `author` or `owner` of the feed.
 
 
-
-        Example: https://api.podcastindex.org/api/1.0/search/byterm?q=batman+university&pretty
-
-        '
+        Example: https://api.podcastindex.org/api/1.0/search/byterm?q=batman+university&pretty'
       operationId: search/byterm
       security:
       - API-Key: []
@@ -70,16 +65,12 @@ paths:
       description: 'This call returns all of the feeds where the `title` of the feed matches the search term (ignores case).
 
 
-
         Example "everything everywhere daily" will match the podcast
 
-        [Everything Everywhere Daily](https://podcastindex.org/podcast/437685) by "everything everywhere" will not.
+        Everything Everywhere Daily by "everything everywhere" will not.
 
 
-
-        Example: https://api.podcastindex.org/api/1.0/search/bytitle?q=everything+everywhere+daily&pretty
-
-        '
+        Example: https://api.podcastindex.org/api/1.0/search/bytitle?q=everything+everywhere+daily&pretty'
       operationId: search/bytitle
       security:
       - API-Key: []
@@ -106,7 +97,31 @@ paths:
       tags:
       - Search
       summary: Search Episodes by Person
-      description: "This call returns all of the episodes where the specified person is mentioned.\n\n\nIt searches the following fields:\n\n  - Person tags\n  - Episode title\n  - Episode description\n  - Feed owner\n  - Feed author\n\n\nExamples:\n\n  - https://api.podcastindex.org/api/1.0/search/byperson?q=adam%20curry&pretty\n  - https://api.podcastindex.org/api/1.0/search/byperson?q=Martin+Mouritzen&pretty\n  - https://api.podcastindex.org/api/1.0/search/byperson?q=Klaus+Schwab&pretty\n"
+      description: 'This call returns all of the episodes where the specified person is mentioned.
+
+
+        It searches the following fields:
+
+
+        - Person tags
+
+        - Episode title
+
+        - Episode description
+
+        - Feed owner
+
+        - Feed author
+
+
+        Examples:
+
+
+        - https://api.podcastindex.org/api/1.0/search/byperson?q=adam%20curry&pretty
+
+        - https://api.podcastindex.org/api/1.0/search/byperson?q=Martin+Mouritzen&pretty
+
+        - https://api.podcastindex.org/api/1.0/search/byperson?q=Klaus+Schwab&pretty'
       operationId: search/byperson
       security:
       - API-Key: []
@@ -130,15 +145,12 @@ paths:
       tags:
       - Search
       summary: Search Music Podcasts
-      description: 'This call returns all of the feeds that match the search terms in the `title`, `author` or `owner` of the <feed></feed>
+      description: 'This call returns all of the feeds that match the search terms in the `title`, `author` or `owner` of the
 
-        where the [medium](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium) is `music`.
+        where the medium is `music`.
 
 
-
-        Example: https://api.podcastindex.org/api/1.0/search/music/byterm?q=able+kirby&pretty
-
-        '
+        Example: https://api.podcastindex.org/api/1.0/search/music/byterm?q=able+kirby&pretty'
       operationId: search/music/byterm
       security:
       - API-Key: []
@@ -162,15 +174,30 @@ paths:
           $ref: '#/components/responses/401'
 components:
   schemas:
-    lastGoodHttpStatusTime:
-      description: 'Timestamp of the last time we got a "good", meaning non-4xx/non-5xx, status code when pulling this feed from its url.
+    lastCrawlTime:
+      description: 'The last time we attempted to pull this feed from its url.
 
         '
       type: integer
       format: Unix Epoch
       example: 1613394034
-    description_episode:
-      description: 'The item-level description of the episode.
+    chaptersUrl:
+      description: 'Link to the JSON file containing the episode chapters
+
+        '
+      type:
+      - string
+      - 'null'
+      format: URL
+      example: https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com
+    description_response:
+      description: 'Description of the response
+
+        '
+      type: string
+      example: Found matching feed
+    description_feed:
+      description: 'The channel-level description
 
 
 
@@ -178,7 +205,88 @@ components:
 
         '
       type: string
-      example: Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.
+      example: 'Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.'
+    item_search_byperson:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/id_episode'
+        title:
+          $ref: '#/components/schemas/title_episode'
+        link:
+          $ref: '#/components/schemas/link_feed'
+        description:
+          $ref: '#/components/schemas/description_episode'
+        guid:
+          $ref: '#/components/schemas/guid'
+        datePublished:
+          $ref: '#/components/schemas/datePublished'
+        dateCrawled:
+          $ref: '#/components/schemas/dateCrawled'
+        enclosureUrl:
+          $ref: '#/components/schemas/enclosureUrl'
+        enclosureType:
+          $ref: '#/components/schemas/enclosureType'
+        enclosureLength:
+          $ref: '#/components/schemas/enclosureLength'
+        duration:
+          $ref: '#/components/schemas/duration'
+        explicit:
+          $ref: '#/components/schemas/explicit_episode'
+        episode:
+          $ref: '#/components/schemas/episode_number'
+        episodeType:
+          $ref: '#/components/schemas/episodeType'
+        season:
+          $ref: '#/components/schemas/season'
+        image:
+          $ref: '#/components/schemas/image_episode'
+        feedItunesId:
+          $ref: '#/components/schemas/itunesId_feed'
+        feedImage:
+          $ref: '#/components/schemas/image_feed'
+        feedId:
+          $ref: '#/components/schemas/id_feed'
+        feedUrl:
+          $ref: '#/components/schemas/url_feed'
+        feedAuthor:
+          $ref: '#/components/schemas/author'
+        feedTitle:
+          $ref: '#/components/schemas/title_feed'
+        feedLanguage:
+          $ref: '#/components/schemas/language'
+        chaptersUrl:
+          $ref: '#/components/schemas/chaptersUrl'
+        transcriptUrl:
+          $ref: '#/components/schemas/transcriptUrl'
+        transcripts:
+          $ref: '#/components/schemas/transcripts'
+    lastParseTime:
+      description: 'The last time we tried to parse the downloaded feed content.
+
+        '
+      type: integer
+      format: Unix Epoch
+      example: 1613394045
+    generator:
+      description: 'The channel-level generator element if there is one.
+
+        '
+      type: string
+      example: my podcast host
+    image_feed:
+      description: 'The channel-level image element.
+
+        '
+      type: string
+      format: URL
+      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
+    episodeCount:
+      description: 'Number of episodes for this feed known to the index.
+
+        '
+      type: integer
+      example: 19
     explicit_episode:
       description: "Is feed or episode marked as explicit\n\n  - 0: not marked explicit\n  - 1: marked explicit\n"
       type: integer
@@ -186,19 +294,46 @@ components:
       - 0
       - 1
       example: 0
-    description_response:
-      description: 'Description of the response
+    episodeType:
+      description: 'The type of episode. May be null for `liveItem`.
 
         '
-      type: string
-      example: Found matching feed
-    season:
-      description: 'Season number. May be null for `liveItem`.
+      type:
+      - string
+      - 'null'
+      enum:
+      - full
+      - trailer
+      - bonus
+      example: full
+    datePublished:
+      description: 'The date and time the episode was published
 
         '
       type: integer
-      nullable: true
-      example: 3
+      format: Unix Epoch
+      example: 1546399813
+    link_feed:
+      description: 'The channel-level link in the feed
+
+        '
+      type: string
+      format: URL
+      example: https://www.theincomparable.com/batmanuniversity/
+    feeds:
+      description: 'List of feeds matching request
+
+        '
+      type: array
+      items:
+        $ref: '#/components/schemas/feed_search'
+    enclosureLength:
+      description: 'The length of the item specified by the `enclosureUrl` in bytes
+
+        '
+      type: integer
+      format: bytes
+      example: 26385472
     lastHttpStatus:
       description: 'The last http status code we got when pulling this feed from its url.
 
@@ -211,85 +346,55 @@ components:
         '
       type: integer
       example: 200
-    parseErrors:
-      description: 'The number of errors we’ve encountered trying to parse the feed content.
-
-        Errors here are things like not well-formed xml, bad character encoding, etc.
-
-
-
-        We fix many of these types of issues on the fly when parsing.
-
-        We only increment the errors count when we can’t fix it.
-
-        '
+    type:
+      description: "Type of source feed where:\n\n  - 0: RSS\n  - 1: Atom\n"
       type: integer
+      enum:
+      - 0
+      - 1
       example: 0
-    language:
-      description: 'The channel-level language specification of the feed.
+    duration:
+      description: 'The estimated length of the item specified by the `enclosureUrl` in seconds. Will be null for `liveItem`.
+
+        '
+      type:
+      - integer
+      - 'null'
+      format: seconds
+      example: 54
+    transcript:
+      description: 'This tag is used to link to a transcript or closed captions file. Multiple tags can be present for multiple transcript formats.
 
 
-        Languages accord with the [RSS Language Spec](https://www.rssboard.org/rss-language-codes).
+        Detailed file format information and example files are [here](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/transcript.md).
+
+        '
+      type: object
+      properties:
+        url:
+          description: URL of the podcast transcript.
+          type: string
+          format: URL
+          example: https://mp3s.nashownotes.com/NA-1385-Captions.srt
+        type:
+          description: 'Mime type of the file such as `text/plain`, `text/html`, `application/srt`, `text/vtt`, `application/json`
+
+            '
+          type: string
+          enum:
+          - application/json
+          - application/srt
+          - text/html
+          - text/plain
+          - text/srt
+          - text/vtt
+          example: application/srt
+    title_feed:
+      description: 'Name of the feed
 
         '
       type: string
-      example: en-us
-    transcriptUrl:
-      description: 'Link to the file containing the episode transcript
-
-
-
-        Note: in most use cases, the `transcripts` value should be used instead
-
-        '
-      type: string
-      nullable: true
-      format: URL
-      example: https://mp3s.nashownotes.com/NA-1322-Captions.srt
-    enclosureLength:
-      description: 'The length of the item specified by the `enclosureUrl` in bytes
-
-        '
-      type: integer
-      format: bytes
-      example: 26385472
-    enclosureType:
-      description: 'The Content-Type for the item specified by the `enclosureUrl`
-
-        '
-      type: string
-      example: audio/mp3
-    lastParseTime:
-      description: 'The last time we tried to parse the downloaded feed content.
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1613394045
-    link_feed:
-      description: 'The channel-level link in the feed
-
-        '
-      type: string
-      format: URL
-      example: https://www.theincomparable.com/batmanuniversity/
-    episode_number:
-      description: 'Episode number
-
-        '
-      type: integer
-      nullable: true
-      example: 19
-    lastUpdateTime:
-      description: 'The channel-level pubDate for the feed, if it’s sane.
-
-
-        If not, this is a heuristic value, arrived at by analyzing other parts of the feed, like item-level pubDates.
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1613394044
+      example: Batman University
     feed_search:
       type: object
       properties:
@@ -355,28 +460,13 @@ components:
           $ref: '#/components/schemas/imageUrlHash'
         newestItemPubdate:
           $ref: '#/components/schemas/newestItemPublishTime'
-    itunesId_feed:
-      description: 'The iTunes ID of this feed if there is one, and we know what it is.
-
-        '
+    newestItemPublishTime:
+      description: "The time the most recent episode in the feed was published.\n\n\nNote: some endpoints use `newestItemPubdate` while others use `newestItemPublishTime`. \nThey return the same information. See https://github.com/Podcastindex-org/api/issues/3 to track when the property name is updated.\n"
       type: integer
-      nullable: true
-      example: 1441923632
-    categories:
-      description: 'An array of categories, where the index is the Category ID and the value is the Category Name.
-
-
-
-        All Category numbers and names are returned by the `categories/list` endpoint.
-
-        '
-      type: object
-      example:
-        '104': Tv
-        '105': Film
-        '107': Reviews
-    description_feed:
-      description: 'The channel-level description
+      format: Unix Epoch
+      example: 1546399813
+    description_episode:
+      description: 'The item-level description of the episode.
 
 
 
@@ -384,49 +474,61 @@ components:
 
         '
       type: string
-      example: 'Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.'
-    transcripts:
-      description: 'List of transcripts for the episode. May not be reported.
-
-        '
-      type: array
-      nullable: true
-      items:
-        $ref: '#/components/schemas/transcript'
-    type:
-      description: "Type of source feed where:\n\n  - 0: RSS\n  - 1: Atom\n"
+      example: Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.
+    locked:
+      description: "Tell other podcast platforms whether they are allowed to import this feed.\nA value of 1 means that any attempt to import this feed into a new platform should be rejected.\n\nContains the value of the feed's channel-level `podcast:locked` tag where:\n\n  - 0: 'no'\n  - 1: 'yes'\n"
       type: integer
       enum:
       - 0
       - 1
       example: 0
-    transcript:
-      description: 'This tag is used to link to a transcript or closed captions file. Multiple tags can be present for multiple transcript formats.
-
-
-        Detailed file format information and example files are [here](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/tags/transcript.md).
+    id_episode:
+      description: 'The internal PodcastIndex.org episode ID.
 
         '
-      type: object
-      properties:
-        url:
-          description: URL of the podcast transcript.
-          type: string
-          format: URL
-          example: https://mp3s.nashownotes.com/NA-1385-Captions.srt
-        type:
-          description: 'Mime type of the file such as `text/plain`, `text/html`, `application/srt`, `text/vtt`, `application/json`
+      type: integer
+      example: 16795088
+    items_byperson:
+      description: 'List of episodes matching request
 
-            '
-          type: string
-          enum:
-          - application/json
-          - application/srt
-          - text/html
-          - text/plain
-          - text/srt
-          - text/vtt
-          example: application/srt
+        '
+      type: array
+      items:
+        $ref: '#/components/schemas/item_search_byperson'
+    itunesId_feed:
+      description: 'The iTunes ID of this feed if there is one, and we know what it is.
+
+        '
+      type:
+      - integer
+      - 'null'
+      example: 1441923632
+    podcastguid:
+      description: 'The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.
+
+
+
+        See the namespace spec for
+
+        [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.
+
+        '
+      type: string
+      example: 9b024349-ccf0-5f69-a609-6b82873eab3c
+    imageUrlHash:
+      description: 'A CRC32 hash of the `image` URL with the protocol (`http://`, `https://`) removed. 64bit integer.
+
+        '
+      type: integer
+      example: 3969216649
+    season:
+      description: 'Season number. May be null for `liveItem`.
+
+        '
+      type:
+      - integer
+      - 'null'
+      example: 3
     dateCrawled:
       description: 'The time this episode was found in the feed
 
@@ -434,6 +536,66 @@ components:
       type: integer
       format: Unix Epoch
       example: 1598369047
+    title_episode:
+      description: 'Name of the episode
+
+        '
+      type: string
+      example: Gotham
+    guid:
+      description: 'The unique identifier for the episode
+
+        '
+      type: string
+      example: incomparable/batman/19
+    url_feed:
+      description: 'Current feed URL
+
+        '
+      type: string
+      format: URL
+      example: https://feeds.theincomparable.com/batmanuniversity
+    lastUpdateTime:
+      description: 'The channel-level pubDate for the feed, if it’s sane.
+
+
+        If not, this is a heuristic value, arrived at by analyzing other parts of the feed, like item-level pubDates.
+
+        '
+      type: integer
+      format: Unix Epoch
+      example: 1613394044
+    explicit_feed:
+      description: 'Is feed marked as explicit
+
+        '
+      type: boolean
+      example: false
+    image_episode:
+      description: 'The item-level image for the episode
+
+        '
+      type: string
+      format: URL
+      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
+    episode_number:
+      description: 'Episode number
+
+        '
+      type:
+      - integer
+      - 'null'
+      example: 19
+    medium_feed:
+      description: 'The value of the `podcast:medium` attribute for the feed.
+
+
+
+        See the [medium](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium) description in the Podcast Namespace for more information.
+
+        '
+      type: string
+      example: music
     ownerName:
       description: 'The channel-level owner:name element.
 
@@ -451,196 +613,12 @@ components:
       type: string
       format: URL
       example: https://www.theincomparable.com/podcast/batmanuniversity302.mp3
-    image_feed:
-      description: 'The channel-level image element.
+    enclosureType:
+      description: 'The Content-Type for the item specified by the `enclosureUrl`
 
         '
       type: string
-      format: URL
-      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
-    imageUrlHash:
-      description: 'A CRC32 hash of the `image` URL with the protocol (`http://`, `https://`) removed. 64bit integer.
-
-        '
-      type: integer
-      example: 3969216649
-    title_feed:
-      description: 'Name of the feed
-
-        '
-      type: string
-      example: Batman University
-    item_search_byperson:
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/id_episode'
-        title:
-          $ref: '#/components/schemas/title_episode'
-        link:
-          $ref: '#/components/schemas/link_feed'
-        description:
-          $ref: '#/components/schemas/description_episode'
-        guid:
-          $ref: '#/components/schemas/guid'
-        datePublished:
-          $ref: '#/components/schemas/datePublished'
-        dateCrawled:
-          $ref: '#/components/schemas/dateCrawled'
-        enclosureUrl:
-          $ref: '#/components/schemas/enclosureUrl'
-        enclosureType:
-          $ref: '#/components/schemas/enclosureType'
-        enclosureLength:
-          $ref: '#/components/schemas/enclosureLength'
-        duration:
-          $ref: '#/components/schemas/duration'
-        explicit:
-          $ref: '#/components/schemas/explicit_episode'
-        episode:
-          $ref: '#/components/schemas/episode_number'
-        episodeType:
-          $ref: '#/components/schemas/episodeType'
-        season:
-          $ref: '#/components/schemas/season'
-        image:
-          $ref: '#/components/schemas/image_episode'
-        feedItunesId:
-          $ref: '#/components/schemas/itunesId_feed'
-        feedImage:
-          $ref: '#/components/schemas/image_feed'
-        feedId:
-          $ref: '#/components/schemas/id_feed'
-        feedUrl:
-          $ref: '#/components/schemas/url_feed'
-        feedAuthor:
-          $ref: '#/components/schemas/author'
-        feedTitle:
-          $ref: '#/components/schemas/title_feed'
-        feedLanguage:
-          $ref: '#/components/schemas/language'
-        chaptersUrl:
-          $ref: '#/components/schemas/chaptersUrl'
-        transcriptUrl:
-          $ref: '#/components/schemas/transcriptUrl'
-        transcripts:
-          $ref: '#/components/schemas/transcripts'
-    locked:
-      description: "Tell other podcast platforms whether they are allowed to import this feed.\nA value of 1 means that any attempt to import this feed into a new platform should be rejected.\n\nContains the value of the feed's channel-level `podcast:locked` tag where:\n\n  - 0: 'no'\n  - 1: 'yes'\n"
-      type: integer
-      enum:
-      - 0
-      - 1
-      example: 0
-    items_byperson:
-      description: 'List of episodes matching request
-
-        '
-      type: array
-      items:
-        $ref: '#/components/schemas/item_search_byperson'
-    query_search:
-      description: 'Search terms passed to request
-
-        '
-      type: string
-      example: batman university
-    episodeCount:
-      description: 'Number of episodes for this feed known to the index.
-
-        '
-      type: integer
-      example: 19
-    contentType:
-      description: 'The Content-Type header from the last time we pulled this feed from its url.
-
-        '
-      type: string
-      example: application/rss+xml
-    count:
-      description: 'Number of items returned in request
-
-        '
-      type: integer
-      example: 1
-    generator:
-      description: 'The channel-level generator element if there is one.
-
-        '
-      type: string
-      example: my podcast host
-    id_episode:
-      description: 'The internal PodcastIndex.org episode ID.
-
-        '
-      type: integer
-      example: 16795088
-    lastCrawlTime:
-      description: 'The last time we attempted to pull this feed from its url.
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1613394034
-    artwork:
-      description: 'The seemingly best artwork we can find for the feed.
-
-
-        Might be the same as `image` in most instances.
-
-        '
-      type: string
-      format: URL
-      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
-    explicit_feed:
-      description: 'Is feed marked as explicit
-
-        '
-      type: boolean
-      example: false
-    crawlErrors:
-      description: 'The number of errors we’ve encountered trying to pull a copy of the feed.
-
-        Errors are things like a 500 or 404 response, a server timeout, bad encoding, etc.
-
-        '
-      type: integer
-      example: 0
-    author:
-      description: 'The channel-level author element.
-
-
-
-        Usually iTunes specific, but could be from another namespace if not present.
-
-        '
-      type: string
-      example: Tony Sindelar
-    podcastguid:
-      description: 'The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.
-
-
-
-        See the namespace spec for
-
-        [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.
-
-        '
-      type: string
-      example: 9b024349-ccf0-5f69-a609-6b82873eab3c
-    newestItemPublishTime:
-      description: "The time the most recent episode in the feed was published.\n\n\nNote: some endpoints use `newestItemPubdate` while others use `newestItemPublishTime`. \nThey return the same information. See https://github.com/Podcastindex-org/api/issues/3 to track when the property name is updated.\n"
-      type: integer
-      format: Unix Epoch
-      example: 1546399813
-    duration:
-      description: 'The estimated length of the item specified by the `enclosureUrl` in seconds. Will be null for `liveItem`.
-
-        '
-      type: integer
-      nullable: true
-      format: seconds
-      example: 54
+      example: audio/mp3
     dead:
       description: 'At some point, we give up trying to process a feed and mark it as dead.
 
@@ -651,33 +629,95 @@ components:
         '
       type: integer
       example: 0
-    datePublished:
-      description: 'The date and time the episode was published
+    lastGoodHttpStatusTime:
+      description: 'Timestamp of the last time we got a "good", meaning non-4xx/non-5xx, status code when pulling this feed from its url.
 
         '
       type: integer
       format: Unix Epoch
-      example: 1546399813
-    chaptersUrl:
-      description: 'Link to the JSON file containing the episode chapters
+      example: 1613394034
+    transcripts:
+      description: 'List of transcripts for the episode. May not be reported.
+
+        '
+      type:
+      - array
+      - 'null'
+      items:
+        $ref: '#/components/schemas/transcript'
+    author:
+      description: 'The channel-level author element.
+
+
+
+        Usually iTunes specific, but could be from another namespace if not present.
 
         '
       type: string
-      nullable: true
+      example: Tony Sindelar
+    count:
+      description: 'Number of items returned in request
+
+        '
+      type: integer
+      example: 1
+    artwork:
+      description: 'The seemingly best artwork we can find for the feed.
+
+
+        Might be the same as `image` in most instances.
+
+        '
+      type: string
       format: URL
-      example: https://studio.hypercatcher.com/chapters/podcast/http:feed.nashownotes.comrss.xml/episode/http:1322.noagendanotes.com
-    guid:
-      description: 'The unique identifier for the episode
-
-        '
-      type: string
-      example: incomparable/batman/19
+      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
     id_feed:
       description: 'The internal PodcastIndex.org Feed ID.
 
         '
       type: integer
       example: 75075
+    originalUrl:
+      description: 'The URL of the feed, before it changed to the current `url` value.
+
+        '
+      type: string
+      format: URL
+      example: https://feeds.theincomparable.com/batmanuniversity
+    contentType:
+      description: 'The Content-Type header from the last time we pulled this feed from its url.
+
+        '
+      type: string
+      example: application/rss+xml
+    parseErrors:
+      description: 'The number of errors we’ve encountered trying to parse the feed content.
+
+        Errors here are things like not well-formed xml, bad character encoding, etc.
+
+
+
+        We fix many of these types of issues on the fly when parsing.
+
+        We only increment the errors count when we can’t fix it.
+
+        '
+      type: integer
+      example: 0
+    query_search:
+      description: 'Search terms passed to request
+
+        '
+      type: string
+      example: batman university
+    crawlErrors:
+      description: 'The number of errors we’ve encountered trying to pull a copy of the feed.
+
+        Errors are things like a 500 or 404 response, a server timeout, bad encoding, etc.
+
+        '
+      type: integer
+      example: 0
     status:
       description: 'Indicates API request status
 
@@ -687,72 +727,85 @@ components:
       - 'true'
       - 'false'
       example: 'true'
-    title_episode:
-      description: 'Name of the episode
+    language:
+      description: 'The channel-level language specification of the feed.
+
+
+        Languages accord with the [RSS Language Spec](https://www.rssboard.org/rss-language-codes).
 
         '
       type: string
-      example: Gotham
-    originalUrl:
-      description: 'The URL of the feed, before it changed to the current `url` value.
+      example: en-us
+    transcriptUrl:
+      description: 'Link to the file containing the episode transcript
+
+
+
+        Note: in most use cases, the `transcripts` value should be used instead
 
         '
-      type: string
+      type:
+      - string
+      - 'null'
       format: URL
-      example: https://feeds.theincomparable.com/batmanuniversity
-    episodeType:
-      description: 'The type of episode. May be null for `liveItem`.
+      example: https://mp3s.nashownotes.com/NA-1322-Captions.srt
+    categories:
+      description: 'An array of categories, where the index is the Category ID and the value is the Category Name.
+
+
+
+        All Category numbers and names are returned by the `categories/list` endpoint.
 
         '
-      type: string
-      nullable: true
-      enum:
-      - full
-      - trailer
-      - bonus
-      example: full
-    image_episode:
-      description: 'The item-level image for the episode
-
-        '
-      type: string
-      format: URL
-      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
-    url_feed:
-      description: 'Current feed URL
-
-        '
-      type: string
-      format: URL
-      example: https://feeds.theincomparable.com/batmanuniversity
-    medium_feed:
-      description: 'The value of the `podcast:medium` attribute for the feed.
-
-
-
-        See the [medium](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium) description in the Podcast Namespace for more information.
-
-        '
-      type: string
-      example: music
-    feeds:
-      description: 'List of feeds matching request
-
-        '
-      type: array
-      items:
-        $ref: '#/components/schemas/feed_search'
+      type: object
+      example:
+        '104': Tv
+        '105': Film
+        '107': Reviews
   parameters:
-    clean:
-      name: clean
+    val:
+      name: val
       in: query
-      description: 'If present, only non-explicit feeds will be returned.
+      description: 'Only returns feeds with a `value` block of the specified type. Use `any` to return feeds with any `value` block.
 
-        Meaning, feeds where the `itunes:explicit` flag is set to `false`.
+        '
+      schema:
+        type: string
+        enum:
+        - any
+        - lightning
+        - hive
+        - webmonetization
+      example: ''
+    q_person:
+      name: q
+      in: query
+      description: 'Person search for
+
+        '
+      required: true
+      schema:
+        type: string
+      example: adam curry
+    fulltext:
+      name: fulltext
+      in: query
+      description: 'If present, return the full text value of any text fields (ex: `description`).
+
+        If not provided, field value is truncated to 100 words.
 
 
 
         Parameter shall not have a value
+
+        '
+      schema:
+        type: boolean
+      allowEmptyValue: true
+    similar:
+      name: similar
+      in: query
+      description: 'If present, include similar matches in search response. For `search/byterm`, prioritizes title matches.
 
         '
       schema:
@@ -771,44 +824,6 @@ components:
       schema:
         type: boolean
       allowEmptyValue: true
-    aponly:
-      name: aponly
-      in: query
-      description: 'Only returns feeds with an `itunesId`.
-
-        '
-      schema:
-        type: boolean
-      example: 'true'
-    fulltext:
-      name: fulltext
-      in: query
-      description: 'If present, return the full text value of any text fields (ex: `description`).
-
-        If not provided, field value is truncated to 100 words.
-
-
-
-        Parameter shall not have a value
-
-        '
-      schema:
-        type: boolean
-      allowEmptyValue: true
-    val:
-      name: val
-      in: query
-      description: 'Only returns feeds with a `value` block of the specified type. Use `any` to return feeds with any `value` block.
-
-        '
-      schema:
-        type: string
-        enum:
-        - any
-        - lightning
-        - hive
-        - webmonetization
-      example: ''
     q:
       name: q
       in: query
@@ -819,6 +834,21 @@ components:
       schema:
         type: string
       example: batman university
+    clean:
+      name: clean
+      in: query
+      description: 'If present, only non-explicit feeds will be returned.
+
+        Meaning, feeds where the `itunes:explicit` flag is set to `false`.
+
+
+
+        Parameter shall not have a value
+
+        '
+      schema:
+        type: boolean
+      allowEmptyValue: true
     max:
       name: max
       in: query
@@ -830,25 +860,15 @@ components:
         minimum: 1
         maximum: 1000
       example: 10
-    q_person:
-      name: q
+    aponly:
+      name: aponly
       in: query
-      description: 'Person search for
-
-        '
-      required: true
-      schema:
-        type: string
-      example: adam curry
-    similar:
-      name: similar
-      in: query
-      description: 'If present, include similar matches in search response. For `search/byterm`, prioritizes title matches.
+      description: 'Only returns feeds with an `itunesId`.
 
         '
       schema:
         type: boolean
-      allowEmptyValue: true
+      example: 'true'
   responses:
     '400':
       description: Invalid request
@@ -864,23 +884,13 @@ components:
           example:
             status: 'false'
             description: Invalid parameters
-    search_byperson:
-      description: Success
+    '401':
+      description: Not authenticated
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              status:
-                $ref: '#/components/schemas/status'
-              items:
-                $ref: '#/components/schemas/items_byperson'
-              count:
-                $ref: '#/components/schemas/count'
-              query:
-                $ref: '#/components/schemas/query_search'
-              description:
-                $ref: '#/components/schemas/description_response'
+            type: string
+          example: Authorization header value either not set or blank.
     search_byterm:
       description: Success
       content:
@@ -898,13 +908,23 @@ components:
                 $ref: '#/components/schemas/query_search'
               description:
                 $ref: '#/components/schemas/description_response'
-    '401':
-      description: Not authenticated
+    search_byperson:
+      description: Success
       content:
         application/json:
           schema:
-            type: string
-          example: Authorization header value either not set or blank.
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              items:
+                $ref: '#/components/schemas/items_byperson'
+              count:
+                $ref: '#/components/schemas/count'
+              query:
+                $ref: '#/components/schemas/query_search'
+              description:
+                $ref: '#/components/schemas/description_response'
   securitySchemes:
     User-Agent:
       type: apiKey
