@@ -145,12 +145,15 @@ paths:
           $ref: '#/components/responses/401'
 components:
   schemas:
-    description_response:
-      description: 'Description of the response
+    status:
+      description: 'Indicates API request status
 
         '
       type: string
-      example: Found matching feed
+      enum:
+      - 'true'
+      - 'false'
+      example: 'true'
     existed:
       description: 'Indicates if feed already exists in the index
 
@@ -166,16 +169,70 @@ components:
         '
       type: integer
       example: 75075
-    status:
-      description: 'Indicates API request status
+    description_response:
+      description: 'Description of the response
 
         '
       type: string
-      enum:
-      - 'true'
-      - 'false'
-      example: 'true'
+      example: Found matching feed
+  responses:
+    add_byitunesid:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              description:
+                $ref: '#/components/schemas/description_response'
+    '401':
+      description: Not authenticated
+      content:
+        application/json:
+          schema:
+            type: string
+          example: Authorization header value either not set or blank.
+    add_byfeedurl:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              feedId:
+                $ref: '#/components/schemas/id_feed'
+              existed:
+                $ref: '#/components/schemas/existed'
+              description:
+                $ref: '#/components/schemas/description_response'
+    '400':
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              description:
+                $ref: '#/components/schemas/description_response'
+          example:
+            status: 'false'
+            description: Invalid parameters
   parameters:
+    chash:
+      name: chash
+      in: query
+      description: "The md5 hash of the following feed items in hex format.\nIf known, allows for easier duplicate checking.\n\n  - `title`\n  - `link`\n  - `feedLanguage`\n  - `generator`\n  - `author`\n  - `ownerName`\n  - `ownerEmail` (note: not exposed via the API)\n\nPseudo-code:\n\n      chash = md5(title+link+feedLanguage+generator+author+ownerName+ownerEmail)\n"
+      required: true
+      allowReserved: true
+      schema:
+        type: string
+      example: ad651c60eaaf3344595c0dd0bd787993
     itunesid:
       name: itunesid
       in: query
@@ -200,15 +257,6 @@ components:
       schema:
         type: boolean
       allowEmptyValue: true
-    chash:
-      name: chash
-      in: query
-      description: "The md5 hash of the following feed items in hex format.\nIf known, allows for easier duplicate checking.\n\n  - `title`\n  - `link`\n  - `feedLanguage`\n  - `generator`\n  - `author`\n  - `ownerName`\n  - `ownerEmail` (note: not exposed via the API)\n\nPseudo-code:\n\n      chash = md5(title+link+feedLanguage+generator+author+ownerName+ownerEmail)\n"
-      required: true
-      allowReserved: true
-      schema:
-        type: string
-      example: ad651c60eaaf3344595c0dd0bd787993
     url:
       name: url
       in: query
@@ -229,54 +277,6 @@ components:
       schema:
         type: integer
       example: 1441923632
-  responses:
-    add_byfeedurl:
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                $ref: '#/components/schemas/status'
-              feedId:
-                $ref: '#/components/schemas/id_feed'
-              existed:
-                $ref: '#/components/schemas/existed'
-              description:
-                $ref: '#/components/schemas/description_response'
-    add_byitunesid:
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                $ref: '#/components/schemas/status'
-              description:
-                $ref: '#/components/schemas/description_response'
-    '401':
-      description: Not authenticated
-      content:
-        application/json:
-          schema:
-            type: string
-          example: Authorization header value either not set or blank.
-    '400':
-      description: Invalid request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                $ref: '#/components/schemas/status'
-              description:
-                $ref: '#/components/schemas/description_response'
-          example:
-            status: 'false'
-            description: Invalid parameters
   securitySchemes:
     User-Agent:
       type: apiKey
