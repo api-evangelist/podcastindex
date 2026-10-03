@@ -84,20 +84,59 @@ paths:
         '401':
           $ref: '#/components/responses/401'
 components:
+  responses:
+    '400':
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              description:
+                $ref: '#/components/schemas/description_response'
+          example:
+            status: 'false'
+            description: Invalid parameters
+    itunes_replacement:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              resultCount:
+                $ref: '#/components/schemas/resultCount'
+              results:
+                $ref: '#/components/schemas/itunes_replacement_results'
+    '401':
+      description: Not authenticated
+      content:
+        application/json:
+          schema:
+            type: string
+          example: Authorization header value either not set or blank.
   schemas:
-    itunes_replacement_results:
-      description: 'List of feeds matching request
-
-        '
-      type: array
-      items:
-        $ref: '#/components/schemas/itunes_results'
-    description_response:
-      description: 'Description of the response
+    status:
+      description: 'Indicates API request status
 
         '
       type: string
-      example: Found matching feed
+      enum:
+      - 'true'
+      - 'false'
+      example: 'true'
+    title_feed_censored:
+      description: 'The name of the feed.
+
+
+
+        Note: Apple censors the name but PodcastIndex does not.
+
+        '
+      type: string
+      example: Batman University
     itunes_results:
       type: object
       properties:
@@ -250,18 +289,12 @@ components:
             '
           type: string
           example: track
-    collectionId:
-      description: 'The iTunes Feed ID
+    view_url:
+      description: 'The URL for viewing the feed on the Apple website.
 
         '
-      type: integer
-      example: 1441923632
-    resultCount:
-      description: 'Number of items returned in request
-
-        '
-      type: integer
-      example: 1
+      type: string
+      example: https://podcasts.apple.com/us/podcast/*/id1441923632?uo=4
     artworkUrl:
       description: 'A URL for the artwork associated with the returned media type.
 
@@ -274,50 +307,12 @@ components:
         '
       type: string
       example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg
-    status:
-      description: 'Indicates API request status
-
-        '
-      type: string
-      enum:
-      - 'true'
-      - 'false'
-      example: 'true'
-    view_url:
-      description: 'The URL for viewing the feed on the Apple website.
-
-        '
-      type: string
-      example: https://podcasts.apple.com/us/podcast/*/id1441923632?uo=4
     price:
       description: 'Price of content. Will always return 0.
 
         '
       type: integer
       example: 0
-    url_feed:
-      description: 'Current feed URL
-
-        '
-      type: string
-      format: URL
-      example: https://feeds.theincomparable.com/batmanuniversity
-    title_feed:
-      description: 'Name of the feed
-
-        '
-      type: string
-      example: Batman University
-    title_feed_censored:
-      description: 'The name of the feed.
-
-
-
-        Note: Apple censors the name but PodcastIndex does not.
-
-        '
-      type: string
-      example: Batman University
     author:
       description: 'The channel-level author element.
 
@@ -328,39 +323,44 @@ components:
         '
       type: string
       example: Tony Sindelar
-  responses:
-    itunes_replacement:
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              resultCount:
-                $ref: '#/components/schemas/resultCount'
-              results:
-                $ref: '#/components/schemas/itunes_replacement_results'
-    '400':
-      description: Invalid request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                $ref: '#/components/schemas/status'
-              description:
-                $ref: '#/components/schemas/description_response'
-          example:
-            status: 'false'
-            description: Invalid parameters
-    '401':
-      description: Not authenticated
-      content:
-        application/json:
-          schema:
-            type: string
-          example: Authorization header value either not set or blank.
+    collectionId:
+      description: 'The iTunes Feed ID
+
+        '
+      type: integer
+      example: 1441923632
+    url_feed:
+      description: 'Current feed URL
+
+        '
+      type: string
+      format: URL
+      example: https://feeds.theincomparable.com/batmanuniversity
+    resultCount:
+      description: 'Number of items returned in request
+
+        '
+      type: integer
+      example: 1
+    description_response:
+      description: 'Description of the response
+
+        '
+      type: string
+      example: Found matching feed
+    itunes_replacement_results:
+      description: 'List of feeds matching request
+
+        '
+      type: array
+      items:
+        $ref: '#/components/schemas/itunes_results'
+    title_feed:
+      description: 'Name of the feed
+
+        '
+      type: string
+      example: Batman University
   parameters:
     pretty:
       name: pretty
@@ -375,6 +375,16 @@ components:
       schema:
         type: boolean
       allowEmptyValue: true
+    term_itunes:
+      name: term
+      in: query
+      description: 'The term to search for
+
+        '
+      required: true
+      schema:
+        type: string
+      example: batman
     id_feed_podcast_itunes:
       name: id
       in: query
@@ -391,16 +401,6 @@ components:
         prefix:
           value: id1441923632
           description: iTunes ID with optional "id" prefix
-    term_itunes:
-      name: term
-      in: query
-      description: 'The term to search for
-
-        '
-      required: true
-      schema:
-        type: string
-      example: batman
     entity:
       name: entity
       in: query

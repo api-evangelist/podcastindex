@@ -319,72 +319,12 @@ paths:
           $ref: '#/components/responses/404'
 components:
   schemas:
-    paidFeedsWithNewEpisodes7days:
-      description: 'Podcast feeds with a new episode containing a
-
-        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
-
-        block released in the last 7 days.
+    newEpisodes7days:
+      description: 'Podcast feeds with a new episode containing a released in the last 7 days.
 
         '
       type: integer
-      example: 140275
-    feedsWithTranscripts:
-      description: 'Podcast feeds with a
-
-        [`podcast:transcript`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#transcript)
-
-        tag in at least 1 episode.
-
-        '
-      type: integer
-      example: 61385
-    enclosureUrl:
-      description: 'URL/link to the episode file
-
-        '
-      type: string
-      format: URL
-      example: https://www.theincomparable.com/podcast/batmanuniversity302.mp3
-    type_v4v:
-      description: 'Payment type
-
-        '
-      type: string
-      enum:
-      - lightning
-      - hive
-      - webmonetization
-      example: lightning
-    feedsWithNewEpisodes30days:
-      description: 'Podcast feeds with a new episode released in the last 30 days.
-
-        '
-      type: integer
-      example: 306748
-    language:
-      description: 'The channel-level language specification of the feed.
-
-
-        Languages accord with the [RSS Language Spec](https://www.rssboard.org/rss-language-codes).
-
-        '
-      type: string
-      example: en-us
-    feedsWithNewEpisodes3days:
-      description: 'Podcast feeds with a new episode released in the last 3 days.
-
-        '
-      type: integer
-      example: 97522
-    type_destination:
-      description: 'Type of destination
-
-        '
-      type: string
-      enum:
-      - node
-      example: node
+      example: 442061
     feeds_data:
       description: 'List of recent feed data
 
@@ -392,12 +332,15 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/feeds_data_obj'
-    id_feed:
-      description: 'The internal PodcastIndex.org Feed ID.
+    status:
+      description: 'Indicates API request status
 
         '
-      type: integer
-      example: 75075
+      type: string
+      enum:
+      - 'true'
+      - 'false'
+      example: 'true'
     model_v4v:
       description: 'Description of the method for providing "Value for Value" payments
 
@@ -410,72 +353,6 @@ components:
           $ref: '#/components/schemas/method_v4v'
         suggested:
           $ref: '#/components/schemas/suggested_v4v'
-    feedsWithChapters:
-      description: 'Podcast feeds with a
-
-        [`podcast:chapters`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#chapters)
-
-        tag in at least 1 episode.
-
-        '
-      type: integer
-      example: 35582
-    url_feed:
-      description: 'Current feed URL
-
-        '
-      type: string
-      format: URL
-      example: https://feeds.theincomparable.com/batmanuniversity
-    episodesWithTranscripts:
-      description: 'Episodes with a
-
-        [`podcast:transcript`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#transcript)
-
-        tag.
-
-        '
-      type: integer
-      example: 3198597
-    newEpisodes3days:
-      description: 'Podcast feeds with a new episode containing a released in the last 3 days.
-
-        '
-      type: integer
-      example: 212324
-    newEpisodes7days:
-      description: 'Podcast feeds with a new episode containing a released in the last 7 days.
-
-        '
-      type: integer
-      example: 442061
-    description_feed:
-      description: 'The channel-level description
-
-
-
-        Uses the longer of the possible fields in the feed: `<description>`, `<itunes:summary>` and `<content:encoded>`
-
-        '
-      type: string
-      example: 'Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.'
-    value:
-      description: "Information for supporting the podcast via one of the \"Value for Value\" methods. May not be reported.\n\n\nExamples:\n  - `lightning` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=169991&pretty\n  - `webmonetization` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=779873&pretty\n"
-      type:
-      - object
-      - 'null'
-      properties:
-        model:
-          $ref: '#/components/schemas/model_v4v'
-        destinations:
-          $ref: '#/components/schemas/destinations_v4v'
-    valueCreatedOn:
-      description: 'The time this feed''s `value` data added. Will be 0 if no `value` data.
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1598369047
     duration:
       description: 'The estimated length of the item specified by the `enclosureUrl` in seconds. Will be null for `liveItem`.
 
@@ -485,246 +362,6 @@ components:
       - 'null'
       format: seconds
       example: 54
-    customValue:
-      description: 'A custom value to pass along with the payment. This is considered the value that belongs to the customKey. May not be reported.
-
-
-
-        See the [podcast namespace spec](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
-
-        and [value specification](https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/value.md)
-
-        for more information.
-
-        '
-      type:
-      - string
-      - 'null'
-      example: wal_ZmqFg13NB31oek
-    destination_v4v:
-      description: 'Destination for "Value for Value" payment.
-
-        '
-      type: object
-      properties:
-        name:
-          $ref: '#/components/schemas/name_destination'
-        address:
-          $ref: '#/components/schemas/address_destination'
-        type:
-          $ref: '#/components/schemas/type_destination'
-        split:
-          $ref: '#/components/schemas/split_destination'
-        fee:
-          $ref: '#/components/schemas/fee_destination'
-        customKey:
-          $ref: '#/components/schemas/customKey'
-        customValue:
-          $ref: '#/components/schemas/customValue'
-    address_destination:
-      description: 'Address of node to receive payment
-
-        '
-      type: string
-      example: 03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a
-    feedCount:
-      description: 'Number of items in the `feeds` returned in request
-
-        '
-      type: integer
-      example: 1
-    name_destination:
-      description: 'Name for the destination
-
-        '
-      type: string
-      example: podcaster
-    feedCountTotal:
-      description: 'Total podcast feeds in the index.
-
-        '
-      type: integer
-      example: 4257865
-    id_episode:
-      description: 'The internal PodcastIndex.org episode ID.
-
-        '
-      type: integer
-      example: 16795088
-    split_destination:
-      description: 'Share of payment the destination should receive
-
-        '
-      type: integer
-      example: 99
-    datePublished:
-      description: 'The date and time the episode was published
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1546399813
-    paidFeedsWithNewEpisodes60days:
-      description: 'Podcast feeds with a new episode containing a
-
-        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
-
-        block released in the last 60 days.
-
-        '
-      type: integer
-      example: 77632
-    itemCount:
-      description: 'Number of items in the `items` returned in request
-
-        '
-      type: integer
-      example: 1
-    newEpisodes10days:
-      description: 'Podcast feeds with a new episode containing a released in the last 10 days.
-
-        '
-      type: integer
-      example: 684833
-    enclosureLength:
-      description: 'The length of the item specified by the `enclosureUrl` in bytes
-
-        '
-      type: integer
-      format: bytes
-      example: 26385472
-    fee_destination:
-      description: 'Indicates if destination is included due to a fee being charged. May not be reported.
-
-        '
-      type:
-      - boolean
-      - 'null'
-      example: true
-    paidFeedsWithNewEpisodes14days:
-      description: 'Podcast feeds with a new episode containing a
-
-        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
-
-        block released in the last 14 days.
-
-        '
-      type: integer
-      example: 186602
-    episodeAdded:
-      description: 'The time the episode was added to the index
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1613786624
-    title_feed:
-      description: 'Name of the feed
-
-        '
-      type: string
-      example: Batman University
-    since:
-      description: 'Value of `since` parameter passed to request.
-
-        '
-      type:
-      - integer
-      - 'null'
-      format: Unix Epoch
-      example: 1613805249
-    episodeCountTotal:
-      description: 'Total individual podcast episodes in the index.
-
-        '
-      type: integer
-      example: 143953477
-    newEpisodes60days:
-      description: 'Podcast feeds with a new episode containing a released in the last 60 days.
-
-        '
-      type: integer
-      example: 3710750
-    paidFeedsWithNewEpisodes30days:
-      description: 'Podcast feeds with a new episode containing a
-
-        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
-
-        block released in the last 30 days.
-
-        '
-      type: integer
-      example: 237389
-    feedsWithNewEpisodes14days:
-      description: 'Podcast feeds with a new episode released in the last 14 days.
-
-        '
-      type: integer
-      example: 239664
-    method_v4v:
-      description: 'Method for sending payment
-
-        '
-      type: string
-      example: keysend
-    paidFeedsWithNewEpisodes10days:
-      description: 'Podcast feeds with a new episode containing a
-
-        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
-
-        block released in the last 10 days.
-
-        '
-      type: integer
-      example: 165789
-    feedsWithFundingTag:
-      description: 'Podcast feeds with a
-
-        [`podcast:funding`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#funding)
-
-        tag in at least 1 episode.
-
-        '
-      type: integer
-      example: 57582
-    customKey:
-      description: 'The name of a custom record key to send along with the payment. May not be reported.
-
-
-
-        See the [podcast namespace spec](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
-
-        and [value specification](https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/value.md)
-
-        for more information.
-
-        '
-      type:
-      - string
-      - 'null'
-      example: '112111100'
-    feedsWithMediumVideo:
-      description: 'Podcast feeds with a
-
-        [`podcast:medium`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium)
-
-        tag with a value of `video`.
-
-        '
-      type: integer
-      example: 1288
-    feedsWithNewEpisodes60days:
-      description: 'Podcast feeds with a new episode released in the last 60 days.
-
-        '
-      type: integer
-      example: 382945
-    newEpisodes30days:
-      description: 'Podcast feeds with a new episode containing a released in the last 30 days.
-
-        '
-      type: integer
-      example: 1901547
     paidFeedsWithNewEpisodes3days:
       description: 'Podcast feeds with a new episode containing a
 
@@ -735,26 +372,18 @@ components:
         '
       type: integer
       example: 77638
-    suggested_v4v:
-      description: 'Suggested amount per second of playback to send. Unit is specific to the `type`.
+    id_episode:
+      description: 'The internal PodcastIndex.org episode ID.
 
         '
-      type:
-      - string
-      - 'null'
-      example: '0.00000020000'
-    episodeType:
-      description: 'The type of episode. May be null for `liveItem`.
+      type: integer
+      example: 16795088
+    newEpisodes30days:
+      description: 'Podcast feeds with a new episode containing a released in the last 30 days.
 
         '
-      type:
-      - string
-      - 'null'
-      enum:
-      - full
-      - trailer
-      - bonus
-      example: full
+      type: integer
+      example: 1901547
     items_data_obj:
       type: object
       properties:
@@ -782,34 +411,331 @@ components:
           $ref: '#/components/schemas/episodeType'
         feedId:
           $ref: '#/components/schemas/id_feed'
-    newEpisodes90days:
-      description: 'Podcast feeds with a new episode containing a released in the last 90 days.
+    position:
+      description: 'Position in data
 
         '
       type: integer
-      example: 5498580
-    episodesWithChapters:
-      description: 'Number of episodes with [`podcast:chapters`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#chapters)
+      example: 12843054496
+    paidFeedsWithNewEpisodes10days:
+      description: 'Podcast feeds with a new episode containing a
+
+        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+
+        block released in the last 10 days.
 
         '
       type: integer
-      example: 652781
+      example: 165789
+    episodeCountTotal:
+      description: 'Total individual podcast episodes in the index.
+
+        '
+      type: integer
+      example: 143953477
+    feedCountTotal:
+      description: 'Total podcast feeds in the index.
+
+        '
+      type: integer
+      example: 4257865
+    itemCount:
+      description: 'Number of items in the `items` returned in request
+
+        '
+      type: integer
+      example: 1
+    paidFeedsWithNewEpisodes30days:
+      description: 'Podcast feeds with a new episode containing a
+
+        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+
+        block released in the last 30 days.
+
+        '
+      type: integer
+      example: 237389
+    url_feed:
+      description: 'Current feed URL
+
+        '
+      type: string
+      format: URL
+      example: https://feeds.theincomparable.com/batmanuniversity
+    enclosureType:
+      description: 'The Content-Type for the item specified by the `enclosureUrl`
+
+        '
+      type: string
+      example: audio/mp3
+    itunesId_feed:
+      description: 'The iTunes ID of this feed if there is one, and we know what it is.
+
+        '
+      type:
+      - integer
+      - 'null'
+      example: 1441923632
+    episodesWithTranscripts:
+      description: 'Episodes with a
+
+        [`podcast:transcript`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#transcript)
+
+        tag.
+
+        '
+      type: integer
+      example: 3198597
+    type_destination:
+      description: 'Type of destination
+
+        '
+      type: string
+      enum:
+      - node
+      example: node
+    valueCreatedOn:
+      description: 'The time this feed''s `value` data added. Will be 0 if no `value` data.
+
+        '
+      type: integer
+      format: Unix Epoch
+      example: 1598369047
+    method_v4v:
+      description: 'Method for sending payment
+
+        '
+      type: string
+      example: keysend
+    feedsWithNewEpisodes10days:
+      description: 'Podcast feeds with a new episode released in the last 10 days.
+
+        '
+      type: integer
+      example: 212322
+    enclosureUrl:
+      description: 'URL/link to the episode file
+
+        '
+      type: string
+      format: URL
+      example: https://www.theincomparable.com/podcast/batmanuniversity302.mp3
     feedsWithNewEpisodes90days:
       description: 'Podcast feeds with a new episode released in the last 90 days.
 
         '
       type: integer
       example: 436933
-    max:
-      description: 'Value of `max` parameter passed to request.
+    destination_v4v:
+      description: 'Destination for "Value for Value" payment.
+
+        '
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/name_destination'
+        address:
+          $ref: '#/components/schemas/address_destination'
+        type:
+          $ref: '#/components/schemas/type_destination'
+        split:
+          $ref: '#/components/schemas/split_destination'
+        fee:
+          $ref: '#/components/schemas/fee_destination'
+        customKey:
+          $ref: '#/components/schemas/customKey'
+        customValue:
+          $ref: '#/components/schemas/customValue'
+    enclosureLength:
+      description: 'The length of the item specified by the `enclosureUrl` in bytes
+
+        '
+      type: integer
+      format: bytes
+      example: 26385472
+    newEpisodes10days:
+      description: 'Podcast feeds with a new episode containing a released in the last 10 days.
+
+        '
+      type: integer
+      example: 684833
+    customKey:
+      description: 'The name of a custom record key to send along with the payment. May not be reported.
+
+
+
+        See the [podcast namespace spec](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+
+        and [value specification](https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/value.md)
+
+        for more information.
+
+        '
+      type:
+      - string
+      - 'null'
+      example: '112111100'
+    feedsWithValueBlocks:
+      description: 'Podcast feeds with a
+
+        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+
+        tag in at least 1 episode.
+
+        '
+      type: integer
+      example: 21916
+    paidFeedsWithNewEpisodes14days:
+      description: 'Podcast feeds with a new episode containing a
+
+        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+
+        block released in the last 14 days.
+
+        '
+      type: integer
+      example: 186602
+    newEpisodes14days:
+      description: 'Podcast feeds with a new episode containing a released in the last 14 days.
+
+        '
+      type: integer
+      example: 907203
+    type_v4v:
+      description: 'Payment type
+
+        '
+      type: string
+      enum:
+      - lightning
+      - hive
+      - webmonetization
+      example: lightning
+    paidFeedsWithNewEpisodes7days:
+      description: 'Podcast feeds with a new episode containing a
+
+        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+
+        block released in the last 7 days.
+
+        '
+      type: integer
+      example: 140275
+    feedsWithNewEpisodes14days:
+      description: 'Podcast feeds with a new episode released in the last 14 days.
+
+        '
+      type: integer
+      example: 239664
+    feedsWithMediumVideo:
+      description: 'Podcast feeds with a
+
+        [`podcast:medium`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium)
+
+        tag with a value of `video`.
+
+        '
+      type: integer
+      example: 1288
+    image_episode:
+      description: 'The item-level image for the episode
+
+        '
+      type: string
+      format: URL
+      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
+    newEpisodes3days:
+      description: 'Podcast feeds with a new episode containing a released in the last 3 days.
+
+        '
+      type: integer
+      example: 212324
+    feedCount:
+      description: 'Number of items in the `feeds` returned in request
+
+        '
+      type: integer
+      example: 1
+    episodeAdded:
+      description: 'The time the episode was added to the index
+
+        '
+      type: integer
+      format: Unix Epoch
+      example: 1613786624
+    newEpisodes90days:
+      description: 'Podcast feeds with a new episode containing a released in the last 90 days.
+
+        '
+      type: integer
+      example: 5498580
+    name_destination:
+      description: 'Name for the destination
+
+        '
+      type: string
+      example: podcaster
+    episodeType:
+      description: 'The type of episode. May be null for `liveItem`.
+
+        '
+      type:
+      - string
+      - 'null'
+      enum:
+      - full
+      - trailer
+      - bonus
+      example: full
+    address_destination:
+      description: 'Address of node to receive payment
+
+        '
+      type: string
+      example: 03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a
+    split_destination:
+      description: 'Share of payment the destination should receive
+
+        '
+      type: integer
+      example: 99
+    since:
+      description: 'Value of `since` parameter passed to request.
 
         '
       type:
       - integer
       - 'null'
-      example: 2
-    description_episode:
-      description: 'The item-level description of the episode.
+      format: Unix Epoch
+      example: 1613805249
+    paidFeedsWithNewEpisodes60days:
+      description: 'Podcast feeds with a new episode containing a
+
+        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+
+        block released in the last 60 days.
+
+        '
+      type: integer
+      example: 77632
+    episodesWithChapters:
+      description: 'Number of episodes with [`podcast:chapters`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#chapters)
+
+        '
+      type: integer
+      example: 652781
+    feedsWithChapters:
+      description: 'Podcast feeds with a
+
+        [`podcast:chapters`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#chapters)
+
+        tag in at least 1 episode.
+
+        '
+      type: integer
+      example: 35582
+    description_feed:
+      description: 'The channel-level description
 
 
 
@@ -817,19 +743,26 @@ components:
 
         '
       type: string
-      example: Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.
-    podcastguid:
-      description: 'The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.
+      example: 'Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.'
+    value:
+      description: "Information for supporting the podcast via one of the \"Value for Value\" methods. May not be reported.\n\n\nExamples:\n  - `lightning` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=169991&pretty\n  - `webmonetization` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=779873&pretty\n"
+      type:
+      - object
+      - 'null'
+      properties:
+        model:
+          $ref: '#/components/schemas/model_v4v'
+        destinations:
+          $ref: '#/components/schemas/destinations_v4v'
+    language:
+      description: 'The channel-level language specification of the feed.
 
 
-
-        See the namespace spec for
-
-        [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.
+        Languages accord with the [RSS Language Spec](https://www.rssboard.org/rss-language-codes).
 
         '
       type: string
-      example: 9b024349-ccf0-5f69-a609-6b82873eab3c
+      example: en-us
     data_static:
       description: 'Object containing the recent data
 
@@ -849,6 +782,41 @@ components:
           $ref: '#/components/schemas/feeds_data'
         items:
           $ref: '#/components/schemas/items_data'
+    guid:
+      description: 'The unique identifier for the episode
+
+        '
+      type: string
+      example: incomparable/batman/19
+    podcastguid:
+      description: 'The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.
+
+
+
+        See the namespace spec for
+
+        [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.
+
+        '
+      type: string
+      example: 9b024349-ccf0-5f69-a609-6b82873eab3c
+    feedsWithFundingTag:
+      description: 'Podcast feeds with a
+
+        [`podcast:funding`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#funding)
+
+        tag in at least 1 episode.
+
+        '
+      type: integer
+      example: 57582
+    destinations_v4v:
+      description: 'List of destinations where "Value for Value" payments should be sent.
+
+        '
+      type: array
+      items:
+        $ref: '#/components/schemas/destination_v4v'
     items_data:
       description: 'List of recent episode item data
 
@@ -856,16 +824,46 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/items_data_obj'
-    feedsWithValueBlocks:
+    max:
+      description: 'Value of `max` parameter passed to request.
+
+        '
+      type:
+      - integer
+      - 'null'
+      example: 2
+    title_feed:
+      description: 'Name of the feed
+
+        '
+      type: string
+      example: Batman University
+    customValue:
+      description: 'A custom value to pass along with the payment. This is considered the value that belongs to the customKey. May not be reported.
+
+
+
+        See the [podcast namespace spec](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+
+        and [value specification](https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/value.md)
+
+        for more information.
+
+        '
+      type:
+      - string
+      - 'null'
+      example: wal_ZmqFg13NB31oek
+    feedsWithTranscripts:
       description: 'Podcast feeds with a
 
-        [`podcast:value`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+        [`podcast:transcript`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#transcript)
 
         tag in at least 1 episode.
 
         '
       type: integer
-      example: 21916
+      example: 61385
     image_feed:
       description: 'The channel-level image element.
 
@@ -873,26 +871,51 @@ components:
       type: string
       format: URL
       example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
-    newEpisodes14days:
-      description: 'Podcast feeds with a new episode containing a released in the last 14 days.
+    feedsWithNewEpisodes60days:
+      description: 'Podcast feeds with a new episode released in the last 60 days.
 
         '
       type: integer
-      example: 907203
-    guid:
-      description: 'The unique identifier for the episode
+      example: 382945
+    datePublished:
+      description: 'The date and time the episode was published
 
         '
-      type: string
-      example: incomparable/batman/19
-    itunesId_feed:
-      description: 'The iTunes ID of this feed if there is one, and we know what it is.
+      type: integer
+      format: Unix Epoch
+      example: 1546399813
+    feedsWithNewEpisodes3days:
+      description: 'Podcast feeds with a new episode released in the last 3 days.
+
+        '
+      type: integer
+      example: 97522
+    suggested_v4v:
+      description: 'Suggested amount per second of playback to send. Unit is specific to the `type`.
 
         '
       type:
-      - integer
+      - string
       - 'null'
-      example: 1441923632
+      example: '0.00000020000'
+    id_feed:
+      description: 'The internal PodcastIndex.org Feed ID.
+
+        '
+      type: integer
+      example: 75075
+    newEpisodes60days:
+      description: 'Podcast feeds with a new episode containing a released in the last 60 days.
+
+        '
+      type: integer
+      example: 3710750
+    feedsWithNewEpisodes30days:
+      description: 'Podcast feeds with a new episode released in the last 30 days.
+
+        '
+      type: integer
+      example: 306748
     feeds_data_obj:
       type: object
       properties:
@@ -910,51 +933,16 @@ components:
           $ref: '#/components/schemas/language'
         feedItunesId:
           $ref: '#/components/schemas/itunesId_feed'
-    status:
-      description: 'Indicates API request status
+    description_episode:
+      description: 'The item-level description of the episode.
+
+
+
+        Uses the longer of the possible fields in the feed: `<description>`, `<itunes:summary>` and `<content:encoded>`
 
         '
       type: string
-      enum:
-      - 'true'
-      - 'false'
-      example: 'true'
-    destinations_v4v:
-      description: 'List of destinations where "Value for Value" payments should be sent.
-
-        '
-      type: array
-      items:
-        $ref: '#/components/schemas/destination_v4v'
-    enclosureType:
-      description: 'The Content-Type for the item specified by the `enclosureUrl`
-
-        '
-      type: string
-      example: audio/mp3
-    feedsWithNewEpisodes7days:
-      description: 'Podcast feeds with a new episode released in the last 7 days.
-
-        '
-      type: integer
-      example: 179043
-    feedsWithMediumMusic:
-      description: 'Podcast feeds with a
-
-        [`podcast:medium`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium)
-
-        tag with a value of `music`.
-
-        '
-      type: integer
-      example: 3700
-    image_episode:
-      description: 'The item-level image for the episode
-
-        '
-      type: string
-      format: URL
-      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
+      example: Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.
     paidFeedsWithNewEpisodes90days:
       description: 'Podcast feeds with a new episode containing a
 
@@ -965,59 +953,31 @@ components:
         '
       type: integer
       example: 335380
-    position:
-      description: 'Position in data
+    fee_destination:
+      description: 'Indicates if destination is included due to a fee being charged. May not be reported.
+
+        '
+      type:
+      - boolean
+      - 'null'
+      example: true
+    feedsWithMediumMusic:
+      description: 'Podcast feeds with a
+
+        [`podcast:medium`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#medium)
+
+        tag with a value of `music`.
 
         '
       type: integer
-      example: 12843054496
-    feedsWithNewEpisodes10days:
-      description: 'Podcast feeds with a new episode released in the last 10 days.
+      example: 3700
+    feedsWithNewEpisodes7days:
+      description: 'Podcast feeds with a new episode released in the last 7 days.
 
         '
       type: integer
-      example: 212322
+      example: 179043
   responses:
-    static_tracking_feed_value_blocks:
-      description: Array of episodes containing value blocks
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              type: object
-              properties:
-                id:
-                  $ref: '#/components/schemas/id_feed'
-                itunesId:
-                  $ref: '#/components/schemas/itunesId_feed'
-                podcastGuid:
-                  $ref: '#/components/schemas/podcastguid'
-                url:
-                  $ref: '#/components/schemas/url_feed'
-                value:
-                  $ref: '#/components/schemas/value'
-                valueCreatedOn:
-                  $ref: '#/components/schemas/valueCreatedOn'
-    400_static:
-      description: Invalid request
-      content:
-        application/xml:
-          schema:
-            type: object
-            properties:
-              Error:
-                type: object
-                properties:
-                  Code:
-                    type: string
-                  RequestId:
-                    type: string
-                  HostId:
-                    type: string
-          example:
-            status: 'false'
-            description: Invalid parameters
     static_sats_data:
       description: Object containing the number of sats, transactions, and senders.
       content:
@@ -1089,6 +1049,52 @@ components:
                   color90:
                     type: string
                     example: '#ff8800'
+    static_tracking_feed_value_blocks:
+      description: Array of episodes containing value blocks
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  $ref: '#/components/schemas/id_feed'
+                itunesId:
+                  $ref: '#/components/schemas/itunesId_feed'
+                podcastGuid:
+                  $ref: '#/components/schemas/podcastguid'
+                url:
+                  $ref: '#/components/schemas/url_feed'
+                value:
+                  $ref: '#/components/schemas/value'
+                valueCreatedOn:
+                  $ref: '#/components/schemas/valueCreatedOn'
+    static_music_opml:
+      description: "The hourly Top X music\n\n\nData follows the [OPML spec](https://opml.org/spec2.opml) with additions of\n[Podcast Namespace](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md) attributes.\n\n\nExample `outline` entry:\n\n```xml\n<outline type=\"rss\" text=\"To be in Nashville\" xmlUrl=\"https://files.heycitizen.xyz/Songs/Albums/The-Heycitizen-Experience/the heycitizen experience.xml\" podcast:feedGuid=\"a2d2e313-9cbd-5169-b89c-ab07b33ecc33\" podcast:itemGuid=\"ac34129c-c78a-463e-a64f-01405e1f2be4\"/>\n```\n\nAttributes:\n\n  - `text`\n    - Title of Track\n    - Example: `\"To be in Nashville\"`\n  - `xmlUrl`\n    - Feed URL track is in\n    - Example: `\"https://files.heycitizen.xyz/Songs/Albums/The-Heycitizen-Experience/the heycitizen experience.xml\"`\n  - `podcast:feedGuid`\n    - The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n    - See the namespace spec for [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n    - Example: `\"a2d2e313-9cbd-5169-b89c-ab07b33ecc33\"`\n  - `podcast:itemGuid`\n    - The unique identifier for the episode\n    - Example: `\"ac34129c-c78a-463e-a64f-01405e1f2be4\"`\n"
+      content:
+        application/xml:
+          schema:
+            type: object
+    400_static:
+      description: Invalid request
+      content:
+        application/xml:
+          schema:
+            type: object
+            properties:
+              Error:
+                type: object
+                properties:
+                  Code:
+                    type: string
+                  RequestId:
+                    type: string
+                  HostId:
+                    type: string
+          example:
+            status: 'false'
+            description: Invalid parameters
     static_feeds_db:
       description: 'Podcast Index Feeds Database
 
@@ -1097,83 +1103,6 @@ components:
         application/gzip:
           schema:
             type: object
-    static_dead_feeds:
-      description: 'Feed Ids in CSV file format.
-
-
-
-        Each row is the feed id. No Header.
-
-
-
-        Example:
-
-
-
-        ```csv
-
-        3,
-
-        38,
-
-        43,
-
-        45,
-
-        56,
-
-        ```
-
-        '
-      content:
-        application/csv:
-          schema:
-            type: object
-    static_music_json:
-      description: The hourly Top X music
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              title:
-                description: Title of music
-                type: string
-                example: Podcasting 2.0 Top 100 (Music)
-              description:
-                description: Description of object
-                type: string
-                example: An hourly Top 100 music playlist.
-              timestamp:
-                description: Date updated
-                type: integer
-                example: 1724465107
-              items:
-                description: Array of top X music feeds
-                type: object
-                properties:
-                  rank:
-                    description: Rank in chart
-                    type: integer
-                    example: 1
-                  boosts:
-                    description: Number of boosts
-                    type: string
-                    example: '42'
-                  title:
-                    description: Title of Track
-                    type: string
-                    example: To be in Nashville
-                  image:
-                    $ref: '#/components/schemas/image_episode'
-                  feedId:
-                    $ref: '#/components/schemas/id_feed'
-                  feedUrl:
-                    $ref: '#/components/schemas/url_feed'
-                  feedGuid:
-                    $ref: '#/components/schemas/podcastguid'
-                  itemGuid:
-                    $ref: '#/components/schemas/guid'
     static_current:
       description: 'The feed and episode data seen by the Podcast Index.
 
@@ -1199,12 +1128,6 @@ components:
                 example: https://tracking.podcastindex.org/1724468201
               data:
                 $ref: '#/components/schemas/data_static'
-    static_music_opml:
-      description: "The hourly Top X music\n\n\nData follows the [OPML spec](https://opml.org/spec2.opml) with additions of\n[Podcast Namespace](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md) attributes.\n\n\nExample `outline` entry:\n\n```xml\n<outline type=\"rss\" text=\"To be in Nashville\" xmlUrl=\"https://files.heycitizen.xyz/Songs/Albums/The-Heycitizen-Experience/the heycitizen experience.xml\" podcast:feedGuid=\"a2d2e313-9cbd-5169-b89c-ab07b33ecc33\" podcast:itemGuid=\"ac34129c-c78a-463e-a64f-01405e1f2be4\"/>\n```\n\nAttributes:\n\n  - `text`\n    - Title of Track\n    - Example: `\"To be in Nashville\"`\n  - `xmlUrl`\n    - Feed URL track is in\n    - Example: `\"https://files.heycitizen.xyz/Songs/Albums/The-Heycitizen-Experience/the heycitizen experience.xml\"`\n  - `podcast:feedGuid`\n    - The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.\n    - See the namespace spec for [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.\n    - Example: `\"a2d2e313-9cbd-5169-b89c-ab07b33ecc33\"`\n  - `podcast:itemGuid`\n    - The unique identifier for the episode\n    - Example: `\"ac34129c-c78a-463e-a64f-01405e1f2be4\"`\n"
-      content:
-        application/xml:
-          schema:
-            type: object
     static_stats_counts:
       description: Object containing the statistics for the Podcast Index feed data
       content:
@@ -1274,26 +1197,8 @@ components:
                 $ref: '#/components/schemas/feedsWithMediumMusic'
               feedsWithMediumVideo:
                 $ref: '#/components/schemas/feedsWithMediumVideo'
-    static_music_rss:
-      description: 'The hourly Top X music
-
-
-
-        Data follows the RSS XML spec with additions of
-
-        [Podcast Namespace](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md) attributes.
-
-
-
-        The [`podcast:remoteItem`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#remote-item)
-
-        is used to reference the episodes in the music chart.
-
-        '
-      content:
-        application/rss+xml:
-          schema:
-            type: object
+    '404':
+      description: Not found
     static_tracking_episode_value_blocks:
       description: Array of episodes containing value blocks
       content:
@@ -1319,8 +1224,103 @@ components:
                   $ref: '#/components/schemas/value'
                 valueCreatedOn:
                   $ref: '#/components/schemas/valueCreatedOn'
-    '404':
-      description: Not found
+    static_dead_feeds:
+      description: 'Feed Ids in CSV file format.
+
+
+
+        Each row is the feed id. No Header.
+
+
+
+        Example:
+
+
+
+        ```csv
+
+        3,
+
+        38,
+
+        43,
+
+        45,
+
+        56,
+
+        ```
+
+        '
+      content:
+        application/csv:
+          schema:
+            type: object
+    static_music_rss:
+      description: 'The hourly Top X music
+
+
+
+        Data follows the RSS XML spec with additions of
+
+        [Podcast Namespace](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md) attributes.
+
+
+
+        The [`podcast:remoteItem`](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#remote-item)
+
+        is used to reference the episodes in the music chart.
+
+        '
+      content:
+        application/rss+xml:
+          schema:
+            type: object
+    static_music_json:
+      description: The hourly Top X music
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                description: Title of music
+                type: string
+                example: Podcasting 2.0 Top 100 (Music)
+              description:
+                description: Description of object
+                type: string
+                example: An hourly Top 100 music playlist.
+              timestamp:
+                description: Date updated
+                type: integer
+                example: 1724465107
+              items:
+                description: Array of top X music feeds
+                type: object
+                properties:
+                  rank:
+                    description: Rank in chart
+                    type: integer
+                    example: 1
+                  boosts:
+                    description: Number of boosts
+                    type: string
+                    example: '42'
+                  title:
+                    description: Title of Track
+                    type: string
+                    example: To be in Nashville
+                  image:
+                    $ref: '#/components/schemas/image_episode'
+                  feedId:
+                    $ref: '#/components/schemas/id_feed'
+                  feedUrl:
+                    $ref: '#/components/schemas/url_feed'
+                  feedGuid:
+                    $ref: '#/components/schemas/podcastguid'
+                  itemGuid:
+                    $ref: '#/components/schemas/guid'
   securitySchemes:
     User-Agent:
       type: apiKey

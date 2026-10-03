@@ -54,16 +54,54 @@ paths:
         '401':
           $ref: '#/components/responses/401'
 components:
+  responses:
+    '400':
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              description:
+                $ref: '#/components/schemas/description_response'
+          example:
+            status: 'false'
+            description: Invalid parameters
+    '401':
+      description: Not authenticated
+      content:
+        application/json:
+          schema:
+            type: string
+          example: Authorization header value either not set or blank.
+    stats_current:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              stats:
+                $ref: '#/components/schemas/stats'
+              description:
+                $ref: '#/components/schemas/description_response'
   schemas:
-    status:
-      description: 'Indicates API request status
+    feedsWithNewEpisodes10days:
+      description: 'Podcast feeds with a new episode released in the last 10 days.
 
         '
-      type: string
-      enum:
-      - 'true'
-      - 'false'
-      example: 'true'
+      type: integer
+      example: 212322
+    episodeCountTotal:
+      description: 'Total individual podcast episodes in the index.
+
+        '
+      type: integer
+      example: 143953477
     stats:
       description: 'An array statistic properties
 
@@ -94,83 +132,45 @@ components:
         '
       type: integer
       example: 21916
-    description_response:
-      description: 'Description of the response
+    status:
+      description: 'Indicates API request status
 
         '
       type: string
-      example: Found matching feed
+      enum:
+      - 'true'
+      - 'false'
+      example: 'true'
     feedCountTotal:
       description: 'Total podcast feeds in the index.
 
         '
       type: integer
       example: 4257865
-    episodeCountTotal:
-      description: 'Total individual podcast episodes in the index.
-
-        '
-      type: integer
-      example: 143953477
-    feedsWithNewEpisodes30days:
-      description: 'Podcast feeds with a new episode released in the last 30 days.
-
-        '
-      type: integer
-      example: 306748
-    feedsWithNewEpisodes3days:
-      description: 'Podcast feeds with a new episode released in the last 3 days.
-
-        '
-      type: integer
-      example: 97522
     feedsWithNewEpisodes90days:
       description: 'Podcast feeds with a new episode released in the last 90 days.
 
         '
       type: integer
       example: 436933
-    feedsWithNewEpisodes10days:
-      description: 'Podcast feeds with a new episode released in the last 10 days.
+    feedsWithNewEpisodes3days:
+      description: 'Podcast feeds with a new episode released in the last 3 days.
 
         '
       type: integer
-      example: 212322
-  responses:
-    stats_current:
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                $ref: '#/components/schemas/status'
-              stats:
-                $ref: '#/components/schemas/stats'
-              description:
-                $ref: '#/components/schemas/description_response'
-    '401':
-      description: Not authenticated
-      content:
-        application/json:
-          schema:
-            type: string
-          example: Authorization header value either not set or blank.
-    '400':
-      description: Invalid request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                $ref: '#/components/schemas/status'
-              description:
-                $ref: '#/components/schemas/description_response'
-          example:
-            status: 'false'
-            description: Invalid parameters
+      example: 97522
+    feedsWithNewEpisodes30days:
+      description: 'Podcast feeds with a new episode released in the last 30 days.
+
+        '
+      type: integer
+      example: 306748
+    description_response:
+      description: 'Description of the response
+
+        '
+      type: string
+      example: Found matching feed
   parameters:
     pretty:
       name: pretty

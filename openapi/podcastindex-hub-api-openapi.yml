@@ -65,6 +65,19 @@ components:
       schema:
         type: integer
       example: 75075
+    pretty:
+      name: pretty
+      in: query
+      description: 'If present, makes the output “pretty” to help with debugging.
+
+
+
+        Parameter shall not have a value
+
+        '
+      schema:
+        type: boolean
+      allowEmptyValue: true
     url_pubnotify:
       name: url
       in: query
@@ -80,36 +93,21 @@ components:
       schema:
         type: string
       example: https://feeds.theincomparable.com/batmanuniversity
-    pretty:
-      name: pretty
-      in: query
-      description: 'If present, makes the output “pretty” to help with debugging.
-
-
-
-        Parameter shall not have a value
-
-        '
-      schema:
-        type: boolean
-      allowEmptyValue: true
-  schemas:
-    status:
-      description: 'Indicates API request status
-
-        '
-      type: string
-      enum:
-      - 'true'
-      - 'false'
-      example: 'true'
-    description_response:
-      description: 'Description of the response
-
-        '
-      type: string
-      example: Found matching feed
   responses:
+    '400':
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              description:
+                $ref: '#/components/schemas/description_response'
+          example:
+            status: 'false'
+            description: Invalid parameters
     hub_pubnotify:
       description: Success
       content:
@@ -128,20 +126,22 @@ components:
           schema:
             type: string
           example: Authorization header value either not set or blank.
-    '400':
-      description: Invalid request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                $ref: '#/components/schemas/status'
-              description:
-                $ref: '#/components/schemas/description_response'
-          example:
-            status: 'false'
-            description: Invalid parameters
+  schemas:
+    status:
+      description: 'Indicates API request status
+
+        '
+      type: string
+      enum:
+      - 'true'
+      - 'false'
+      example: 'true'
+    description_response:
+      description: 'Description of the response
+
+        '
+      type: string
+      example: Found matching feed
   securitySchemes:
     User-Agent:
       type: apiKey
