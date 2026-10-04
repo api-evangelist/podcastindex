@@ -51,20 +51,6 @@ paths:
           $ref: '#/components/responses/401'
 components:
   parameters:
-    id_feed_podcast_pi_pubnotify:
-      name: id
-      in: query
-      description: 'The PodcastIndex Feed ID
-
-
-
-        The `id` or the `url` is required.
-
-        '
-      required: false
-      schema:
-        type: integer
-      example: 75075
     pretty:
       name: pretty
       in: query
@@ -93,6 +79,20 @@ components:
       schema:
         type: string
       example: https://feeds.theincomparable.com/batmanuniversity
+    id_feed_podcast_pi_pubnotify:
+      name: id
+      in: query
+      description: 'The PodcastIndex Feed ID
+
+
+
+        The `id` or the `url` is required.
+
+        '
+      required: false
+      schema:
+        type: integer
+      example: 75075
   responses:
     '400':
       description: Invalid request

@@ -204,20 +204,6 @@ paths:
           $ref: '#/components/responses/401'
 components:
   responses:
-    '400':
-      description: Invalid request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                $ref: '#/components/schemas/status'
-              description:
-                $ref: '#/components/schemas/description_response'
-          example:
-            status: 'false'
-            description: Invalid parameters
     value_byepisodeguid:
       description: Success
       content:
@@ -233,6 +219,28 @@ components:
                 $ref: '#/components/schemas/value_byepisodeguid'
               description:
                 $ref: '#/components/schemas/description_response'
+    value_byfeedid:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              query:
+                $ref: '#/components/schemas/query_id'
+              value:
+                $ref: '#/components/schemas/value'
+              description:
+                $ref: '#/components/schemas/description_response'
+    '401':
+      description: Not authenticated
+      content:
+        application/json:
+          schema:
+            type: string
+          example: Authorization header value either not set or blank.
     value_bypodcastguid:
       description: Success
       content:
@@ -248,13 +256,6 @@ components:
                 $ref: '#/components/schemas/value'
               description:
                 $ref: '#/components/schemas/description_response'
-    '401':
-      description: Not authenticated
-      content:
-        application/json:
-          schema:
-            type: string
-          example: Authorization header value either not set or blank.
     value_batch_byepisodeguid:
       description: Success
       content:
@@ -289,8 +290,8 @@ components:
                 $ref: '#/components/schemas/value'
               description:
                 $ref: '#/components/schemas/description_response'
-    value_byfeedid:
-      description: Success
+    '400':
+      description: Invalid request
       content:
         application/json:
           schema:
@@ -298,58 +299,40 @@ components:
             properties:
               status:
                 $ref: '#/components/schemas/status'
-              query:
-                $ref: '#/components/schemas/query_id'
-              value:
-                $ref: '#/components/schemas/value'
               description:
                 $ref: '#/components/schemas/description_response'
+          example:
+            status: 'false'
+            description: Invalid parameters
   schemas:
-    title_episode:
-      description: 'Name of the episode
+    podcastguid:
+      description: 'The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.
+
+
+
+        See the namespace spec for
+
+        [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.
 
         '
       type: string
-      example: Gotham
-    query_url:
+      example: 9b024349-ccf0-5f69-a609-6b82873eab3c
+    method_v4v:
+      description: 'Method for sending payment
+
+        '
+      type: string
+      example: keysend
+    query_byepisodeguid:
       description: 'Object containing the input query data
 
         '
       type: object
       properties:
-        url:
-          $ref: '#/components/schemas/url_query'
-    status:
-      description: 'Indicates API request status
-
-        '
-      type: string
-      enum:
-      - 'true'
-      - 'false'
-      example: 'true'
-    id_query:
-      description: 'Value passed to request in the `id` field
-
-        '
-      type: string
-      example: '920666'
-    customValue:
-      description: 'A custom value to pass along with the payment. This is considered the value that belongs to the customKey. May not be reported.
-
-
-
-        See the [podcast namespace spec](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
-
-        and [value specification](https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/value.md)
-
-        for more information.
-
-        '
-      type:
-      - string
-      - 'null'
-      example: wal_ZmqFg13NB31oek
+        podcastguid:
+          $ref: '#/components/schemas/query_podcastguid'
+        episodeguid:
+          $ref: '#/components/schemas/query_episodeguid'
     model_v4v:
       description: 'Description of the method for providing "Value for Value" payments
 
@@ -362,51 +345,48 @@ components:
           $ref: '#/components/schemas/method_v4v'
         suggested:
           $ref: '#/components/schemas/suggested_v4v'
-    url_query:
-      description: 'Value passed to request in the `url` field
+    title_episode:
+      description: 'Name of the episode
 
         '
       type: string
-      format: URL
-      example: https://feeds.theincomparable.com/batmanuniversity
-    value_byepisodeguid_batch:
-      description: 'Information for supporting the podcast via one of the "Value for Value" methods.
-
-        '
-      type: object
+      example: Gotham
+    value:
+      description: "Information for supporting the podcast via one of the \"Value for Value\" methods. May not be reported.\n\n\nExamples:\n  - `lightning` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=169991&pretty\n  - `webmonetization` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=779873&pretty\n"
+      type:
+      - object
+      - 'null'
       properties:
-        podcastGUID:
-          $ref: '#/components/schemas/podcastguid'
-        guid:
-          $ref: '#/components/schemas/guid'
-        title:
-          $ref: '#/components/schemas/title_episode'
-        feedTitle:
-          $ref: '#/components/schemas/title_feed'
         model:
           $ref: '#/components/schemas/model_v4v'
         destinations:
           $ref: '#/components/schemas/destinations_v4v'
-    destination_v4v:
-      description: 'Destination for "Value for Value" payment.
+    destinations_v4v:
+      description: 'List of destinations where "Value for Value" payments should be sent.
 
         '
-      type: object
-      properties:
-        name:
-          $ref: '#/components/schemas/name_destination'
-        address:
-          $ref: '#/components/schemas/address_destination'
-        type:
-          $ref: '#/components/schemas/type_destination'
-        split:
-          $ref: '#/components/schemas/split_destination'
-        fee:
-          $ref: '#/components/schemas/fee_destination'
-        customKey:
-          $ref: '#/components/schemas/customKey'
-        customValue:
-          $ref: '#/components/schemas/customValue'
+      type: array
+      items:
+        $ref: '#/components/schemas/destination_v4v'
+    value_guid_list:
+      description: 'List of value blocks
+
+        '
+      type: array
+      items:
+        $ref: '#/components/schemas/value_byepisodeguid_batch'
+    id_query_guid:
+      description: 'The Podcast Index Id of the podcast GUID passed as an argument to the request
+
+        '
+      type: integer
+      example: 920666
+    query_episodeguid:
+      description: 'The value of the `episodeguid` argument passed to the request.
+
+        '
+      type: string
+      example: PC20143
     name_destination:
       description: 'Name for the destination
 
@@ -427,6 +407,120 @@ components:
           $ref: '#/components/schemas/title_episode'
         feedTitle:
           $ref: '#/components/schemas/title_feed'
+    guid:
+      description: 'The unique identifier for the episode
+
+        '
+      type: string
+      example: incomparable/batman/19
+    status:
+      description: 'Indicates API request status
+
+        '
+      type: string
+      enum:
+      - 'true'
+      - 'false'
+      example: 'true'
+    query_guids:
+      description: 'Object containing the input query data
+
+        '
+      type: object
+      properties:
+        guids:
+          $ref: '#/components/schemas/guids'
+    address_destination:
+      description: 'Address of node to receive payment
+
+        '
+      type: string
+      example: 03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a
+    title_feed:
+      description: 'Name of the feed
+
+        '
+      type: string
+      example: Batman University
+    type_destination:
+      description: 'Type of destination
+
+        '
+      type: string
+      enum:
+      - node
+      example: node
+    destination_v4v:
+      description: 'Destination for "Value for Value" payment.
+
+        '
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/name_destination'
+        address:
+          $ref: '#/components/schemas/address_destination'
+        type:
+          $ref: '#/components/schemas/type_destination'
+        split:
+          $ref: '#/components/schemas/split_destination'
+        fee:
+          $ref: '#/components/schemas/fee_destination'
+        customKey:
+          $ref: '#/components/schemas/customKey'
+        customValue:
+          $ref: '#/components/schemas/customValue'
+    query_podcastguid:
+      description: 'The value of the `podcastguid` argument passed to the request.
+
+        '
+      type: string
+      example: 917393e3-1b1e-5cef-ace4-edaa54e1f810
+    type_v4v:
+      description: 'Payment type
+
+        '
+      type: string
+      enum:
+      - lightning
+      - hive
+      - webmonetization
+      example: lightning
+    found:
+      description: 'Number of value data returned.
+
+        '
+      type: integer
+      example: 4
+    split_destination:
+      description: 'Share of payment the destination should receive
+
+        '
+      type: integer
+      example: 99
+    url_query:
+      description: 'Value passed to request in the `url` field
+
+        '
+      type: string
+      format: URL
+      example: https://feeds.theincomparable.com/batmanuniversity
+    query_url:
+      description: 'Object containing the input query data
+
+        '
+      type: object
+      properties:
+        url:
+          $ref: '#/components/schemas/url_query'
+    query_guid_id:
+      description: 'Object containing the input query data
+
+        '
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/id_query_guid'
     guids:
       description: 'The `podcastguid` and `episodeguid` values passed to the request.
 
@@ -443,18 +537,32 @@ components:
         - PC20143
         c73b1a23-1c28-5edb-94c3-10d1745d0877:
         - bdea6759-a7b6-4c0d-9d1e-acca3133f4a9
-    address_destination:
-      description: 'Address of node to receive payment
+    fee_destination:
+      description: 'Indicates if destination is included due to a fee being charged. May not be reported.
 
         '
-      type: string
-      example: 03ae9f91a0cb8ff43840e3c322c4c61f019d8c1c3cea15a25cfc425ac605e61a4a
-    split_destination:
-      description: 'Share of payment the destination should receive
+      type:
+      - boolean
+      - 'null'
+      example: true
+    value_byepisodeguid_batch:
+      description: 'Information for supporting the podcast via one of the "Value for Value" methods.
 
         '
-      type: integer
-      example: 99
+      type: object
+      properties:
+        podcastGUID:
+          $ref: '#/components/schemas/podcastguid'
+        guid:
+          $ref: '#/components/schemas/guid'
+        title:
+          $ref: '#/components/schemas/title_episode'
+        feedTitle:
+          $ref: '#/components/schemas/title_feed'
+        model:
+          $ref: '#/components/schemas/model_v4v'
+        destinations:
+          $ref: '#/components/schemas/destinations_v4v'
     customKey:
       description: 'The name of a custom record key to send along with the payment. May not be reported.
 
@@ -471,31 +579,36 @@ components:
       - string
       - 'null'
       example: '112111100'
-    value_guid_list:
-      description: 'List of value blocks
+    customValue:
+      description: 'A custom value to pass along with the payment. This is considered the value that belongs to the customKey. May not be reported.
+
+
+
+        See the [podcast namespace spec](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#value)
+
+        and [value specification](https://github.com/Podcastindex-org/podcast-namespace/blob/main/value/value.md)
+
+        for more information.
 
         '
-      type: array
-      items:
-        $ref: '#/components/schemas/value_byepisodeguid_batch'
-    query_guids:
-      description: 'Object containing the input query data
+      type:
+      - string
+      - 'null'
+      example: wal_ZmqFg13NB31oek
+    suggested_v4v:
+      description: 'Suggested amount per second of playback to send. Unit is specific to the `type`.
 
         '
-      type: object
-      properties:
-        guids:
-          $ref: '#/components/schemas/guids'
-    query_byepisodeguid:
-      description: 'Object containing the input query data
+      type:
+      - string
+      - 'null'
+      example: '0.00000020000'
+    allfound:
+      description: 'Indicates if data was found for all `podcastguid` and `episodeguid` values.
 
         '
-      type: object
-      properties:
-        podcastguid:
-          $ref: '#/components/schemas/query_podcastguid'
-        episodeguid:
-          $ref: '#/components/schemas/query_episodeguid'
+      type: boolean
+      example: true
     value_batch_byepisodeguid:
       description: 'JSON data where key is the `podcastguid` and value is a list of `episodeguid` values.
 
@@ -512,90 +625,18 @@ components:
         - PC20143
         c73b1a23-1c28-5edb-94c3-10d1745d0877:
         - bdea6759-a7b6-4c0d-9d1e-acca3133f4a9
-    type_v4v:
-      description: 'Payment type
+    id_query:
+      description: 'Value passed to request in the `id` field
 
         '
       type: string
-      enum:
-      - lightning
-      - hive
-      - webmonetization
-      example: lightning
-    value:
-      description: "Information for supporting the podcast via one of the \"Value for Value\" methods. May not be reported.\n\n\nExamples:\n  - `lightning` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=169991&pretty\n  - `webmonetization` value type: https://api.podcastindex.org/api/1.0/podcasts/byfeedid?id=779873&pretty\n"
-      type:
-      - object
-      - 'null'
-      properties:
-        model:
-          $ref: '#/components/schemas/model_v4v'
-        destinations:
-          $ref: '#/components/schemas/destinations_v4v'
-    suggested_v4v:
-      description: 'Suggested amount per second of playback to send. Unit is specific to the `type`.
-
-        '
-      type:
-      - string
-      - 'null'
-      example: '0.00000020000'
-    allfound:
-      description: 'Indicates if data was found for all `podcastguid` and `episodeguid` values.
-
-        '
-      type: boolean
-      example: true
-    query_episodeguid:
-      description: 'The value of the `episodeguid` argument passed to the request.
-
-        '
-      type: string
-      example: PC20143
-    query_podcastguid:
-      description: 'The value of the `podcastguid` argument passed to the request.
-
-        '
-      type: string
-      example: 917393e3-1b1e-5cef-ace4-edaa54e1f810
-    guid:
-      description: 'The unique identifier for the episode
-
-        '
-      type: string
-      example: incomparable/batman/19
-    query_guid_id:
-      description: 'Object containing the input query data
-
-        '
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/id_query_guid'
-    id_query_guid:
-      description: 'The Podcast Index Id of the podcast GUID passed as an argument to the request
-
-        '
-      type: integer
-      example: 920666
+      example: '920666'
     description_response:
       description: 'Description of the response
 
         '
       type: string
       example: Found matching feed
-    podcastguid:
-      description: 'The GUID from the `podcast:guid` tag in the feed. This value is a unique, global identifier for the podcast.
-
-
-
-        See the namespace spec for
-
-        [guid](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md#guid) for details.
-
-        '
-      type: string
-      example: 9b024349-ccf0-5f69-a609-6b82873eab3c
     query_id:
       description: 'Object containing the input query data
 
@@ -604,47 +645,6 @@ components:
       properties:
         id:
           $ref: '#/components/schemas/id_query'
-    found:
-      description: 'Number of value data returned.
-
-        '
-      type: integer
-      example: 4
-    type_destination:
-      description: 'Type of destination
-
-        '
-      type: string
-      enum:
-      - node
-      example: node
-    destinations_v4v:
-      description: 'List of destinations where "Value for Value" payments should be sent.
-
-        '
-      type: array
-      items:
-        $ref: '#/components/schemas/destination_v4v'
-    method_v4v:
-      description: 'Method for sending payment
-
-        '
-      type: string
-      example: keysend
-    fee_destination:
-      description: 'Indicates if destination is included due to a fee being charged. May not be reported.
-
-        '
-      type:
-      - boolean
-      - 'null'
-      example: true
-    title_feed:
-      description: 'Name of the feed
-
-        '
-      type: string
-      example: Batman University
   parameters:
     pretty:
       name: pretty
@@ -659,6 +659,16 @@ components:
       schema:
         type: boolean
       allowEmptyValue: true
+    id_feed_episode_pi_single:
+      name: id
+      in: query
+      description: 'The PodcastIndex Feed ID to search for.
+
+        '
+      required: true
+      schema:
+        type: integer
+      example: 75075
     guid_feed_podcast:
       name: guid
       in: query
@@ -675,27 +685,6 @@ components:
       schema:
         type: string
       example: 9b024349-ccf0-5f69-a609-6b82873eab3c
-    url:
-      name: url
-      in: query
-      description: 'Podcast feed URL
-
-        '
-      required: true
-      allowReserved: true
-      schema:
-        type: string
-      example: https://feeds.theincomparable.com/batmanuniversity
-    id_feed_episode_pi_single:
-      name: id
-      in: query
-      description: 'The PodcastIndex Feed ID to search for.
-
-        '
-      required: true
-      schema:
-        type: integer
-      example: 75075
     episodeguid:
       name: episodeguid
       in: query
@@ -722,6 +711,17 @@ components:
       schema:
         type: string
       example: 917393e3-1b1e-5cef-ace4-edaa54e1f810
+    url:
+      name: url
+      in: query
+      description: 'Podcast feed URL
+
+        '
+      required: true
+      allowReserved: true
+      schema:
+        type: string
+      example: https://feeds.theincomparable.com/batmanuniversity
   securitySchemes:
     User-Agent:
       type: apiKey

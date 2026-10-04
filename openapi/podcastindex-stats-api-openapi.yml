@@ -54,54 +54,19 @@ paths:
         '401':
           $ref: '#/components/responses/401'
 components:
-  responses:
-    '400':
-      description: Invalid request
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                $ref: '#/components/schemas/status'
-              description:
-                $ref: '#/components/schemas/description_response'
-          example:
-            status: 'false'
-            description: Invalid parameters
-    '401':
-      description: Not authenticated
-      content:
-        application/json:
-          schema:
-            type: string
-          example: Authorization header value either not set or blank.
-    stats_current:
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                $ref: '#/components/schemas/status'
-              stats:
-                $ref: '#/components/schemas/stats'
-              description:
-                $ref: '#/components/schemas/description_response'
   schemas:
-    feedsWithNewEpisodes10days:
-      description: 'Podcast feeds with a new episode released in the last 10 days.
-
-        '
-      type: integer
-      example: 212322
     episodeCountTotal:
       description: 'Total individual podcast episodes in the index.
 
         '
       type: integer
       example: 143953477
+    feedsWithNewEpisodes30days:
+      description: 'Podcast feeds with a new episode released in the last 30 days.
+
+        '
+      type: integer
+      example: 306748
     stats:
       description: 'An array statistic properties
 
@@ -132,6 +97,12 @@ components:
         '
       type: integer
       example: 21916
+    feedsWithNewEpisodes10days:
+      description: 'Podcast feeds with a new episode released in the last 10 days.
+
+        '
+      type: integer
+      example: 212322
     status:
       description: 'Indicates API request status
 
@@ -141,36 +112,65 @@ components:
       - 'true'
       - 'false'
       example: 'true'
-    feedCountTotal:
-      description: 'Total podcast feeds in the index.
-
-        '
-      type: integer
-      example: 4257865
     feedsWithNewEpisodes90days:
       description: 'Podcast feeds with a new episode released in the last 90 days.
 
         '
       type: integer
       example: 436933
-    feedsWithNewEpisodes3days:
-      description: 'Podcast feeds with a new episode released in the last 3 days.
-
-        '
-      type: integer
-      example: 97522
-    feedsWithNewEpisodes30days:
-      description: 'Podcast feeds with a new episode released in the last 30 days.
-
-        '
-      type: integer
-      example: 306748
     description_response:
       description: 'Description of the response
 
         '
       type: string
       example: Found matching feed
+    feedCountTotal:
+      description: 'Total podcast feeds in the index.
+
+        '
+      type: integer
+      example: 4257865
+    feedsWithNewEpisodes3days:
+      description: 'Podcast feeds with a new episode released in the last 3 days.
+
+        '
+      type: integer
+      example: 97522
+  responses:
+    stats_current:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              stats:
+                $ref: '#/components/schemas/stats'
+              description:
+                $ref: '#/components/schemas/description_response'
+    '400':
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: '#/components/schemas/status'
+              description:
+                $ref: '#/components/schemas/description_response'
+          example:
+            status: 'false'
+            description: Invalid parameters
+    '401':
+      description: Not authenticated
+      content:
+        application/json:
+          schema:
+            type: string
+          example: Authorization header value either not set or blank.
   parameters:
     pretty:
       name: pretty

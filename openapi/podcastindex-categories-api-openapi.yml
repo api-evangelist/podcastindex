@@ -64,27 +64,6 @@ components:
           $ref: '#/components/schemas/id_category'
         name:
           $ref: '#/components/schemas/name_category'
-    status:
-      description: 'Indicates API request status
-
-        '
-      type: string
-      enum:
-      - 'true'
-      - 'false'
-      example: 'true'
-    name_category:
-      description: 'The category name.
-
-        '
-      type: string
-      example: Books
-    description_response:
-      description: 'Description of the response
-
-        '
-      type: string
-      example: Found matching feed
     feeds_categories:
       description: 'List of categories
 
@@ -94,6 +73,27 @@ components:
       - 'null'
       items:
         $ref: '#/components/schemas/feed_categories'
+    name_category:
+      description: 'The category name.
+
+        '
+      type: string
+      example: Books
+    status:
+      description: 'Indicates API request status
+
+        '
+      type: string
+      enum:
+      - 'true'
+      - 'false'
+      example: 'true'
+    description_response:
+      description: 'Description of the response
+
+        '
+      type: string
+      example: Found matching feed
   responses:
     '400':
       description: Invalid request

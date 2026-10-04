@@ -220,566 +220,36 @@ paths:
         '401':
           $ref: '#/components/responses/401'
 components:
-  schemas:
-    duration_soundbite:
-      description: 'The length to play the item specified by the `enclosureUrl`
-
-        '
-      type: integer
-      format: seconds
-      example: 40
-    feeds_data:
-      description: 'List of recent feed data
-
-        '
-      type: array
-      items:
-        $ref: '#/components/schemas/feeds_data_obj'
-    status:
-      description: 'Indicates API request status
-
-        '
-      type: string
-      enum:
-      - 'true'
-      - 'false'
-      example: 'true'
-    duration:
-      description: 'The estimated length of the item specified by the `enclosureUrl` in seconds. Will be null for `liveItem`.
-
-        '
-      type:
-      - integer
-      - 'null'
-      format: seconds
-      example: 54
-    id_episode:
-      description: 'The internal PodcastIndex.org episode ID.
-
-        '
-      type: integer
-      example: 16795088
-    items_data_obj:
-      type: object
-      properties:
-        episodeId:
-          $ref: '#/components/schemas/id_episode'
-        episodeTitle:
-          $ref: '#/components/schemas/title_feed'
-        episodeDescription:
-          $ref: '#/components/schemas/description_episode'
-        episodeImage:
-          $ref: '#/components/schemas/image_episode'
-        episodeTimestamp:
-          $ref: '#/components/schemas/datePublished'
-        episodeAdded:
-          $ref: '#/components/schemas/episodeAdded'
-        episodeEnclosureUrl:
-          $ref: '#/components/schemas/enclosureUrl'
-        episodeEnclosureLength:
-          $ref: '#/components/schemas/enclosureLength'
-        episodeEnclosureType:
-          $ref: '#/components/schemas/enclosureType'
-        episodeDuration:
-          $ref: '#/components/schemas/duration'
-        episodeType:
-          $ref: '#/components/schemas/episodeType'
-        feedId:
-          $ref: '#/components/schemas/id_feed'
-    data:
-      description: 'Object containing the recent data
-
-        '
-      type: object
-      properties:
-        position:
-          $ref: '#/components/schemas/position'
-        feeds:
-          $ref: '#/components/schemas/feeds_data'
-        items:
-          $ref: '#/components/schemas/items_data'
-    season:
-      description: 'Season number. May be null for `liveItem`.
-
-        '
-      type:
-      - integer
-      - 'null'
-      example: 3
-    timeAdded:
-      description: 'The date and time the feed was added to the index
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1613786624
-    datePublishedPretty:
-      description: 'The date and time the episode was published formatted as a human readable string.
-
-
-
-        Note: uses the PodcastIndex server local time to do conversion.
-
-        '
-      type: string
-      example: January 01, 2019 9:30pm
-    position:
-      description: 'Position in data
-
-        '
-      type: integer
-      example: 12843054496
-    feeds_recent:
-      description: 'List of feeds matching request
-
-        '
-      type: array
-      items:
-        type: object
-        properties:
-          id:
-            $ref: '#/components/schemas/id_feed'
-          url:
-            $ref: '#/components/schemas/url_feed'
-          title:
-            $ref: '#/components/schemas/title_feed'
-          newestItemPublishTime:
-            $ref: '#/components/schemas/newestItemPublishTime'
-          oldestItemPublishTime:
-            $ref: '#/components/schemas/oldestItemPublishTime'
-          itunesId:
-            $ref: '#/components/schemas/itunesId_feed'
-          language:
-            $ref: '#/components/schemas/language'
-          categories:
-            $ref: '#/components/schemas/categories'
-    explicit_episode:
-      description: "Is feed or episode marked as explicit\n\n  - 0: not marked explicit\n  - 1: marked explicit\n"
-      type: integer
-      enum:
-      - 0
-      - 1
-      example: 0
-    author:
-      description: 'The channel-level author element.
-
-
-
-        Usually iTunes specific, but could be from another namespace if not present.
-
-        '
-      type: string
-      example: Tony Sindelar
-    itemCount:
-      description: 'Number of items in the `items` returned in request
-
-        '
-      type: integer
-      example: 1
-    url_feed:
-      description: 'Current feed URL
-
-        '
-      type: string
-      format: URL
-      example: https://feeds.theincomparable.com/batmanuniversity
-    enclosureType:
-      description: 'The Content-Type for the item specified by the `enclosureUrl`
-
-        '
-      type: string
-      example: audio/mp3
-    description_response:
-      description: 'Description of the response
-
-        '
-      type: string
-      example: Found matching feed
-    itunesId_feed:
-      description: 'The iTunes ID of this feed if there is one, and we know what it is.
-
-        '
-      type:
-      - integer
-      - 'null'
-      example: 1441923632
-    enclosureUrl:
-      description: 'URL/link to the episode file
-
-        '
-      type: string
-      format: URL
-      example: https://www.theincomparable.com/podcast/batmanuniversity302.mp3
-    title_episode:
-      description: 'Name of the episode
-
-        '
-      type: string
-      example: Gotham
-    enclosureLength:
-      description: 'The length of the item specified by the `enclosureUrl` in bytes
-
-        '
-      type: integer
-      format: bytes
-      example: 26385472
-    feeds_recent_new:
-      description: 'List of feeds matching request
-
-        '
-      type: array
-      items:
-        type: object
-        properties:
-          id:
-            $ref: '#/components/schemas/id_feed'
-          url:
-            $ref: '#/components/schemas/url_feed'
-          image:
-            $ref: '#/components/schemas/image_feed'
-          timeAdded:
-            $ref: '#/components/schemas/timeAdded'
-          status:
-            $ref: '#/components/schemas/status_feed'
-          contentHash:
-            $ref: '#/components/schemas/contentHash'
-          language:
-            $ref: '#/components/schemas/language'
-    title_soundbite:
-      description: 'Name of the soundbite
-
-        '
-      type: string
-      example: Why the Podcast Namespace Matters
-    startTime:
-      description: 'The time where the soundbite begins in the item specified by the `enclosureUrl`
-
-        '
-      type: integer
-      format: seconds
-      example: 1123
-    image_episode:
-      description: 'The item-level image for the episode
-
-        '
-      type: string
-      format: URL
-      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
-    categories:
-      description: 'An array of categories, where the index is the Category ID and the value is the Category Name.
-
-
-
-        All Category numbers and names are returned by the `categories/list` endpoint.
-
-        '
-      type: object
-      example:
-        '104': Tv
-        '105': Film
-        '107': Reviews
-    feedCount:
-      description: 'Number of items in the `feeds` returned in request
-
-        '
-      type: integer
-      example: 1
-    episodeAdded:
-      description: 'The time the episode was added to the index
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1613786624
-    nextSince:
-      description: 'Value to pass as `since` parameter to get next batch of data
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1613805249
-    episode_number:
-      description: 'Episode number
-
-        '
-      type:
-      - integer
-      - 'null'
-      example: 19
-    episodeType:
-      description: 'The type of episode. May be null for `liveItem`.
-
-        '
-      type:
-      - string
-      - 'null'
-      enum:
-      - full
-      - trailer
-      - bonus
-      example: full
-    since:
-      description: 'Value of `since` parameter passed to request.
-
-        '
-      type:
-      - integer
-      - 'null'
-      format: Unix Epoch
-      example: 1613805249
-    link_feed:
-      description: 'The channel-level link in the feed
-
-        '
-      type: string
-      format: URL
-      example: https://www.theincomparable.com/batmanuniversity/
-    trendScore:
-      description: 'The ranking for how the podcast is trending in the index
-
-        '
-      type: integer
-      example: 1
-    description_feed:
-      description: 'The channel-level description
-
-
-
-        Uses the longer of the possible fields in the feed: `<description>`, `<itunes:summary>` and `<content:encoded>`
-
-        '
-      type: string
-      example: 'Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.'
-    count:
-      description: 'Number of items returned in request
-
-        '
-      type: integer
-      example: 1
-    language:
-      description: 'The channel-level language specification of the feed.
-
-
-        Languages accord with the [RSS Language Spec](https://www.rssboard.org/rss-language-codes).
-
-        '
-      type: string
-      example: en-us
-    status_feed:
-      description: 'Status of feed after being added to index
-
-        '
-      type: string
-      enum:
-      - unconfirmed
-      - confirmed
-      example: confirmed
-    guid:
-      description: 'The unique identifier for the episode
-
-        '
-      type: string
-      example: incomparable/batman/19
-    newestItemPublishTime:
-      description: "The time the most recent episode in the feed was published.\n\n\nNote: some endpoints use `newestItemPubdate` while others use `newestItemPublishTime`. \nThey return the same information. See https://github.com/Podcastindex-org/api/issues/3 to track when the property name is updated.\n"
-      type: integer
-      format: Unix Epoch
-      example: 1546399813
-    items_data:
-      description: 'List of recent episode item data
-
-        '
-      type: array
-      items:
-        $ref: '#/components/schemas/items_data_obj'
-    max:
-      description: 'Value of `max` parameter passed to request.
-
-        '
-      type:
-      - integer
-      - 'null'
-      example: 2
-    title_feed:
-      description: 'Name of the feed
-
-        '
-      type: string
-      example: Batman University
-    image_feed:
-      description: 'The channel-level image element.
-
-        '
-      type: string
-      format: URL
-      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
-    datePublished:
-      description: 'The date and time the episode was published
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1546399813
-    oldestItemPublishTime:
-      description: 'The date and time the oldest episode in the feed/index
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1546399813
-    items_recent:
-      description: 'List of episodes matching request
-
-        '
-      type: array
-      items:
-        $ref: '#/components/schemas/item_podcast_recent'
-    id_feed:
-      description: 'The internal PodcastIndex.org Feed ID.
-
-        '
-      type: integer
-      example: 75075
-    item_podcast_recent:
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/id_episode'
-        title:
-          $ref: '#/components/schemas/title_feed'
-        link:
-          $ref: '#/components/schemas/link_feed'
-        description:
-          $ref: '#/components/schemas/description_episode'
-        guid:
-          $ref: '#/components/schemas/guid'
-        datePublished:
-          $ref: '#/components/schemas/datePublished'
-        datePublishedPretty:
-          $ref: '#/components/schemas/datePublishedPretty'
-        dateCrawled:
-          $ref: '#/components/schemas/dateCrawled'
-        enclosureUrl:
-          $ref: '#/components/schemas/enclosureUrl'
-        enclosureType:
-          $ref: '#/components/schemas/enclosureType'
-        enclosureLength:
-          $ref: '#/components/schemas/enclosureLength'
-        explicit:
-          $ref: '#/components/schemas/explicit_episode'
-        episode:
-          $ref: '#/components/schemas/episode_number'
-        episodeType:
-          $ref: '#/components/schemas/episodeType'
-        season:
-          $ref: '#/components/schemas/season'
-        image:
-          $ref: '#/components/schemas/image_episode'
-        feedItunesId:
-          $ref: '#/components/schemas/itunesId_feed'
-        feedImage:
-          $ref: '#/components/schemas/image_feed'
-        feedId:
-          $ref: '#/components/schemas/id_feed'
-        feedTitle:
-          $ref: '#/components/schemas/title_feed'
-        feedLanguage:
-          $ref: '#/components/schemas/language'
-    feeds_recent_value:
-      description: 'List of feeds matching request
-
-        '
-      type: array
-      items:
-        type: object
-        properties:
-          id:
-            $ref: '#/components/schemas/id_feed'
-          url:
-            $ref: '#/components/schemas/url_feed'
-          title:
-            $ref: '#/components/schemas/title_feed'
-          author:
-            $ref: '#/components/schemas/author'
-          image:
-            $ref: '#/components/schemas/image_feed'
-          newestItemPublishTime:
-            $ref: '#/components/schemas/newestItemPublishTime'
-          itunesId:
-            $ref: '#/components/schemas/itunesId_feed'
-          trendScore:
-            $ref: '#/components/schemas/trendScore'
-          language:
-            $ref: '#/components/schemas/language'
-          categories:
-            $ref: '#/components/schemas/categories'
-    feeds_data_obj:
-      type: object
-      properties:
-        feedId:
-          $ref: '#/components/schemas/id_feed'
-        feedUrl:
-          $ref: '#/components/schemas/url_feed'
-        feedTitle:
-          $ref: '#/components/schemas/title_feed'
-        feedDescription:
-          $ref: '#/components/schemas/description_feed'
-        feedImage:
-          $ref: '#/components/schemas/image_feed'
-        feedLanguage:
-          $ref: '#/components/schemas/language'
-        feedItunesId:
-          $ref: '#/components/schemas/itunesId_feed'
-    description_episode:
-      description: 'The item-level description of the episode.
-
-
-
-        Uses the longer of the possible fields in the feed: `<description>`, `<itunes:summary>` and `<content:encoded>`
-
-        '
-      type: string
-      example: Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.
-    dateCrawled:
-      description: 'The time this episode was found in the feed
-
-        '
-      type: integer
-      format: Unix Epoch
-      example: 1598369047
-    items_soundbites:
-      description: 'List of soundbites matching request
-
-        '
-      type: array
-      items:
-        type: object
-        properties:
-          enclosureUrl:
-            $ref: '#/components/schemas/enclosureUrl'
-          title:
-            $ref: '#/components/schemas/title_soundbite'
-          startTime:
-            $ref: '#/components/schemas/startTime'
-          duration:
-            $ref: '#/components/schemas/duration_soundbite'
-          episodeId:
-            $ref: '#/components/schemas/id_episode'
-          episodeTitle:
-            $ref: '#/components/schemas/title_episode'
-          feedTitle:
-            $ref: '#/components/schemas/title_feed'
-          feedUrl:
-            $ref: '#/components/schemas/url_feed'
-          feedId:
-            $ref: '#/components/schemas/id_feed'
-    contentHash:
-      description: 'Hash of the entire feed body
-
-        '
-      type: string
-      example: a652d25b56f3e2f0e069c0cc72145a85
   parameters:
+    desc:
+      name: desc
+      in: query
+      description: 'If present, display feeds in descending order.
+
+
+
+        Only applicable when using `feedid` parameter.
+
+
+
+        Parameter shall not have a value
+
+        '
+      schema:
+        type: boolean
+      allowEmptyValue: true
+    max_recent_feeds:
+      name: max
+      in: query
+      description: 'Maximum number of results to return.
+
+        '
+      schema:
+        type: integer
+        default: 40
+        minimum: 1
+        maximum: 1000
+      example: 20
     before:
       name: before
       in: query
@@ -791,6 +261,20 @@ components:
       schema:
         type: integer
       example: 1721351091
+    feedid_newfeeds:
+      name: feedid
+      in: query
+      description: 'The PodcastIndex Feed ID to start from (or go to if `desc` specified).
+
+
+
+        If `since` parameter also specified, value of `since` is ignored.
+
+        '
+      required: false
+      schema:
+        type: string
+      example: '2653471'
     notcat:
       name: notcat
       in: query
@@ -837,82 +321,6 @@ components:
         multiple_mixed:
           value: News,65
           description: Multiple Categories Mixed Format
-    max_recent_feeds:
-      name: max
-      in: query
-      description: 'Maximum number of results to return.
-
-        '
-      schema:
-        type: integer
-        default: 40
-        minimum: 1
-        maximum: 1000
-      example: 20
-    desc:
-      name: desc
-      in: query
-      description: 'If present, display feeds in descending order.
-
-
-
-        Only applicable when using `feedid` parameter.
-
-
-
-        Parameter shall not have a value
-
-        '
-      schema:
-        type: boolean
-      allowEmptyValue: true
-    max_recent_soundbites:
-      name: max
-      in: query
-      description: 'Maximum number of soundbites to return.
-
-        '
-      schema:
-        type: integer
-        default: 60
-        minimum: 1
-        maximum: 1000
-      example: 20
-    max_recent_episodes:
-      name: max
-      in: query
-      description: 'Maximum number of results to return.
-
-        '
-      schema:
-        type: integer
-        default: 10
-        minimum: 1
-        maximum: 1000
-      example: 7
-    since:
-      name: since
-      in: query
-      description: 'Return items since the specified epoch timestamp.
-
-        '
-      schema:
-        type: integer
-      example: 1612125785
-    feedid_newfeeds:
-      name: feedid
-      in: query
-      description: 'The PodcastIndex Feed ID to start from (or go to if `desc` specified).
-
-
-
-        If `since` parameter also specified, value of `since` is ignored.
-
-        '
-      required: false
-      schema:
-        type: string
-      example: '2653471'
     lang:
       name: lang
       in: query
@@ -985,6 +393,18 @@ components:
       schema:
         type: boolean
       allowEmptyValue: true
+    max_recent_soundbites:
+      name: max
+      in: query
+      description: 'Maximum number of soundbites to return.
+
+        '
+      schema:
+        type: integer
+        default: 60
+        minimum: 1
+        maximum: 1000
+      example: 20
     cat:
       name: cat
       in: query
@@ -1031,6 +451,27 @@ components:
         multiple_mixed:
           value: News,65
           description: Multiple Categories Mixed Format
+    max_recent_episodes:
+      name: max
+      in: query
+      description: 'Maximum number of results to return.
+
+        '
+      schema:
+        type: integer
+        default: 10
+        minimum: 1
+        maximum: 1000
+      example: 7
+    since:
+      name: since
+      in: query
+      description: 'Return items since the specified epoch timestamp.
+
+        '
+      schema:
+        type: integer
+      example: 1612125785
     max_recent_data:
       name: max
       in: query
@@ -1042,8 +483,567 @@ components:
         default: 1000
         minimum: 1
       example: 200
+  schemas:
+    image_feed:
+      description: 'The channel-level image element.
+
+        '
+      type: string
+      format: URL
+      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
+    timeAdded:
+      description: 'The date and time the feed was added to the index
+
+        '
+      type: integer
+      format: Unix Epoch
+      example: 1613786624
+    episode_number:
+      description: 'Episode number
+
+        '
+      type:
+      - integer
+      - 'null'
+      example: 19
+    language:
+      description: 'The channel-level language specification of the feed.
+
+
+        Languages accord with the [RSS Language Spec](https://www.rssboard.org/rss-language-codes).
+
+        '
+      type: string
+      example: en-us
+    dateCrawled:
+      description: 'The time this episode was found in the feed
+
+        '
+      type: integer
+      format: Unix Epoch
+      example: 1598369047
+    startTime:
+      description: 'The time where the soundbite begins in the item specified by the `enclosureUrl`
+
+        '
+      type: integer
+      format: seconds
+      example: 1123
+    status:
+      description: 'Indicates API request status
+
+        '
+      type: string
+      enum:
+      - 'true'
+      - 'false'
+      example: 'true'
+    data:
+      description: 'Object containing the recent data
+
+        '
+      type: object
+      properties:
+        position:
+          $ref: '#/components/schemas/position'
+        feeds:
+          $ref: '#/components/schemas/feeds_data'
+        items:
+          $ref: '#/components/schemas/items_data'
+    datePublishedPretty:
+      description: 'The date and time the episode was published formatted as a human readable string.
+
+
+
+        Note: uses the PodcastIndex server local time to do conversion.
+
+        '
+      type: string
+      example: January 01, 2019 9:30pm
+    status_feed:
+      description: 'Status of feed after being added to index
+
+        '
+      type: string
+      enum:
+      - unconfirmed
+      - confirmed
+      example: confirmed
+    title_soundbite:
+      description: 'Name of the soundbite
+
+        '
+      type: string
+      example: Why the Podcast Namespace Matters
+    url_feed:
+      description: 'Current feed URL
+
+        '
+      type: string
+      format: URL
+      example: https://feeds.theincomparable.com/batmanuniversity
+    author:
+      description: 'The channel-level author element.
+
+
+
+        Usually iTunes specific, but could be from another namespace if not present.
+
+        '
+      type: string
+      example: Tony Sindelar
+    feedCount:
+      description: 'Number of items in the `feeds` returned in request
+
+        '
+      type: integer
+      example: 1
+    feeds_data_obj:
+      type: object
+      properties:
+        feedId:
+          $ref: '#/components/schemas/id_feed'
+        feedUrl:
+          $ref: '#/components/schemas/url_feed'
+        feedTitle:
+          $ref: '#/components/schemas/title_feed'
+        feedDescription:
+          $ref: '#/components/schemas/description_feed'
+        feedImage:
+          $ref: '#/components/schemas/image_feed'
+        feedLanguage:
+          $ref: '#/components/schemas/language'
+        feedItunesId:
+          $ref: '#/components/schemas/itunesId_feed'
+    description_episode:
+      description: 'The item-level description of the episode.
+
+
+
+        Uses the longer of the possible fields in the feed: `<description>`, `<itunes:summary>` and `<content:encoded>`
+
+        '
+      type: string
+      example: Batman University is back in session! James Thomson and Nathan Alderman join Tony for a discussion of Fox’s “Gotham.” Tune in to hear our thoughts on how a half-baked comic book show was reborn into an unmissable train wreck.
+    id_episode:
+      description: 'The internal PodcastIndex.org episode ID.
+
+        '
+      type: integer
+      example: 16795088
+    datePublished:
+      description: 'The date and time the episode was published
+
+        '
+      type: integer
+      format: Unix Epoch
+      example: 1546399813
+    max:
+      description: 'Value of `max` parameter passed to request.
+
+        '
+      type:
+      - integer
+      - 'null'
+      example: 2
+    season:
+      description: 'Season number. May be null for `liveItem`.
+
+        '
+      type:
+      - integer
+      - 'null'
+      example: 3
+    feeds_recent_new:
+      description: 'List of feeds matching request
+
+        '
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            $ref: '#/components/schemas/id_feed'
+          url:
+            $ref: '#/components/schemas/url_feed'
+          image:
+            $ref: '#/components/schemas/image_feed'
+          timeAdded:
+            $ref: '#/components/schemas/timeAdded'
+          status:
+            $ref: '#/components/schemas/status_feed'
+          contentHash:
+            $ref: '#/components/schemas/contentHash'
+          language:
+            $ref: '#/components/schemas/language'
+    id_feed:
+      description: 'The internal PodcastIndex.org Feed ID.
+
+        '
+      type: integer
+      example: 75075
+    newestItemPublishTime:
+      description: "The time the most recent episode in the feed was published.\n\n\nNote: some endpoints use `newestItemPubdate` while others use `newestItemPublishTime`. \nThey return the same information. See https://github.com/Podcastindex-org/api/issues/3 to track when the property name is updated.\n"
+      type: integer
+      format: Unix Epoch
+      example: 1546399813
+    oldestItemPublishTime:
+      description: 'The date and time the oldest episode in the feed/index
+
+        '
+      type: integer
+      format: Unix Epoch
+      example: 1546399813
+    items_recent:
+      description: 'List of episodes matching request
+
+        '
+      type: array
+      items:
+        $ref: '#/components/schemas/item_podcast_recent'
+    duration_soundbite:
+      description: 'The length to play the item specified by the `enclosureUrl`
+
+        '
+      type: integer
+      format: seconds
+      example: 40
+    feeds_recent_value:
+      description: 'List of feeds matching request
+
+        '
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            $ref: '#/components/schemas/id_feed'
+          url:
+            $ref: '#/components/schemas/url_feed'
+          title:
+            $ref: '#/components/schemas/title_feed'
+          author:
+            $ref: '#/components/schemas/author'
+          image:
+            $ref: '#/components/schemas/image_feed'
+          newestItemPublishTime:
+            $ref: '#/components/schemas/newestItemPublishTime'
+          itunesId:
+            $ref: '#/components/schemas/itunesId_feed'
+          trendScore:
+            $ref: '#/components/schemas/trendScore'
+          language:
+            $ref: '#/components/schemas/language'
+          categories:
+            $ref: '#/components/schemas/categories'
+    count:
+      description: 'Number of items returned in request
+
+        '
+      type: integer
+      example: 1
+    enclosureUrl:
+      description: 'URL/link to the episode file
+
+        '
+      type: string
+      format: URL
+      example: https://www.theincomparable.com/podcast/batmanuniversity302.mp3
+    enclosureType:
+      description: 'The Content-Type for the item specified by the `enclosureUrl`
+
+        '
+      type: string
+      example: audio/mp3
+    items_data:
+      description: 'List of recent episode item data
+
+        '
+      type: array
+      items:
+        $ref: '#/components/schemas/items_data_obj'
+    image_episode:
+      description: 'The item-level image for the episode
+
+        '
+      type: string
+      format: URL
+      example: https://www.theincomparable.com/imgs/logos/logo-batmanuniversity-3x.jpg?cache-buster=2019-06-11
+    title_episode:
+      description: 'Name of the episode
+
+        '
+      type: string
+      example: Gotham
+    item_podcast_recent:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/id_episode'
+        title:
+          $ref: '#/components/schemas/title_feed'
+        link:
+          $ref: '#/components/schemas/link_feed'
+        description:
+          $ref: '#/components/schemas/description_episode'
+        guid:
+          $ref: '#/components/schemas/guid'
+        datePublished:
+          $ref: '#/components/schemas/datePublished'
+        datePublishedPretty:
+          $ref: '#/components/schemas/datePublishedPretty'
+        dateCrawled:
+          $ref: '#/components/schemas/dateCrawled'
+        enclosureUrl:
+          $ref: '#/components/schemas/enclosureUrl'
+        enclosureType:
+          $ref: '#/components/schemas/enclosureType'
+        enclosureLength:
+          $ref: '#/components/schemas/enclosureLength'
+        explicit:
+          $ref: '#/components/schemas/explicit_episode'
+        episode:
+          $ref: '#/components/schemas/episode_number'
+        episodeType:
+          $ref: '#/components/schemas/episodeType'
+        season:
+          $ref: '#/components/schemas/season'
+        image:
+          $ref: '#/components/schemas/image_episode'
+        feedItunesId:
+          $ref: '#/components/schemas/itunesId_feed'
+        feedImage:
+          $ref: '#/components/schemas/image_feed'
+        feedId:
+          $ref: '#/components/schemas/id_feed'
+        feedTitle:
+          $ref: '#/components/schemas/title_feed'
+        feedLanguage:
+          $ref: '#/components/schemas/language'
+    feeds_data:
+      description: 'List of recent feed data
+
+        '
+      type: array
+      items:
+        $ref: '#/components/schemas/feeds_data_obj'
+    contentHash:
+      description: 'Hash of the entire feed body
+
+        '
+      type: string
+      example: a652d25b56f3e2f0e069c0cc72145a85
+    enclosureLength:
+      description: 'The length of the item specified by the `enclosureUrl` in bytes
+
+        '
+      type: integer
+      format: bytes
+      example: 26385472
+    episodeType:
+      description: 'The type of episode. May be null for `liveItem`.
+
+        '
+      type:
+      - string
+      - 'null'
+      enum:
+      - full
+      - trailer
+      - bonus
+      example: full
+    title_feed:
+      description: 'Name of the feed
+
+        '
+      type: string
+      example: Batman University
+    since:
+      description: 'Value of `since` parameter passed to request.
+
+        '
+      type:
+      - integer
+      - 'null'
+      format: Unix Epoch
+      example: 1613805249
+    items_soundbites:
+      description: 'List of soundbites matching request
+
+        '
+      type: array
+      items:
+        type: object
+        properties:
+          enclosureUrl:
+            $ref: '#/components/schemas/enclosureUrl'
+          title:
+            $ref: '#/components/schemas/title_soundbite'
+          startTime:
+            $ref: '#/components/schemas/startTime'
+          duration:
+            $ref: '#/components/schemas/duration_soundbite'
+          episodeId:
+            $ref: '#/components/schemas/id_episode'
+          episodeTitle:
+            $ref: '#/components/schemas/title_episode'
+          feedTitle:
+            $ref: '#/components/schemas/title_feed'
+          feedUrl:
+            $ref: '#/components/schemas/url_feed'
+          feedId:
+            $ref: '#/components/schemas/id_feed'
+    episodeAdded:
+      description: 'The time the episode was added to the index
+
+        '
+      type: integer
+      format: Unix Epoch
+      example: 1613786624
+    explicit_episode:
+      description: "Is feed or episode marked as explicit\n\n  - 0: not marked explicit\n  - 1: marked explicit\n"
+      type: integer
+      enum:
+      - 0
+      - 1
+      example: 0
+    description_response:
+      description: 'Description of the response
+
+        '
+      type: string
+      example: Found matching feed
+    position:
+      description: 'Position in data
+
+        '
+      type: integer
+      example: 12843054496
+    guid:
+      description: 'The unique identifier for the episode
+
+        '
+      type: string
+      example: incomparable/batman/19
+    nextSince:
+      description: 'Value to pass as `since` parameter to get next batch of data
+
+        '
+      type: integer
+      format: Unix Epoch
+      example: 1613805249
+    trendScore:
+      description: 'The ranking for how the podcast is trending in the index
+
+        '
+      type: integer
+      example: 1
+    items_data_obj:
+      type: object
+      properties:
+        episodeId:
+          $ref: '#/components/schemas/id_episode'
+        episodeTitle:
+          $ref: '#/components/schemas/title_feed'
+        episodeDescription:
+          $ref: '#/components/schemas/description_episode'
+        episodeImage:
+          $ref: '#/components/schemas/image_episode'
+        episodeTimestamp:
+          $ref: '#/components/schemas/datePublished'
+        episodeAdded:
+          $ref: '#/components/schemas/episodeAdded'
+        episodeEnclosureUrl:
+          $ref: '#/components/schemas/enclosureUrl'
+        episodeEnclosureLength:
+          $ref: '#/components/schemas/enclosureLength'
+        episodeEnclosureType:
+          $ref: '#/components/schemas/enclosureType'
+        episodeDuration:
+          $ref: '#/components/schemas/duration'
+        episodeType:
+          $ref: '#/components/schemas/episodeType'
+        feedId:
+          $ref: '#/components/schemas/id_feed'
+    categories:
+      description: 'An array of categories, where the index is the Category ID and the value is the Category Name.
+
+
+
+        All Category numbers and names are returned by the `categories/list` endpoint.
+
+        '
+      type: object
+      example:
+        '104': Tv
+        '105': Film
+        '107': Reviews
+    feeds_recent:
+      description: 'List of feeds matching request
+
+        '
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            $ref: '#/components/schemas/id_feed'
+          url:
+            $ref: '#/components/schemas/url_feed'
+          title:
+            $ref: '#/components/schemas/title_feed'
+          newestItemPublishTime:
+            $ref: '#/components/schemas/newestItemPublishTime'
+          oldestItemPublishTime:
+            $ref: '#/components/schemas/oldestItemPublishTime'
+          itunesId:
+            $ref: '#/components/schemas/itunesId_feed'
+          language:
+            $ref: '#/components/schemas/language'
+          categories:
+            $ref: '#/components/schemas/categories'
+    duration:
+      description: 'The estimated length of the item specified by the `enclosureUrl` in seconds. Will be null for `liveItem`.
+
+        '
+      type:
+      - integer
+      - 'null'
+      format: seconds
+      example: 54
+    itunesId_feed:
+      description: 'The iTunes ID of this feed if there is one, and we know what it is.
+
+        '
+      type:
+      - integer
+      - 'null'
+      example: 1441923632
+    link_feed:
+      description: 'The channel-level link in the feed
+
+        '
+      type: string
+      format: URL
+      example: https://www.theincomparable.com/batmanuniversity/
+    description_feed:
+      description: 'The channel-level description
+
+
+
+        Uses the longer of the possible fields in the feed: `<description>`, `<itunes:summary>` and `<content:encoded>`
+
+        '
+      type: string
+      example: 'Batman University is a seasonal podcast about you know who. It began with an analysis of episodes of “Batman: The Animated Series” but has now expanded to cover other series, movies, and media. Your professor is Tony Sindelar.'
+    itemCount:
+      description: 'Number of items in the `items` returned in request
+
+        '
+      type: integer
+      example: 1
   responses:
-    recent_feeds:
+    recent_soundbites:
       description: Success
       content:
         application/json:
@@ -1052,14 +1052,10 @@ components:
             properties:
               status:
                 $ref: '#/components/schemas/status'
-              feeds:
-                $ref: '#/components/schemas/feeds_recent'
+              items:
+                $ref: '#/components/schemas/items_soundbites'
               count:
                 $ref: '#/components/schemas/count'
-              max:
-                $ref: '#/components/schemas/max'
-              since:
-                $ref: '#/components/schemas/since'
               description:
                 $ref: '#/components/schemas/description_response'
     recent_data:
@@ -1085,14 +1081,7 @@ components:
                 $ref: '#/components/schemas/nextSince'
               data:
                 $ref: '#/components/schemas/data'
-    '401':
-      description: Not authenticated
-      content:
-        application/json:
-          schema:
-            type: string
-          example: Authorization header value either not set or blank.
-    recent_soundbites:
+    recent_feeds:
       description: Success
       content:
         application/json:
@@ -1101,10 +1090,14 @@ components:
             properties:
               status:
                 $ref: '#/components/schemas/status'
-              items:
-                $ref: '#/components/schemas/items_soundbites'
+              feeds:
+                $ref: '#/components/schemas/feeds_recent'
               count:
                 $ref: '#/components/schemas/count'
+              max:
+                $ref: '#/components/schemas/max'
+              since:
+                $ref: '#/components/schemas/since'
               description:
                 $ref: '#/components/schemas/description_response'
     '400':
@@ -1157,6 +1150,13 @@ components:
                 $ref: '#/components/schemas/max'
               description:
                 $ref: '#/components/schemas/description_response'
+    '401':
+      description: Not authenticated
+      content:
+        application/json:
+          schema:
+            type: string
+          example: Authorization header value either not set or blank.
     recent_episodes:
       description: Success
       content:
